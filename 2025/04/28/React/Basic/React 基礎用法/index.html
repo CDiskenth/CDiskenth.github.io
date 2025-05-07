@@ -13,7 +13,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/2025/04/28/react/notes/javascript基礎/"/>
+    <link rel="canonical" href="http://example.com/2025/04/28/react/basic/react 基礎用法/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -23,8 +23,8 @@
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript基礎">
-<meta property="og:url" content="http://example.com/2025/04/28/React/Notes/JavaScript%E5%9F%BA%E7%A4%8E/index.html">
+<meta property="og:title" content="React 基礎用法">
+<meta property="og:url" content="http://example.com/2025/04/28/React/Basic/React%20%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="en_US">
@@ -47,7 +47,7 @@
     
     <title>
         
-            JavaScript基礎 | Diskenth&#39;s miniature garden
+            React 基礎用法 | Diskenth&#39;s miniature garden
         
     </title>
 
@@ -237,7 +237,7 @@
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">16</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">19</div>
         <div class="label text-third-text-color text-sm">Tags</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
@@ -245,7 +245,7 @@
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">16</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">17</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -268,7 +268,7 @@
 		<div class="article-title relative w-full">
 			
 			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">JavaScript基礎</h1>
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">React 基礎用法</h1>
 			</div>
 			
 		</div>
@@ -365,64 +365,87 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h1 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h1><h2 id="Date對象"><a href="#Date對象" class="headerlink" title="Date對象"></a>Date對象</h2><h3 id="重點"><a href="#重點" class="headerlink" title="重點"></a>重點</h3><ul>
-<li>構造方法:</li>
+			<h1 id="生命週期函數"><a href="#生命週期函數" class="headerlink" title="生命週期函數"></a>生命週期函數</h1><h2 id="class組件"><a href="#class組件" class="headerlink" title="class組件"></a>class組件</h2><h3 id="重點"><a href="#重點" class="headerlink" title="重點"></a>重點</h3><ul>
+<li><code>componentDidMount()</code>:組件掛載完成時調用</li>
+<li><code>componentWillUnmount()</code>:組件卸載前調用</li>
+<li><code>componentDidUpdate()</code>:組件更新完成後調用</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th align="center">Function</th>
-<th align="center">Arguments</th>
-<th align="center">Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>Date()</code></td>
-<td align="center">void</td>
-<td align="center">返回系統時間對象</td>
-</tr>
-<tr>
-<td align="center"><code>Date(str)</code></td>
-<td align="center">String</td>
-<td align="center">接收日期字串</td>
-</tr>
-</tbody></table>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li><code>getDerivedStateFromProps(props)</code>:掛載前、狀態更新後調用，接收一個組件的props參數，需用<code>static</code>修飾</li>
+<li><code>shouldComponentUpdate(nextProps,nextState)</code>:接收組件新參數與新狀態，常用於借由對比新舊參數與狀態來決定是否更新組件</li>
+</ul>
+<h2 id="function組件"><a href="#function組件" class="headerlink" title="function組件"></a>function組件</h2><h3 id="重點-1"><a href="#重點-1" class="headerlink" title="重點"></a>重點</h3><ul>
+<li><code>React.useState()</code></li>
+<li><code>React.useEffect()</code></li>
+</ul>
+<h4 id="用法"><a href="#用法" class="headerlink" title="用法:"></a>用法:</h4><ul>
+<li>用hooks模擬<code>this.setState()</code>，接收數據初始值並返回數據<code>data</code>與用於更新此數據的函數<code>setData()</code></li>
+</ul>
+<div class="code-container" data-rel="Jsx"><figure class="iseeu highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [data,setData]=<span class="title class_">React</span>.<span class="title function_">useState</span>(<span class="string">&#x27;default&#x27;</span>);</span><br></pre></td></tr></table></figure></div>
+
 <ul>
-<li>Date對象原型方法:</li>
+<li>模擬<code>componentDidMount()</code>，組件掛載完成後調用<code>callback()</code>:</li>
+</ul>
+<div class="code-container" data-rel="Jsx"><figure class="iseeu highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">callback</span>=(<span class="params"></span>)=&gt;&#123;&#125;;</span><br><span class="line"><span class="title class_">React</span>.<span class="title function_">useEffect</span>(callback,[]);</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>模擬<code>componentDidMount()</code>+<code>componentDidUpdate()</code>，組件掛載完成後與更新後皆調用<code>callback()</code>:</li>
+</ul>
+<div class="code-container" data-rel="Jsx"><figure class="iseeu highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">callback</span>=(<span class="params"></span>)=&gt;&#123;&#125;;</span><br><span class="line"><span class="title class_">React</span>.<span class="title function_">useEffect</span>(callback);</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>模擬<code>componentWillUnmount()</code>，組件卸載前調用<code>callback()</code>:</li>
+</ul>
+<div class="code-container" data-rel="Jsx"><figure class="iseeu highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">callback</span>=(<span class="params"></span>)=&gt;&#123;&#125;;</span><br><span class="line"><span class="title class_">React</span>.<span class="title function_">useEffect</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> callback;</span><br><span class="line">&#125;,[]);</span><br></pre></td></tr></table></figure></div>
+<h3 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h3><h1 id="常用插件"><a href="#常用插件" class="headerlink" title="常用插件"></a>常用插件</h1><h2 id="PubSub"><a href="#PubSub" class="headerlink" title="PubSub"></a>PubSub</h2><p>PubSub用於跨組件傳遞數據</p>
+<h3 id="重點-2"><a href="#重點-2" class="headerlink" title="重點"></a>重點</h3><ul>
+<li><code>PubSub.subscribe(&#39;Topic&#39;,(msg,data)=&gt;&#123;&#125;)</code>:訂閱消息<code>&#39;Topic&#39;</code>，收到新消息後調用回調函數</li>
+<li><code>PubSub.publish(&#39;Topic&#39;,msg)</code>:發布消息’Topic’，內容為<code>msg</code></li>
+</ul>
+<h3 id="其他-2"><a href="#其他-2" class="headerlink" title="其他"></a>其他</h3><h2 id="ReactMarkdown"><a href="#ReactMarkdown" class="headerlink" title="ReactMarkdown"></a>ReactMarkdown</h2><div class="code-container" data-rel="Jsx"><figure class="iseeu highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">ReactMarkdown</span></span><br><span class="line">	remarkPlugins=&#123;[plugin1,[plugin2,&#123;<span class="attr">param</span>:value&#125;]]&#125;</span><br><span class="line">	rehypePlugins=&#123;[plugin1,[plugin2,&#123;<span class="attr">param</span>:value&#125;]]&#125;</span><br><span class="line">&gt;</span><br><span class="line">&lt;<span class="title class_">ReactMarkdown</span>&gt;</span><br></pre></td></tr></table></figure></div>
+<h3 id="重點-3"><a href="#重點-3" class="headerlink" title="重點"></a>重點</h3><ul>
+<li>remarkPlugins屬性:添加輔助插件，於markdown–&gt;mdast時使用[^react-markdown]</li>
+<li>rehypePlugins屬性:添加輔助插件，於mdast–&gt;react元素時使用[^react-markdown]</li>
+</ul>
+<p>[^react-markdown]: <a class="link"   target="_blank" rel="noopener" href="https://github.com/remarkjs/react-markdown#architectur7e"  title="react-markdown Github">React-Markdown GitHub<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h1 id="前後端交互API"><a href="#前後端交互API" class="headerlink" title="前後端交互API"></a>前後端交互API</h1><h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><ul>
+<li>JSON對象中的方法:</li>
 </ul>
 <table>
 <thead>
 <tr>
-<th align="center">Function</th>
+<th align="center">Method</th>
 <th align="center">Arguments</th>
+<th align="center">Return</th>
 <th align="center">Description</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center"><code>getFullYear()</code></td>
-<td align="center">void</td>
-<td align="center">獲取年份</td>
+<td align="center"><code>stringify(json_obj)</code></td>
+<td align="center">Object</td>
+<td align="center">String</td>
+<td align="center">接收一對象，返回json字符串</td>
 </tr>
 <tr>
-<td align="center"><code>getMonth()</code></td>
-<td align="center">void</td>
-<td align="center">獲取月份(0-11)</td>
-</tr>
-<tr>
-<td align="center"><code>getDate()</code></td>
-<td align="center">void</td>
-<td align="center">獲取日期</td>
+<td align="center"><code>parse(json_str)</code></td>
+<td align="center">String</td>
+<td align="center">Object</td>
+<td align="center">接收json字符串，返回一對象</td>
 </tr>
 </tbody></table>
-<p>基本用法:</p>
-<div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> date=<span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&#x27;2000-10-12 13:02:59&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(date); <span class="comment">//Thu Oct 12 2000 13:02:59 GMT+0800</span></span><br></pre></td></tr></table></figure></div>
+<h2 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h2><p>基本使用:</p>
+<div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(url,options).<span class="title function_">then</span>(callback_success,callback_failed); <span class="comment">//return a Promise</span></span><br></pre></td></tr></table></figure></div>
+<p>Get請求:</p>
+<div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(url).<span class="title function_">then</span>(</span><br><span class="line"><span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> res.<span class="title function_">text</span>(); <span class="comment">//obtain plain text</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+<p>Post請求:</p>
+<div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(url,&#123;</span><br><span class="line">	<span class="attr">method</span>:<span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">	<span class="attr">headers</span>:&#123;</span><br><span class="line">		<span class="string">&#x27;Content-Type&#x27;</span>:<span class="string">&#x27;application/json;charset=utf-8&#x27;</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">body</span>:<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj)</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="title function_">then</span>(callback_success,callback_failed);</span><br></pre></td></tr></table></figure></div>
+
+
 		</div>
 
 		
 		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
 			<div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> JavaScript基礎</li>
+        <li><strong>Title:</strong> React 基礎用法</li>
         <li><strong>Author:</strong> Diskenth</li>
         <li><strong>Created at
                 :</strong> 2025-04-28 18:28:33</li>
@@ -433,7 +456,7 @@
             </li>
         
         <li>
-            <strong>Link:</strong> https://cdiskenth.github.io/2025/04/28/React/Notes/JavaScript基礎/
+            <strong>Link:</strong> https://cdiskenth.github.io/2025/04/28/React/Basic/React 基礎用法/
         </li>
         <li>
             <strong>
@@ -471,12 +494,12 @@
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
 			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/2025/04/28/React/Notes/React%20%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95/">
+				<a class="prev" rel="prev" href="/2025/04/28/React/Basic/JavaScript%E5%9F%BA%E7%A4%8E/">
 					<span class="left arrow-icon flex justify-center items-center">
 						<i class="fa-solid fa-chevron-left"></i>
 					</span>
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">React 基礎用法</span>
+						<span class="post-nav-title-item">JavaScript基礎</span>
 						<span class="post-nav-item">Prev posts</span>
 					</span>
 				</a>
@@ -484,9 +507,9 @@
 			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/2025/04/28/Language/English/Early%20modern%20english/%E8%8E%8E%E5%A3%AB%E6%AF%94%E4%BA%9E%E6%99%82%E4%BB%A3%E7%99%BC%E9%9F%B3%E8%88%87%E7%B6%B4%E5%AD%97/">
+				<a class="next" rel="next" href="/2025/04/28/Java/JDBC/JDBC%E5%9F%BA%E7%A4%8E/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">莎士比亞時代發音與綴字</span>
+						<span class="post-nav-title-item">JDBC基礎</span>
 						<span class="post-nav-item">Next posts</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -550,8 +573,8 @@
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
-		<div class="page-title">JavaScript基礎</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8API"><span class="nav-text">常用API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Date%E5%B0%8D%E8%B1%A1"><span class="nav-text">Date對象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E9%BB%9E"><span class="nav-text">重點</span></a></li></ol></li></ol></li></ol>
+		<div class="page-title">React 基礎用法</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F%E5%87%BD%E6%95%B8"><span class="nav-text">生命週期函數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#class%E7%B5%84%E4%BB%B6"><span class="nav-text">class組件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E9%BB%9E"><span class="nav-text">重點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#function%E7%B5%84%E4%BB%B6"><span class="nav-text">function組件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E9%BB%9E-1"><span class="nav-text">重點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96-1"><span class="nav-text">其他</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6"><span class="nav-text">常用插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PubSub"><span class="nav-text">PubSub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E9%BB%9E-2"><span class="nav-text">重點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96-2"><span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReactMarkdown"><span class="nav-text">ReactMarkdown</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E9%BB%9E-3"><span class="nav-text">重點</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E5%BE%8C%E7%AB%AF%E4%BA%A4%E4%BA%92API"><span class="nav-text">前後端交互API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON"><span class="nav-text">JSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fetch"><span class="nav-text">Fetch</span></a></li></ol></li></ol>
 
 	</div>
 </div>
@@ -578,7 +601,7 @@
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        16 posts in total
+                        17 posts in total
                     </span>
                     
                 </p>

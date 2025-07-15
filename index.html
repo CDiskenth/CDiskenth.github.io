@@ -298,7 +298,7 @@
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">17</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">18</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -375,7 +375,7 @@
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">17</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">18</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -400,7 +400,93 @@
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/2025/05/03/Linux/Linux%E4%BD%BF%E7%94%A8NFS%E7%B6%B2%E7%B5%A1%E6%96%87%E4%BB%B6%E7%B3%BB%E7%B5%B1/">
+                        <a href="/2025/07/15/Linux/Arch%20linux/Linux%E8%BB%9F%E8%B7%AF%E7%94%B1%E7%9A%84%E6%A9%8B%E6%8E%A5%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/">
+                            Linux軟路由的橋接模式配置
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            版權聲明：本文為CSDN博主「@Diskenth」原創文章，轉載請在顯著位置標明本文出處以及作者網名，未經作者允許不得用於商業目的。 
+前言Linux經常作為軟路由的系統使用，而普通的路由器通常有NAT模式、橋接模式等等。當我們將其作為網橋使用時，每一個接入Linux軟路由的主機皆處於同一個網段，很容易互相訪問。
+本文描述的是橋接模式的配置。
+目標通過iproute2，systemd-net...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Tue Jul 15 2025 10:18:01 GMT+0900">
+                
+                    2025-07-15
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Linux/">Linux</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/Linux/Arch-linux/">Arch linux</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/Linux/">Linux</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/Arch-linux/">Arch linux</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2025/07/15/Linux/Arch%20linux/Linux%E8%BB%9F%E8%B7%AF%E7%94%B1%E7%9A%84%E6%A9%8B%E6%8E%A5%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/">Read more<span class="seo-reader-text">Linux軟路由的橋接模式配置</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2025/05/03/Linux/Arch%20linux/Linux%E4%BD%BF%E7%94%A8NFS%E7%B6%B2%E7%B5%A1%E6%96%87%E4%BB%B6%E7%B3%BB%E7%B5%B1/">
                             Linux使用NFS網絡文件系統
                         </a>
                     </h3>
@@ -408,8 +494,7 @@
                     <div class="home-article-content markdown-body">
                         
                             
-                            前言我們想在Linux訪問外置USB或SSD等存儲設備時，需要將系統中與這些設備相對應的文件(&#x2F;dev&#x2F;sdaX、&#x2F;dev&#x2F;sdbX等…)用mount指令掛載到某一目錄下後，通過讀寫該目錄來訪問外置存儲設備。
-而NFS網絡文件系統的作用即是把遠程主機的存儲空間作為一外部存儲設備，掛載到本地主機的目錄下後，只要像讀寫SSD或USB一樣，直接往目錄裡放文件...
+                            前言我們想在Linux訪問外置USB或SSD等存儲設備時，需要將系統中與這些設備相對應的文件(&#x2F;dev&#x2F;sdaX、&#x2F;dev&#x2F;sdbX等…)用mount指令掛載到某一目錄下後，通過讀寫該目錄來訪問外置存儲設備。&lt;span class&#x3D;”hint–top hint–error hint–medium hint–rounded hint–bo...
                         
                     </div>
 
@@ -432,6 +517,16 @@
                         
                         <li>
                             <a href="/categories/Linux/">Linux</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/Linux/Arch-linux/">Arch linux</a>&nbsp;
                         </li>
                     
                     
@@ -464,7 +559,7 @@
         
     </div>
 
-    <a href="/2025/05/03/Linux/Linux%E4%BD%BF%E7%94%A8NFS%E7%B6%B2%E7%B5%A1%E6%96%87%E4%BB%B6%E7%B3%BB%E7%B5%B1/">Read more<span class="seo-reader-text">Linux使用NFS網絡文件系統</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2025/05/03/Linux/Arch%20linux/Linux%E4%BD%BF%E7%94%A8NFS%E7%B6%B2%E7%B5%A1%E6%96%87%E4%BB%B6%E7%B3%BB%E7%B5%B1/">Read more<span class="seo-reader-text">Linux使用NFS網絡文件系統</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
@@ -1214,93 +1309,6 @@ java.sql.Conne...
                 </div>
             </li>
         
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/2025/04/28/React/Other/React-markdown%20ver.8%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%AB%98%E4%BA%AE%E6%8F%92%E4%BB%B6rehype-highlight%E6%A8%A3%E5%BC%8F%E7%84%A1%E6%95%88%E5%95%8F%E9%A1%8C(babel-standalone)/">
-                            React-markdown ver
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            
-                            前言React-markdown中經常使用的代碼高亮插件rehype-highlight在babel-standalone環境下使用後，雖然容易看出效果，但卻無法實現代碼的不同顏色高亮，所有代碼的顏色都相同，失去了此插件最大的用途。
-由於未使用腳手架開發，所以需要小幅度手動更改插件的源碼。
-源碼修改下載源碼後，再將其改為UMD模塊，步驟如下:
-
-進入官網，以瀏覽器打開下圖&lt;script...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Apr 28 2025 18:28:33 GMT+0900">
-                
-                    2025-04-28
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/categories/React/">React</a>&nbsp;
-                        </li>
-                    
-                    
-                
-                    
-                        
-                            <li>></li>
-                        
-                        <li>
-                            <a href="/categories/React/Other/">Other</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/React/">React</a>&nbsp;
-                        </li>
-                    
-                        <li>
-                            | 
-                            <a href="/tags/Articles/">Articles</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2025/04/28/React/Other/React-markdown%20ver.8%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%AB%98%E4%BA%AE%E6%8F%92%E4%BB%B6rehype-highlight%E6%A8%A3%E5%BC%8F%E7%84%A1%E6%95%88%E5%95%8F%E9%A1%8C(babel-standalone)/">Read more<span class="seo-reader-text">React-markdown ver</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
     </ul>
 
     <div class="home-paginator px-7 py-5">
@@ -1331,7 +1339,7 @@ java.sql.Conne...
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        17 posts in total
+                        18 posts in total
                     </span>
                     
                 </p>

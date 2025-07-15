@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Diskenth">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2025/07/15/linux/arch linux/linux軟路由的橋接模式配置/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux軟路由的橋接模式配置">
+<meta property="og:url" content="http://example.com/2025/07/15/Linux/Arch%20linux/Linux%E8%BB%9F%E8%B7%AF%E7%94%B1%E7%9A%84%E6%A9%8B%E6%8E%A5%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-07-15T01:18:01.000Z">
+<meta property="article:modified_time" content="2025-07-15T01:18:08.225Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Arch linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Linux軟路由的橋接模式配置 | Diskenth&#39;s miniature garden
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Have a nice day!","subtitle":{"text":[],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Diskenth&#39;s miniature garden
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/archives"
+                        >
+                            <span>Archives</span>
+                            <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/tags"
+                        >
+                            <span>Tags</span>
+                            <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/categories"
+                        >
+                            <span>Categories</span>
+                            <i class="fa-regular fa-folder fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">19</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">13</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">18</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Linux軟路由的橋接模式配置</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/images/muscle_paimon.png">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Diskenth</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-07-15 10:18:01</span>
+        <span class="mobile">2025-07-15 10:18:01</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-07-15 10:18:08</span>
+            <span class="mobile">2025-07-15 10:18:08</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Linux/">Linux</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/Linux/Arch-linux/">Arch linux</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Linux/">Linux</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Arch-linux/">Arch linux</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><font color="red" size="5">版權聲明：本文為CSDN博主「@Diskenth」原創文章，轉載請在顯著位置標明本文出處以及作者網名，未經作者允許不得用於商業目的。 </font></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Linux經常作為軟路由的系統使用，而普通的路由器通常有NAT模式、橋接模式等等。當我們將其作為網橋使用時，每一個接入Linux軟路由的主機皆處於同一個網段，很容易互相訪問。</p>
+<p>本文描述的是橋接模式的配置。</p>
+<h1 id="目標"><a href="#目標" class="headerlink" title="目標"></a>目標</h1><p>通過<code>iproute2</code>，<code>systemd-networkd</code>，使家用PC接至軟路由後，能夠通過其訪問網路，且PC機與軟路由處於同一網段</p>
+<h1 id="測試環境"><a href="#測試環境" class="headerlink" title="測試環境"></a>測試環境</h1><ul>
+<li>一台家用PC</li>
+<li>Linux軟路由</li>
+<li>一台家用路由器</li>
+</ul>
+<p>軟路由使用Nano Pi R5S，家用PC為一般的Windows主機，兩台主機都連到同一台家用路由器。各設備參數如下：</p>
+<p>家用PC：</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">參數</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Architecture</td>
+<td align="center">x86</td>
+</tr>
+<tr>
+<td align="center">CPU</td>
+<td align="center">Intel i9-9880H</td>
+</tr>
+<tr>
+<td align="center">System</td>
+<td align="center">Windows</td>
+</tr>
+<tr>
+<td align="center">IP</td>
+<td align="center">192.168.8.173</td>
+</tr>
+</tbody></table>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\User&gt;ipconfig</span><br><span class="line"></span><br><span class="line">Windows IP 構成</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">イーサネット アダプター イーサネット:</span><br><span class="line"></span><br><span class="line">   接続固有の DNS サフィックス . . . . .:</span><br><span class="line">   リンクローカル IPv6 アドレス. . . . .: fe80::9295:cda8:aa8f:610b%17</span><br><span class="line">   IPv4 アドレス . . . . . . . . . . . .: 192.168.8.173</span><br><span class="line">   サブネット マスク . . . . . . . . . .: 255.255.255.0</span><br><span class="line">   デフォルト ゲートウェイ . . . . . . .: 192.168.8.1</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br></pre></td></tr></table></figure></div>
+
+<p>Nano Pi R5S：</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">參數</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Architecture</td>
+<td align="center">ARM</td>
+</tr>
+<tr>
+<td align="center">CPU</td>
+<td align="center">Rockchip RK3568</td>
+</tr>
+<tr>
+<td align="center">System</td>
+<td align="center">Arch linux ARM</td>
+</tr>
+<tr>
+<td align="center">User</td>
+<td align="center">zeta</td>
+</tr>
+<tr>
+<td align="center">IP</td>
+<td align="center">192.168.8.215</td>
+</tr>
+</tbody></table>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[zeta@alarm ~]$ ip addr</span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host noprefixroute</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: end0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 5e:c5:c0:63:ac:b2 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    altname enx5ec5c063acb2</span><br><span class="line">    inet 192.168.8.215/24 brd 192.168.8.255 scope global end0</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::5cc5:c0ff:fe63:acb2/64 scope <span class="built_in">link</span> proto kernel_ll</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">3: end1: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 62:c5:c0:63:ac:b2 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    altname enp1s0</span><br><span class="line">    altname enx62c5c063acb2</span><br><span class="line">4: enP1p17s0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 7e:57:3e:95:92:87 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">[zeta@alarm ~]$</span><br></pre></td></tr></table></figure></div>
+<p>家用路由器：</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">參數</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">IP</td>
+<td align="center">192.168.8.1</td>
+</tr>
+</tbody></table>
+<h1 id="網路拓樸"><a href="#網路拓樸" class="headerlink" title="網路拓樸"></a>網路拓樸</h1><p>軟路由網卡名稱與網口的對應關係為：</p>
+<table>
+<thead>
+<tr>
+<th align="center">網卡名稱</th>
+<th align="center">網口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">end0</td>
+<td align="center">WAN口</td>
+</tr>
+<tr>
+<td align="center">end1</td>
+<td align="center">LAN1</td>
+</tr>
+<tr>
+<td align="center">enP1p17s0</td>
+<td align="center">LAN2</td>
+</tr>
+<tr>
+<td align="center">其中，</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<ol>
+<li>WAN口連接至家用路由器的LAN口</li>
+<li>LAN1口連接至Windows主機</li>
+<li>LAN2口不使用</li>
+</ol>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="基於iproute2"><a href="#基於iproute2" class="headerlink" title="基於iproute2"></a>基於iproute2</h2><h3 id="配置網橋"><a href="#配置網橋" class="headerlink" title="配置網橋"></a>配置網橋</h3><ol>
+<li>創建網橋</li>
+</ol>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ip <span class="built_in">link</span> add name br2 <span class="built_in">type</span> bridge</span><br></pre></td></tr></table></figure></div>
+<p>以上命令創建了一名稱為<code>br2</code>、類型為<code>bridge</code>的設備</p>
+<ol start="2">
+<li>啟動網橋br2</li>
+</ol>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ip <span class="built_in">link</span> <span class="built_in">set</span> dev br2 up</span><br></pre></td></tr></table></figure></div>
+<p>※執行完後br2仍顯示為DOWN狀態，待會添加網卡後才會顯示為UP狀態</p>
+<ol start="3">
+<li>啟動end1網卡(即啟動LAN1網口)</li>
+</ol>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ip <span class="built_in">link</span> <span class="built_in">set</span> end1 up</span><br></pre></td></tr></table></figure></div>
+<p>※必須插上網線後才會顯示為UP狀態</p>
+<ol start="4">
+<li>添加網卡end1至網橋br2中</li>
+</ol>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ip <span class="built_in">link</span> <span class="built_in">set</span> end1 master br2</span><br></pre></td></tr></table></figure></div>
+<p>這時可以用<code>bridge link</code>來觀察網橋br2中有哪些網卡</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[zeta@alarm ~]$ bridge <span class="built_in">link</span></span><br><span class="line">3: end1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 master br2 state forwarding priority 32 cost 5</span><br><span class="line">[zeta@alarm ~]$</span><br></pre></td></tr></table></figure></div>
+<p>可以看出網橋中只有end1這張網卡</p>
+<h3 id="添加主網路至網橋"><a href="#添加主網路至網橋" class="headerlink" title="添加主網路至網橋"></a>添加主網路至網橋</h3><ol>
+<li>查看目前end0(即WAN口)的網絡信息</li>
+</ol>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[zeta@alarm ~]$ ip route show dev end0</span><br><span class="line">default via 192.168.8.1 proto static</span><br><span class="line">192.168.8.0/24 proto kernel scope <span class="built_in">link</span> src 192.168.8.215</span><br></pre></td></tr></table></figure></div>
+<p>可以得知當前軟路由的外網信息為：</p>
+<ul>
+<li>WAN口IP：192.168.8.215</li>
+<li>默認網關：192.168.8.1</li>
+<li>子網掩碼：255.255.255.0(即網域”192.168.8.0&#x2F;24”中的24)</li>
+</ul>
+<ol start="2">
+<li>添加外網信息至br2</li>
+</ol>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ip addr add 192.168.8.215/24 dev br2</span><br></pre></td></tr></table></figure></div>
+<ol start="3">
+<li>為br2添加路由表</li>
+</ol>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ip route append default via 192.168.8.1 dev br2</span><br></pre></td></tr></table></figure></div>
+<p>這裡預先給br2添加了一個默認網關192.168.8.1(即家用路由器的IP地址)，以防止後續將當前網卡end0切換成br2時造成網路斷線</p>
+<ol start="4">
+<li>將主網路添加至br2，並移除原end0的IP地址</li>
+</ol>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ip <span class="built_in">link</span> <span class="built_in">set</span> end0 master br2</span><br><span class="line"><span class="built_in">sudo</span> ip address del 192.168.8.215/24 dev end0</span><br></pre></td></tr></table></figure></div>
+<p>執行這兩條指令的時間間隔盡量短，因為將主網路end0添加到網橋br2後會造成兩個設備同時具有相同的IP，這樣容易讓已連線中的網路服務斷線</p>
+<h2 id="基於systemd-networkd的持久化配置"><a href="#基於systemd-networkd的持久化配置" class="headerlink" title="基於systemd-networkd的持久化配置"></a>基於systemd-networkd的持久化配置</h2><p><code>systemd-networkd</code>是用於配置網路參數的包<sup id="fnref:2"><a href="#fn:2" rel="footnote">&lt;span class&#x3D;”hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label&#x3D;”<a class="link"   target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Systemd-networkd"  title="systemd-networkd - ArchWiki">systemd-networkd - ArchWiki<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>“&gt;2</span></a></sup>，默認已經包含在系統內置的Systemd中，不須另外安裝</p>
+<p>由於使用iproute2配置的網橋僅能暫時生效，每次系統重新啟動後都必須重新配置，故更常用的配置方式是使用Linux內置的<code>systemd-networkd</code>包來實現</p>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>參考Arch Linux Wiki<sup id="fnref:2"><a href="#fn:2" rel="footnote">&lt;span class&#x3D;”hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label&#x3D;”<a class="link"   target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Systemd-networkd"  title="systemd-networkd - ArchWiki">systemd-networkd - ArchWiki<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>“&gt;2</span></a></sup>，主要有以下配置文件及目錄：</p>
+<ul>
+<li><code>/etc/systemd/networkd.conf</code>: 全局配置文件</li>
+<li><code>/etc/systemd/network/</code>: 系統管理員所建立的配置文件(優先級較高)</li>
+<li><code>/usr/lib/systemd/network/</code>: 新安裝完成後，個別網卡默認的配置文件目錄(優先級較低)</li>
+</ul>
+<p>配置文件類型主要有：</p>
+<ul>
+<li><code>.network</code>: 用於對應網卡的配置文件</li>
+<li><code>.netdev</code>: 用於創建虛擬網卡</li>
+</ul>
+<p>這裡應該要將配置文件放到<code>/etc/systemd/network/</code>目錄下，而<code>/usr/lib/systemd/network/</code>目錄下的文件不更動</p>
+<h3 id="創建並配置網橋"><a href="#創建並配置網橋" class="headerlink" title="創建並配置網橋"></a>創建並配置網橋</h3><ol>
+<li>首先在<code>/etc/systemd/network/</code>目錄下創建一個用於產生虛擬網橋的文件<code>10-br2.netdev</code>，其內容如下</li>
+</ol>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[NetDev]</span><br><span class="line">Name=br2</span><br><span class="line">Kind=bridge</span><br></pre></td></tr></table></figure></div>
+<ol start="2">
+<li>在同目錄下創建<code>10-br2.network</code>文件，用於配置此網橋的靜態IP與DNS</li>
+</ol>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[Match]</span><br><span class="line">Name=br2</span><br><span class="line"></span><br><span class="line">[Network]</span><br><span class="line">DNS=8.8.8.8</span><br><span class="line">Address=192.168.8.215/24</span><br><span class="line">Gateway=192.168.8.1</span><br></pre></td></tr></table></figure></div>
+<p>這裡網橋的IP位址被改成<code>192.168.8.215</code><br>3. 修改end0、end1的配置文件<code>/etc/systemd/network/10-end0.network</code>及<code>/etc/systemd/network/10-end1.network</code>(若無end0、end1的配置文件則使用<code>vim</code>創建)，以綁定網卡end0、end1至網橋</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#/etc/systemd/network/10-end0.network</span></span><br><span class="line">[Match]</span><br><span class="line">Name=end0</span><br><span class="line"></span><br><span class="line">[Network]</span><br><span class="line">Bridge=br2</span><br><span class="line"><span class="comment">#Address=192.168.8.215/24</span></span><br><span class="line"><span class="comment">#Gateway=192.168.8.1</span></span><br><span class="line"><span class="comment">#DNS=8.8.8.8</span></span><br></pre></td></tr></table></figure></div>
+
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#/etc/systemd/network/10-end1.network</span></span><br><span class="line">[Match]</span><br><span class="line">Name=end1</span><br><span class="line"></span><br><span class="line">[Network]</span><br><span class="line">Bridge=br2</span><br></pre></td></tr></table></figure></div>
+<ol start="4">
+<li>重新啟動<code>systemd-networkd</code>這項服務</li>
+</ol>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart systemd-networkd.service</span><br></pre></td></tr></table></figure></div>
+<p>重啟服務後如果ssh客戶端的連線斷開，這時候應確認以下參數：</p>
+<ul>
+<li>遠程登入軟件所輸入的IP位址是否為上述網橋的IP</li>
+<li>Windows主機的靜態IP是否與網橋屬於同一網段</li>
+</ul>
+<ol start="5">
+<li>檢查各項網卡參數</li>
+</ol>
+<p>看到如下網路參數說明已經配置成功：</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[zeta@alarm ~]$ ip addr</span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host noprefixroute</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: end0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq master br2 state UP group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 5e:c5:c0:63:ac:b2 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    altname enx5ec5c063acb2</span><br><span class="line">3: end1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel master br2 state UP group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 62:c5:c0:63:ac:b2 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    altname enp1s0</span><br><span class="line">    altname enx62c5c063acb2</span><br><span class="line">4: enP1p17s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 7e:57:3e:95:92:87 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 192.168.7.1/24 brd 192.168.7.255 scope global enP1p17s0</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::7c57:3eff:fe95:9287/64 scope <span class="built_in">link</span> proto kernel_ll</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">5: br2: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 8e:b2:90:58:31:6f brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 192.168.8.215/24 brd 192.168.8.255 scope global br2</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::8cb2:90ff:fe58:316f/64 scope <span class="built_in">link</span> proto kernel_ll</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">[zeta@alarm ~]$</span><br></pre></td></tr></table></figure></div>
+<p>查看網橋中的裝置是否有end0及end1：</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[zeta@alarm ~]$ bridge <span class="built_in">link</span></span><br><span class="line">2: end0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 master br2 state forwarding priority 32 cost 5</span><br><span class="line">3: end1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 master br2 state forwarding priority 32 cost 100</span><br><span class="line">[zeta@alarm ~]$</span><br></pre></td></tr></table></figure></div>
+<p>至此配置成功</p>
+<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a class="link"   target="_blank" rel="noopener" href="https://linux.vbird.org/linux_server/centos6/0330nfs.php"  title="第十三章、檔案伺服器之一：NFS 伺服器">鳥哥私房菜<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><a href="#fnref:1" rev="footnote">↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a class="link"   target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Systemd-networkd"  title="systemd-networkd - ArchWiki">systemd-networkd - ArchWiki<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><a href="#fnref:2" rev="footnote">↩</a></span></li></ol></div></div>
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> Linux軟路由的橋接模式配置</li>
+        <li><strong>Author:</strong> Diskenth</li>
+        <li><strong>Created at
+                :</strong> 2025-07-15 10:18:01</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2025-07-15 10:18:08
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://cdiskenth.github.io/2025/07/15/Linux/Arch linux/Linux軟路由的橋接模式配置/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Linux/">#Linux</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Arch-linux/">#Arch linux</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/05/03/Linux/Arch%20linux/Linux%E4%BD%BF%E7%94%A8NFS%E7%B6%B2%E7%B5%A1%E6%96%87%E4%BB%B6%E7%B3%BB%E7%B5%B1/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Linux使用NFS網絡文件系統</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">Linux軟路由的橋接模式配置</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E6%A8%99"><span class="nav-text">目標</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%AC%E8%A9%A6%E7%92%B0%E5%A2%83"><span class="nav-text">測試環境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B6%B2%E8%B7%AF%E6%8B%93%E6%A8%B8"><span class="nav-text">網路拓樸</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%96%BCiproute2"><span class="nav-text">基於iproute2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%B6%B2%E6%A9%8B"><span class="nav-text">配置網橋</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E4%B8%BB%E7%B6%B2%E8%B7%AF%E8%87%B3%E7%B6%B2%E6%A9%8B"><span class="nav-text">添加主網路至網橋</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%96%BCsystemd-networkd%E7%9A%84%E6%8C%81%E4%B9%85%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="nav-text">基於systemd-networkd的持久化配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%B5%E5%BB%BA%E4%B8%A6%E9%85%8D%E7%BD%AE%E7%B6%B2%E6%A9%8B"><span class="nav-text">創建並配置網橋</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%83%E8%80%83"><span class="nav-text">參考</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Diskenth</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        18 posts in total
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">VISITOR COUNT</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">TOTAL PAGE VIEWS</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/libs/anime.min.js"></script>
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+	
+</body>
+
+</html>

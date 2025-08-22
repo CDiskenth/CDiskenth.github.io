@@ -584,7 +584,9 @@ Linux軟路由
                     <div class="home-article-content markdown-body">
                         
                             
-                            前言我們想在Linux訪問外置USB或SSD等存儲設備時，需要將系統中與這些設備相對應的文件(&#x2F;dev&#x2F;sdaX、&#x2F;dev&#x2F;sdbX等…)用mount指令掛載到某一目錄下後，通過讀寫該目錄來訪問外置存儲設備。&lt;span class&#x3D;”hint–top hint–error hint–medium hint–rounded hint–bo...
+                            前言
+我們想在Linux訪問外置USB或SSD等存儲設備時，需要將系統中與這些設備相對應的文件(/dev/sdaX、/dev/sdbX等…)用mount指令掛載到某一目錄下後，通過讀寫該目錄來訪問外置存儲設備。[1]
+而NFS網絡文件系統的作用即是把遠程主機的存儲空間作為一外部存儲設備，掛載到本地主機的目錄下後，只要像讀寫SSD或USB一樣，直接往目錄裡放文件，文件便自動上傳到遠程主機，最常...
                         
                     </div>
 

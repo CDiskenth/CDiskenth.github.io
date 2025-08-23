@@ -534,10 +534,10 @@
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ip <span class="built_in">link</span> <span class="built_in">set</span> end0 master br2</span><br><span class="line"><span class="built_in">sudo</span> ip address del 192.168.8.215/24 dev end0</span><br></pre></td></tr></table></figure></div>
 <p>執行這兩條指令的時間間隔盡量短，因為將主網路end0添加到網橋br2後會造成兩個設備同時具有相同的IP，這樣容易讓已連線中的網路服務斷線</p>
 <h2 id="基於systemd-networkd的持久化配置">基於systemd-networkd的持久化配置</h2>
-<p><code>systemd-networkd</code>是用於配置網路參數的包[^2]，默認已經包含在系統內置的Systemd中，不須另外安裝</p>
+<p><code>systemd-networkd</code>是用於配置網路參數的包<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，默認已經包含在系統內置的Systemd中，不須另外安裝</p>
 <p>由於使用iproute2配置的網橋僅能暫時生效，每次系統重新啟動後都必須重新配置，故更常用的配置方式是使用Linux內置的<code>systemd-networkd</code>包來實現</p>
 <h3 id="配置文件">配置文件</h3>
-<p>參考Arch Linux Wiki[^2]，主要有以下配置文件及目錄：</p>
+<p>參考Arch Linux Wiki<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup>，主要有以下配置文件及目錄：</p>
 <ul>
 <li><code>/etc/systemd/networkd.conf</code>: 全局配置文件</li>
 <li><code>/etc/systemd/network/</code>: 系統管理員所建立的配置文件(優先級較高)</li>
@@ -580,8 +580,13 @@
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[zeta@alarm ~]$ bridge <span class="built_in">link</span></span><br><span class="line">2: end0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 master br2 state forwarding priority 32 cost 5</span><br><span class="line">3: end1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 master br2 state forwarding priority 32 cost 100</span><br><span class="line">[zeta@alarm ~]$</span><br></pre></td></tr></table></figure></div>
 <p>至此配置成功</p>
 <h1>參考</h1>
-<p>[^1]: <a class="link"   target="_blank" rel="noopener" href="https://linux.vbird.org/linux_server/centos6/0330nfs.php"  title="第十三章、檔案伺服器之一：NFS 伺服器">鳥哥私房菜<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>
-[^2]: <a class="link"   target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Systemd-networkd"  title="systemd-networkd - ArchWiki">systemd-networkd - ArchWiki<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a class="link"   target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Systemd-networkd"  title="systemd-networkd - ArchWiki">systemd-networkd - ArchWiki<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> <a href="#fnref1" class="footnote-backref">↩︎</a> <a href="#fnref1:1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
 		</div>
 

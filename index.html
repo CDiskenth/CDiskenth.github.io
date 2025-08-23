@@ -676,8 +676,8 @@ Linux經常作為軟路由的系統使用，而普通的路由器通常有NAT模
                         
                             
                             前言
-我們想在Linux訪問外置USB或SSD等存儲設備時，需要將系統中與這些設備相對應的文件(/dev/sdaX、/dev/sdbX等…)用mount指令掛載到某一目錄下後，通過讀寫該目錄來訪問外置存儲設備。[^2]
-而NFS網絡文件系統的作用即是把遠程主機的存儲空間作為一外部存儲設備，掛載到本地主機的目錄下後，只要像讀寫SSD或USB一樣，直接往目錄裡放文件，文件便自動上傳到遠程主機，最...
+我們想在Linux訪問外置USB或SSD等存儲設備時，需要將系統中與這些設備相對應的文件(/dev/sdaX、/dev/sdbX等…)用mount指令掛載到某一目錄下後，通過讀寫該目錄來訪問外置存儲設備。[1]
+而NFS網絡文件系統的作用即是把遠程主機的存儲空間作為一外部存儲設備，掛載到本地主機的目錄下後，只要像讀寫SSD或USB一樣，直接往目錄裡放文件，文件便自動上傳到遠程主機，最常...
                         
                     </div>
 
@@ -844,103 +844,6 @@ AccountInfoInteger
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/2025/04/28/Java/JDBC/JDBC%E5%9F%BA%E7%A4%8E/">
-                            JDBC基礎
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            
-                            架構
-
-JDBC僅規定了一組接口用於存取具體的數據庫(MySQL、SQLServer等…)，具體的接口實現需要引入各公司開發的jar包驅動。
-數據庫簡要操作
-
-MySQL官網下載JDBC驅動，並引入相關依賴包
-加載數據庫驅動
-創建Connection對象，連通數據庫
-創建Statement對象，接收SQL語句
-
-依賴包
-重點
-
-java.sql.DriverManager
-java.sql....
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Apr 28 2025 18:28:33 GMT+0900">
-                
-                    2025-04-28
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/categories/Java/">Java</a>&nbsp;
-                        </li>
-                    
-                    
-                
-                    
-                        
-                            <li>></li>
-                        
-                        <li>
-                            <a href="/categories/Java/JDBC/">JDBC</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/Java/">Java</a>&nbsp;
-                        </li>
-                    
-                        <li>
-                            | 
-                            <a href="/tags/JDBC/">JDBC</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2025/04/28/Java/JDBC/JDBC%E5%9F%BA%E7%A4%8E/">Read more<span class="seo-reader-text">JDBC基礎</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
                         <a href="/2025/04/28/Java/Tomcat%209/Tomcat%209%20SPA%20Web%E7%A8%8B%E5%BA%8F%E5%88%B7%E6%96%B0%E9%8C%AF%E8%AA%A4%E5%95%8F%E9%A1%8C/">
                             Tomcat 9 SPA Web程序刷新錯誤問題
                         </a>
@@ -1016,6 +919,100 @@ http://192.168.1....
     </div>
 
     <a href="/2025/04/28/Java/Tomcat%209/Tomcat%209%20SPA%20Web%E7%A8%8B%E5%BA%8F%E5%88%B7%E6%96%B0%E9%8C%AF%E8%AA%A4%E5%95%8F%E9%A1%8C/">Read more<span class="seo-reader-text">Tomcat 9 SPA Web程序刷新錯誤問題</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2025/04/28/Java/Tomcat%209/Tomcat%209%E7%B6%B2%E7%B5%A1%E6%9C%8D%E5%8B%99/">
+                            Tomcat 9網絡服務
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            Tomcat 9架構
+
+創建虛擬主機
+在Tomcat home目錄下的conf/server.xml中新建&lt;Host&gt;標籤，如下:
+1&lt;Host name=&quot;www.jss.com&quot; appBase=&quot;project&quot;/&gt;
+
+name:用於訪問工程的url
+appBase:本機工程路徑
+
+添加路由
+重點
+直接添加路由配置(須重啟...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Mon Apr 28 2025 18:28:33 GMT+0900">
+                
+                    2025-04-28
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Java/">Java</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/Java/Tomcat-9/">Tomcat 9</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/Java/">Java</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/Tomcat-9/">Tomcat 9</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2025/04/28/Java/Tomcat%209/Tomcat%209%E7%B6%B2%E7%B5%A1%E6%9C%8D%E5%8B%99/">Read more<span class="seo-reader-text">Tomcat 9網絡服務</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
@@ -1125,26 +1122,29 @@ javax.servlet....
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/2025/04/28/Java/Tomcat%209/Tomcat%209%E7%B6%B2%E7%B5%A1%E6%9C%8D%E5%8B%99/">
-                            Tomcat 9網絡服務
+                        <a href="/2025/04/28/Java/JDBC/JDBC%E5%9F%BA%E7%A4%8E/">
+                            JDBC基礎
                         </a>
                     </h3>
 
                     <div class="home-article-content markdown-body">
                         
                             
-                            Tomcat 9架構
+                            架構
 
-創建虛擬主機
-在Tomcat home目錄下的conf/server.xml中新建&lt;Host&gt;標籤，如下:
-1&lt;Host name=&quot;www.jss.com&quot; appBase=&quot;project&quot;/&gt;
+JDBC僅規定了一組接口用於存取具體的數據庫(MySQL、SQLServer等…)，具體的接口實現需要引入各公司開發的jar包驅動。
+數據庫簡要操作
 
-name:用於訪問工程的url
-appBase:本機工程路徑
+MySQL官網下載JDBC驅動，並引入相關依賴包
+加載數據庫驅動
+創建Connection對象，連通數據庫
+創建Statement對象，接收SQL語句
 
-添加路由
+依賴包
 重點
-直接添加路由配置(須重啟...
+
+java.sql.DriverManager
+java.sql....
                         
                     </div>
 
@@ -1176,7 +1176,7 @@ appBase:本機工程路徑
                             <li>></li>
                         
                         <li>
-                            <a href="/categories/Java/Tomcat-9/">Tomcat 9</a>&nbsp;
+                            <a href="/categories/Java/JDBC/">JDBC</a>&nbsp;
                         </li>
                     
                     
@@ -1196,7 +1196,7 @@ appBase:本機工程路徑
                     
                         <li>
                             | 
-                            <a href="/tags/Tomcat-9/">Tomcat 9</a>&nbsp;
+                            <a href="/tags/JDBC/">JDBC</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -1204,7 +1204,7 @@ appBase:本機工程路徑
         
     </div>
 
-    <a href="/2025/04/28/Java/Tomcat%209/Tomcat%209%E7%B6%B2%E7%B5%A1%E6%9C%8D%E5%8B%99/">Read more<span class="seo-reader-text">Tomcat 9網絡服務</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2025/04/28/Java/JDBC/JDBC%E5%9F%BA%E7%A4%8E/">Read more<span class="seo-reader-text">JDBC基礎</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>

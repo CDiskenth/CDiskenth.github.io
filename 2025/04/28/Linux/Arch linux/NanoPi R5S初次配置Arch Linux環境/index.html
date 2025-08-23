@@ -407,10 +407,10 @@
 <p>重启后即可生效</p>
 <p>配置pacman包管理器</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman-key --init <span class="comment">#使pacman下载的软件包能够被验证及安装</span></span><br><span class="line">pacman-key --populate archlinuxarm</span><br></pre></td></tr></table></figure></div>
-<p>(若未执行上述命令，则我们用pacman安装软件时会提示软件包无法验证^[1]^^[2]^)</p>
+<p>(若未执行上述命令，则我们用pacman安装软件时会提示软件包无法验证<sup>[1]</sup><sup>[2]</sup>)</p>
 <blockquote>
 <p>※补充(关闭签名验证):<br>
-若不想让<code>pacman</code>对之后将要安装的软件包进行验证，则须修改<code>/etc/pacman.conf</code>里面的配置，修改文件中的<code>SigLevel</code>并註释掉<code>LocalFileSigLevel</code>^[5]^，结果如下:</p>
+若不想让<code>pacman</code>对之后将要安装的软件包进行验证，则须修改<code>/etc/pacman.conf</code>里面的配置，修改文件中的<code>SigLevel</code>并註释掉<code>LocalFileSigLevel</code><sup>[5]</sup>，结果如下:</p>
 <div class="code-container" data-rel="Console"><figure class="iseeu highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@alarm ~]# vi /etc/pacman.conf</span><br></pre></td></tr></table></figure></div>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">9	[options]</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">39	<span class="comment"># By default, pacman accepts packages signed by keys that its local keyring</span></span><br><span class="line">40	<span class="comment"># trusts (see pacman-key and its man page), as well as unsigned packages.</span></span><br><span class="line">41	SigLevel    = Never <span class="comment"># SigLevel = Never表示不验证软件包的签名</span></span><br><span class="line">42	<span class="comment">#LocalFileSigLevel = Optional</span></span><br><span class="line">43	<span class="comment">#RemoteFileSigLevel = Required</span></span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">:wq <span class="comment"># 保存并退出</span></span><br></pre></td></tr></table></figure></div>
 <p>关闭签名验证后便不必执行<code>pacman-key</code>等命令也能够安装软件包，但出于安全考量仍不建议关闭</p>
@@ -432,7 +432,7 @@
 <code># %wheel ALL=(ALL:ALL) ALL</code> =&gt;<code>%wheel ALL=(ALL:ALL) ALL</code></p>
 <p>输入<code>:wq!</code>保存并退出</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq!</span><br></pre></td></tr></table></figure></div>
-<p>这样便使用户组wheel中的所有用户皆能够使用<code>sudo</code>命令，而通过查看<code>/etc/group</code>可知用户alarm是wheel组内一员^[4]^，因此alarm亦可使用<code>sudo</code>命令</p>
+<p>这样便使用户组wheel中的所有用户皆能够使用<code>sudo</code>命令，而通过查看<code>/etc/group</code>可知用户alarm是wheel组内一员<sup>[4]</sup>，因此alarm亦可使用<code>sudo</code>命令</p>
 <h1>远程登入</h1>
 <p>Arch Linux ARM中已自带<code>OpenSSH</code>服务端远程登入工具，且默认状态下是启动的，因此查询到ip位址后，可直接用任意一款远程登入工具进行登入</p>
 <p>输入命令<code>ip addr</code>查看ip位址</p>
@@ -535,12 +535,12 @@
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
 			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/2025/04/28/Java/Tomcat%209/Tomcat%209%E7%B6%B2%E7%B5%A1%E6%9C%8D%E5%8B%99/">
+				<a class="prev" rel="prev" href="/2025/04/28/Java/JDBC/JDBC%E5%9F%BA%E7%A4%8E/">
 					<span class="left arrow-icon flex justify-center items-center">
 						<i class="fa-solid fa-chevron-left"></i>
 					</span>
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">Tomcat 9網絡服務</span>
+						<span class="post-nav-title-item">JDBC基礎</span>
 						<span class="post-nav-item">Prev posts</span>
 					</span>
 				</a>

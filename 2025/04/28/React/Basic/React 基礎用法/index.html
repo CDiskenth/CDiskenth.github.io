@@ -415,10 +415,9 @@
 <div class="code-container" data-rel="Jsx"><figure class="iseeu highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">ReactMarkdown</span></span><br><span class="line">	remarkPlugins=&#123;[plugin1,[plugin2,&#123;<span class="attr">param</span>:value&#125;]]&#125;</span><br><span class="line">	rehypePlugins=&#123;[plugin1,[plugin2,&#123;<span class="attr">param</span>:value&#125;]]&#125;</span><br><span class="line">&gt;</span><br><span class="line">&lt;<span class="title class_">ReactMarkdown</span>&gt;</span><br></pre></td></tr></table></figure></div>
 <h3 id="重點-4">重點</h3>
 <ul>
-<li>remarkPlugins屬性:添加輔助插件，於markdown–&gt;mdast時使用[^react-markdown]</li>
-<li>rehypePlugins屬性:添加輔助插件，於mdast–&gt;react元素時使用[^react-markdown]</li>
+<li>remarkPlugins屬性:添加輔助插件，於markdown–&gt;mdast時使用<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></li>
+<li>rehypePlugins屬性:添加輔助插件，於mdast–&gt;react元素時使用<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup></li>
 </ul>
-<p>[^react-markdown]: <a class="link"   target="_blank" rel="noopener" href="https://github.com/remarkjs/react-markdown#architectur7e"  title="react-markdown Github">React-Markdown GitHub<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 <h1>前後端交互API</h1>
 <h2 id="JSON">JSON</h2>
 <ul>
@@ -455,6 +454,13 @@
 <div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(url).<span class="title function_">then</span>(</span><br><span class="line"><span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> res.<span class="title function_">text</span>(); <span class="comment">//obtain plain text</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
 <p>Post請求:</p>
 <div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(url,&#123;</span><br><span class="line">	<span class="attr">method</span>:<span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">	<span class="attr">headers</span>:&#123;</span><br><span class="line">		<span class="string">&#x27;Content-Type&#x27;</span>:<span class="string">&#x27;application/json;charset=utf-8&#x27;</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">body</span>:<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj)</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="title function_">then</span>(callback_success,callback_failed);</span><br></pre></td></tr></table></figure></div>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a class="link"   target="_blank" rel="noopener" href="https://github.com/remarkjs/react-markdown#architectur7e"  title="react-markdown Github">React-Markdown GitHub<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> <a href="#fnref1" class="footnote-backref">↩︎</a> <a href="#fnref1:1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
 		</div>
 
@@ -511,12 +517,12 @@
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
 			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/2025/04/28/React/Basic/JavaScript%E5%9F%BA%E7%A4%8E/">
+				<a class="prev" rel="prev" href="/2025/04/28/Linux/Arch%20linux/%E5%9C%A8NanoPi%20R5S%E4%B8%8A%E4%BD%BF%E7%94%A8Arch%20linux/">
 					<span class="left arrow-icon flex justify-center items-center">
 						<i class="fa-solid fa-chevron-left"></i>
 					</span>
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">JavaScript基礎</span>
+						<span class="post-nav-title-item">在NanoPi R5S上使用Arch linux</span>
 						<span class="post-nav-item">Prev posts</span>
 					</span>
 				</a>

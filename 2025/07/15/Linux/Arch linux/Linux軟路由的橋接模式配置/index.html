@@ -365,11 +365,14 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><font color="red" size="5">版權聲明：本文為CSDN博主「@Diskenth」原創文章，轉載請在顯著位置標明本文出處以及作者網名，未經作者允許不得用於商業目的。 </font></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Linux經常作為軟路由的系統使用，而普通的路由器通常有NAT模式、橋接模式等等。當我們將其作為網橋使用時，每一個接入Linux軟路由的主機皆處於同一個網段，很容易互相訪問。</p>
+			<p><font color="red" size="5">版權聲明：本文為CSDN博主「@Diskenth」原創文章，轉載請在顯著位置標明本文出處以及作者網名，未經作者允許不得用於商業目的。 </font></p>
+<h1>前言</h1>
+<p>Linux經常作為軟路由的系統使用，而普通的路由器通常有NAT模式、橋接模式等等。當我們將其作為網橋使用時，每一個接入Linux軟路由的主機皆處於同一個網段，很容易互相訪問。</p>
 <p>本文描述的是橋接模式的配置。</p>
-<h1 id="目標"><a href="#目標" class="headerlink" title="目標"></a>目標</h1><p>通過<code>iproute2</code>，<code>systemd-networkd</code>，使家用PC接至軟路由後，能夠通過其訪問網路，且PC機與軟路由處於同一網段</p>
-<h1 id="測試環境"><a href="#測試環境" class="headerlink" title="測試環境"></a>測試環境</h1><ul>
+<h1>目標</h1>
+<p>通過<code>iproute2</code>，<code>systemd-networkd</code>，使家用PC接至軟路由後，能夠通過其訪問網路，且PC機與軟路由處於同一網段</p>
+<h1>測試環境</h1>
+<ul>
 <li>一台家用PC</li>
 <li>Linux軟路由</li>
 <li>一台家用路由器</li>
@@ -379,100 +382,111 @@
 <table>
 <thead>
 <tr>
-<th align="center"></th>
-<th align="center">參數</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">參數</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">Architecture</td>
-<td align="center">x86</td>
+<tbody>
+<tr>
+<td style="text-align:center">Architecture</td>
+<td style="text-align:center">x86</td>
 </tr>
 <tr>
-<td align="center">CPU</td>
-<td align="center">Intel i9-9880H</td>
+<td style="text-align:center">CPU</td>
+<td style="text-align:center">Intel i9-9880H</td>
 </tr>
 <tr>
-<td align="center">System</td>
-<td align="center">Windows</td>
+<td style="text-align:center">System</td>
+<td style="text-align:center">Windows</td>
 </tr>
 <tr>
-<td align="center">IP</td>
-<td align="center">192.168.8.173</td>
+<td style="text-align:center">IP</td>
+<td style="text-align:center">192.168.8.173</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\User&gt;ipconfig</span><br><span class="line"></span><br><span class="line">Windows IP 構成</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">イーサネット アダプター イーサネット:</span><br><span class="line"></span><br><span class="line">   接続固有の DNS サフィックス . . . . .:</span><br><span class="line">   リンクローカル IPv6 アドレス. . . . .: fe80::9295:cda8:aa8f:610b%17</span><br><span class="line">   IPv4 アドレス . . . . . . . . . . . .: 192.168.8.173</span><br><span class="line">   サブネット マスク . . . . . . . . . .: 255.255.255.0</span><br><span class="line">   デフォルト ゲートウェイ . . . . . . .: 192.168.8.1</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br></pre></td></tr></table></figure></div>
-
 <p>Nano Pi R5S：</p>
 <table>
 <thead>
 <tr>
-<th align="center"></th>
-<th align="center">參數</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">參數</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">Architecture</td>
-<td align="center">ARM</td>
+<tbody>
+<tr>
+<td style="text-align:center">Architecture</td>
+<td style="text-align:center">ARM</td>
 </tr>
 <tr>
-<td align="center">CPU</td>
-<td align="center">Rockchip RK3568</td>
+<td style="text-align:center">CPU</td>
+<td style="text-align:center">Rockchip RK3568</td>
 </tr>
 <tr>
-<td align="center">System</td>
-<td align="center">Arch linux ARM</td>
+<td style="text-align:center">System</td>
+<td style="text-align:center">Arch linux ARM</td>
 </tr>
 <tr>
-<td align="center">User</td>
-<td align="center">zeta</td>
+<td style="text-align:center">User</td>
+<td style="text-align:center">zeta</td>
 </tr>
 <tr>
-<td align="center">IP</td>
-<td align="center">192.168.8.215</td>
+<td style="text-align:center">IP</td>
+<td style="text-align:center">192.168.8.215</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[zeta@alarm ~]$ ip addr</span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host noprefixroute</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: end0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 5e:c5:c0:63:ac:b2 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    altname enx5ec5c063acb2</span><br><span class="line">    inet 192.168.8.215/24 brd 192.168.8.255 scope global end0</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::5cc5:c0ff:fe63:acb2/64 scope <span class="built_in">link</span> proto kernel_ll</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">3: end1: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 62:c5:c0:63:ac:b2 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    altname enp1s0</span><br><span class="line">    altname enx62c5c063acb2</span><br><span class="line">4: enP1p17s0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 7e:57:3e:95:92:87 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">[zeta@alarm ~]$</span><br></pre></td></tr></table></figure></div>
 <p>家用路由器：</p>
 <table>
 <thead>
 <tr>
-<th align="center"></th>
-<th align="center">參數</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">參數</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">IP</td>
-<td align="center">192.168.8.1</td>
+<tbody>
+<tr>
+<td style="text-align:center">IP</td>
+<td style="text-align:center">192.168.8.1</td>
 </tr>
-</tbody></table>
-<h1 id="網路拓樸"><a href="#網路拓樸" class="headerlink" title="網路拓樸"></a>網路拓樸</h1><p>軟路由網卡名稱與網口的對應關係為：</p>
+</tbody>
+</table>
+<h1>網路拓樸</h1>
+<p>軟路由網卡名稱與網口的對應關係為：</p>
 <table>
 <thead>
 <tr>
-<th align="center">網卡名稱</th>
-<th align="center">網口</th>
+<th style="text-align:center">網卡名稱</th>
+<th style="text-align:center">網口</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">end0</td>
-<td align="center">WAN口</td>
+<tbody>
+<tr>
+<td style="text-align:center">end0</td>
+<td style="text-align:center">WAN口</td>
 </tr>
 <tr>
-<td align="center">end1</td>
-<td align="center">LAN1</td>
+<td style="text-align:center">end1</td>
+<td style="text-align:center">LAN1</td>
 </tr>
 <tr>
-<td align="center">enP1p17s0</td>
-<td align="center">LAN2</td>
+<td style="text-align:center">enP1p17s0</td>
+<td style="text-align:center">LAN2</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>其中，</p>
 <ol>
 <li>WAN口連接至家用路由器的LAN口</li>
 <li>LAN1口連接至Windows主機</li>
 <li>LAN2口不使用</li>
 </ol>
-<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="基於iproute2"><a href="#基於iproute2" class="headerlink" title="基於iproute2"></a>基於iproute2</h2><h3 id="配置網橋"><a href="#配置網橋" class="headerlink" title="配置網橋"></a>配置網橋</h3><ol>
+<h1>配置</h1>
+<h2 id="基於iproute2">基於iproute2</h2>
+<h3 id="配置網橋">配置網橋</h3>
+<ol>
 <li>創建網橋</li>
 </ol>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ip <span class="built_in">link</span> add name br2 <span class="built_in">type</span> bridge</span><br></pre></td></tr></table></figure></div>
@@ -494,7 +508,8 @@
 <p>這時可以用<code>bridge link</code>來觀察網橋br2中有哪些網卡</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[zeta@alarm ~]$ bridge <span class="built_in">link</span></span><br><span class="line">3: end1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 master br2 state forwarding priority 32 cost 5</span><br><span class="line">[zeta@alarm ~]$</span><br></pre></td></tr></table></figure></div>
 <p>可以看出網橋中只有end1這張網卡</p>
-<h3 id="添加主網路至網橋"><a href="#添加主網路至網橋" class="headerlink" title="添加主網路至網橋"></a>添加主網路至網橋</h3><ol>
+<h3 id="添加主網路至網橋">添加主網路至網橋</h3>
+<ol>
 <li>查看目前end0(即WAN口)的網絡信息</li>
 </ol>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[zeta@alarm ~]$ ip route show dev end0</span><br><span class="line">default via 192.168.8.1 proto static</span><br><span class="line">192.168.8.0/24 proto kernel scope <span class="built_in">link</span> src 192.168.8.215</span><br></pre></td></tr></table></figure></div>
@@ -502,7 +517,7 @@
 <ul>
 <li>WAN口IP：192.168.8.215</li>
 <li>默認網關：192.168.8.1</li>
-<li>子網掩碼：255.255.255.0(即網域”192.168.8.0&#x2F;24”中的24)</li>
+<li>子網掩碼：255.255.255.0(即網域&quot;192.168.8.0/24&quot;中的24)</li>
 </ul>
 <ol start="2">
 <li>添加外網信息至br2</li>
@@ -518,9 +533,11 @@
 </ol>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ip <span class="built_in">link</span> <span class="built_in">set</span> end0 master br2</span><br><span class="line"><span class="built_in">sudo</span> ip address del 192.168.8.215/24 dev end0</span><br></pre></td></tr></table></figure></div>
 <p>執行這兩條指令的時間間隔盡量短，因為將主網路end0添加到網橋br2後會造成兩個設備同時具有相同的IP，這樣容易讓已連線中的網路服務斷線</p>
-<h2 id="基於systemd-networkd的持久化配置"><a href="#基於systemd-networkd的持久化配置" class="headerlink" title="基於systemd-networkd的持久化配置"></a>基於systemd-networkd的持久化配置</h2><p><code>systemd-networkd</code>是用於配置網路參數的包<sup id="fnref:2"><a href="#fn:2" rel="footnote">&lt;span class&#x3D;”hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label&#x3D;”<a class="link"   target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Systemd-networkd"  title="systemd-networkd - ArchWiki">systemd-networkd - ArchWiki<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>“&gt;2</span></a></sup>，默認已經包含在系統內置的Systemd中，不須另外安裝</p>
+<h2 id="基於systemd-networkd的持久化配置">基於systemd-networkd的持久化配置</h2>
+<p><code>systemd-networkd</code>是用於配置網路參數的包[^2]，默認已經包含在系統內置的Systemd中，不須另外安裝</p>
 <p>由於使用iproute2配置的網橋僅能暫時生效，每次系統重新啟動後都必須重新配置，故更常用的配置方式是使用Linux內置的<code>systemd-networkd</code>包來實現</p>
-<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>參考Arch Linux Wiki<sup id="fnref:2"><a href="#fn:2" rel="footnote">&lt;span class&#x3D;”hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label&#x3D;”<a class="link"   target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Systemd-networkd"  title="systemd-networkd - ArchWiki">systemd-networkd - ArchWiki<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>“&gt;2</span></a></sup>，主要有以下配置文件及目錄：</p>
+<h3 id="配置文件">配置文件</h3>
+<p>參考Arch Linux Wiki[^2]，主要有以下配置文件及目錄：</p>
 <ul>
 <li><code>/etc/systemd/networkd.conf</code>: 全局配置文件</li>
 <li><code>/etc/systemd/network/</code>: 系統管理員所建立的配置文件(優先級較高)</li>
@@ -532,7 +549,8 @@
 <li><code>.netdev</code>: 用於創建虛擬網卡</li>
 </ul>
 <p>這裡應該要將配置文件放到<code>/etc/systemd/network/</code>目錄下，而<code>/usr/lib/systemd/network/</code>目錄下的文件不更動</p>
-<h3 id="創建並配置網橋"><a href="#創建並配置網橋" class="headerlink" title="創建並配置網橋"></a>創建並配置網橋</h3><ol>
+<h3 id="創建並配置網橋">創建並配置網橋</h3>
+<ol>
 <li>首先在<code>/etc/systemd/network/</code>目錄下創建一個用於產生虛擬網橋的文件<code>10-br2.netdev</code>，其內容如下</li>
 </ol>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[NetDev]</span><br><span class="line">Name=br2</span><br><span class="line">Kind=bridge</span><br></pre></td></tr></table></figure></div>
@@ -540,9 +558,9 @@
 <li>在同目錄下創建<code>10-br2.network</code>文件，用於配置此網橋的靜態IP與DNS</li>
 </ol>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[Match]</span><br><span class="line">Name=br2</span><br><span class="line"></span><br><span class="line">[Network]</span><br><span class="line">DNS=8.8.8.8</span><br><span class="line">Address=192.168.8.215/24</span><br><span class="line">Gateway=192.168.8.1</span><br></pre></td></tr></table></figure></div>
-<p>這裡網橋的IP位址被改成<code>192.168.8.215</code><br>3. 修改end0、end1的配置文件<code>/etc/systemd/network/10-end0.network</code>及<code>/etc/systemd/network/10-end1.network</code>(若無end0、end1的配置文件則使用<code>vim</code>創建)，以綁定網卡end0、end1至網橋</p>
+<p>這裡網橋的IP位址被改成<code>192.168.8.215</code><br>
+3. 修改end0、end1的配置文件<code>/etc/systemd/network/10-end0.network</code>及<code>/etc/systemd/network/10-end1.network</code>(若無end0、end1的配置文件則使用<code>vim</code>創建)，以綁定網卡end0、end1至網橋</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#/etc/systemd/network/10-end0.network</span></span><br><span class="line">[Match]</span><br><span class="line">Name=end0</span><br><span class="line"></span><br><span class="line">[Network]</span><br><span class="line">Bridge=br2</span><br><span class="line"><span class="comment">#Address=192.168.8.215/24</span></span><br><span class="line"><span class="comment">#Gateway=192.168.8.1</span></span><br><span class="line"><span class="comment">#DNS=8.8.8.8</span></span><br></pre></td></tr></table></figure></div>
-
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#/etc/systemd/network/10-end1.network</span></span><br><span class="line">[Match]</span><br><span class="line">Name=end1</span><br><span class="line"></span><br><span class="line">[Network]</span><br><span class="line">Bridge=br2</span><br></pre></td></tr></table></figure></div>
 <ol start="4">
 <li>重新啟動<code>systemd-networkd</code>這項服務</li>
@@ -561,7 +579,10 @@
 <p>查看網橋中的裝置是否有end0及end1：</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[zeta@alarm ~]$ bridge <span class="built_in">link</span></span><br><span class="line">2: end0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 master br2 state forwarding priority 32 cost 5</span><br><span class="line">3: end1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 master br2 state forwarding priority 32 cost 100</span><br><span class="line">[zeta@alarm ~]$</span><br></pre></td></tr></table></figure></div>
 <p>至此配置成功</p>
-<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a class="link"   target="_blank" rel="noopener" href="https://linux.vbird.org/linux_server/centos6/0330nfs.php"  title="第十三章、檔案伺服器之一：NFS 伺服器">鳥哥私房菜<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><a href="#fnref:1" rev="footnote">↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a class="link"   target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Systemd-networkd"  title="systemd-networkd - ArchWiki">systemd-networkd - ArchWiki<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><a href="#fnref:2" rev="footnote">↩</a></span></li></ol></div></div>
+<h1>參考</h1>
+<p>[^1]: <a class="link"   target="_blank" rel="noopener" href="https://linux.vbird.org/linux_server/centos6/0330nfs.php"  title="第十三章、檔案伺服器之一：NFS 伺服器">鳥哥私房菜<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>
+[^2]: <a class="link"   target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Systemd-networkd"  title="systemd-networkd - ArchWiki">systemd-networkd - ArchWiki<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+
 		</div>
 
 		
@@ -697,7 +718,7 @@
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">Linux軟路由的橋接模式配置</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E6%A8%99"><span class="nav-text">目標</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%AC%E8%A9%A6%E7%92%B0%E5%A2%83"><span class="nav-text">測試環境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B6%B2%E8%B7%AF%E6%8B%93%E6%A8%B8"><span class="nav-text">網路拓樸</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%96%BCiproute2"><span class="nav-text">基於iproute2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%B6%B2%E6%A9%8B"><span class="nav-text">配置網橋</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E4%B8%BB%E7%B6%B2%E8%B7%AF%E8%87%B3%E7%B6%B2%E6%A9%8B"><span class="nav-text">添加主網路至網橋</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%96%BCsystemd-networkd%E7%9A%84%E6%8C%81%E4%B9%85%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="nav-text">基於systemd-networkd的持久化配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%B5%E5%BB%BA%E4%B8%A6%E9%85%8D%E7%BD%AE%E7%B6%B2%E6%A9%8B"><span class="nav-text">創建並配置網橋</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%83%E8%80%83"><span class="nav-text">參考</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">目標</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">測試環境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">網路拓樸</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%96%BCiproute2"><span class="nav-text">基於iproute2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%B6%B2%E6%A9%8B"><span class="nav-text">配置網橋</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E4%B8%BB%E7%B6%B2%E8%B7%AF%E8%87%B3%E7%B6%B2%E6%A9%8B"><span class="nav-text">添加主網路至網橋</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%96%BCsystemd-networkd%E7%9A%84%E6%8C%81%E4%B9%85%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="nav-text">基於systemd-networkd的持久化配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%B5%E5%BB%BA%E4%B8%A6%E9%85%8D%E7%BD%AE%E7%B6%B2%E6%A9%8B"><span class="nav-text">創建並配置網橋</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">參考</span></a></li></ol>
 
 	</div>
 </div>

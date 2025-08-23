@@ -365,17 +365,21 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><a class="link"   target="_blank" rel="noopener" href="https://github.com/remarkjs/react-markdown" >React-markdown<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>中經常使用的代碼高亮插件<a class="link"   target="_blank" rel="noopener" href="https://github.com/rehypejs/rehype-highlight" >rehype-highlight<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>在babel-standalone環境下使用後，雖然容易看出效果，但卻無法實現代碼的不同顏色高亮，所有代碼的顏色都相同，失去了此插件最大的用途。</p>
+			<h1>前言</h1>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/remarkjs/react-markdown" >React-markdown<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>中經常使用的代碼高亮插件<a class="link"   target="_blank" rel="noopener" href="https://github.com/rehypejs/rehype-highlight" >rehype-highlight<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>在babel-standalone環境下使用後，雖然容易看出效果，但卻無法實現代碼的不同顏色高亮，所有代碼的顏色都相同，失去了此插件最大的用途。</p>
 <p>由於未使用腳手架開發，所以需要小幅度手動更改插件的源碼。</p>
-<h1 id="源碼修改"><a href="#源碼修改" class="headerlink" title="源碼修改"></a>源碼修改</h1><p>下載源碼後，再將其改為UMD模塊，步驟如下:</p>
+<h1>源碼修改</h1>
+<p>下載源碼後，再將其改為UMD模塊，步驟如下:</p>
 <ol>
-<li>進入官網，以瀏覽器打開下圖<code>&lt;script&gt;</code>標籤中的地址:<br><img  
+<li>進入官網，以瀏覽器打開下圖<code>&lt;script&gt;</code>標籤中的地址:<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://img-blog.csdnimg.cn/ea3ba86438814f79aecc28fdb664f275.png#pic_center"
                       alt="在这里插入图片描述"
                 ></li>
-<li>保存下圖地址的文件<code>rehype-highlight.bundle.js</code>到本地:<br><img  
+<li>保存下圖地址的文件<code>rehype-highlight.bundle.js</code>到本地:<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://img-blog.csdnimg.cn/e61d539b3cda48b1887143c65ab6e6c7.png#pic_center"
@@ -389,31 +393,42 @@
 </ol>
 <div class="code-container" data-rel="Jsx"><figure class="iseeu highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//......................................</span></span><br><span class="line"><span class="keyword">import</span> &#123;<span class="title class_">Jn</span> <span class="keyword">as</span> rehypeHighlight&#125;</span><br><span class="line"><span class="comment">//......................................</span></span><br><span class="line"><span class="keyword">const</span> markdown=<span class="string">`</span></span><br><span class="line"><span class="string">\`\`\`c</span></span><br><span class="line"><span class="string">#include &lt;stdio.h&gt;</span></span><br><span class="line"><span class="string">int main(void)&#123;</span></span><br><span class="line"><span class="string">	return 0;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">\`\`\`</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">\`\`\`java</span></span><br><span class="line"><span class="string">public class Test&#123;</span></span><br><span class="line"><span class="string">	public static void main(String[] args)&#123;</span></span><br><span class="line"><span class="string">		System.out.println(&quot;Hello!&quot;);</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">\`\`\`</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> <span class="title class_">Detailed</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span>&#123;</span><br><span class="line">	<span class="title function_">render</span>(<span class="params"></span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> (</span><br><span class="line">			<span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">				<span class="tag">&lt;<span class="name">ReactMarkdown</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">					<span class="attr">remarkPlugins</span>=<span class="string">&#123;[remarkGfm]&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">					<span class="attr">rehypePlugins</span>=<span class="string">&#123;[rehypeHighlight]&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">					&#123;markdown&#125;</span></span><br><span class="line"><span class="language-xml">				<span class="tag">&lt;/<span class="name">ReactMarkdown</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">		);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 <ol start="5">
-<li>頁面結果如下:<br><img  
+<li>頁面結果如下:<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://img-blog.csdnimg.cn/7fc8ba16face48c882e8bcefb39b318a.png#pic_center"
                       alt="在这里插入图片描述"
-                ><br>可以發現頁面中的c與java代碼的顏色完全一樣，因此需檢查插件是否生效。</li>
+                ><br>
+可以發現頁面中的c與java代碼的顏色完全一樣，因此需檢查插件是否生效。</li>
 </ol>
-<h1 id="頁面無效果問題分析"><a href="#頁面無效果問題分析" class="headerlink" title="頁面無效果問題分析"></a>頁面無效果問題分析</h1><p>首先觀察頁面中的dom元素:<br><img  
+<h1>頁面無效果問題分析</h1>
+<p>首先觀察頁面中的dom元素:<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://img-blog.csdnimg.cn/98f2df1db6744eeab8e4324680462817.png#pic_center"
                       alt="在这里插入图片描述"
-                ><br>觀察後發現<code>&lt;code&gt;</code>標籤類被自動添加了hljs-*等名稱，因此排除插件本身的問題，這說明很可能是缺少樣式文件導致代碼顏色未改變。</p>
-<h1 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h1><p><a class="link"   target="_blank" rel="noopener" href="https://github.com/rehypejs/rehype-highlight" >rehype-highlight<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>插件官網上說明了代碼高亮使用<a target="_blank" rel="noopener" href="https://highlightjs.org/"><code>highlight.js</code></a>實現，因此我們到它的<a class="link"   target="_blank" rel="noopener" href="https://highlightjs.org/download/" >官網下載頁<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>下載css文件:<br><img  
+                ><br>
+觀察後發現<code>&lt;code&gt;</code>標籤類被自動添加了hljs-*等名稱，因此排除插件本身的問題，這說明很可能是缺少樣式文件導致代碼顏色未改變。</p>
+<h1>解決方法</h1>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/rehypejs/rehype-highlight" >rehype-highlight<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>插件官網上說明了代碼高亮使用<a target="_blank" rel="noopener" href="https://highlightjs.org/"><code>highlight.js</code></a>實現，因此我們到它的<a class="link"   target="_blank" rel="noopener" href="https://highlightjs.org/download/" >官網下載頁<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>下載css文件:<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://img-blog.csdnimg.cn/66514f5784e843e5b1853fdc62db0478.png#pic_center"
                       alt="在这里插入图片描述"
-                ><br>將此樣式直接引入html文檔後刷新頁面，結果如下:<br><img  
+                ><br>
+將此樣式直接引入html文檔後刷新頁面，結果如下:<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://img-blog.csdnimg.cn/b8794ee1f1324ed0aa98a06e7177a26f.png#pic_center"
                       alt="在这里插入图片描述"
-                ><br>可以看到c與java皆已正確顯示。</p>
-<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>至此成功解決babel-standalone環境下react-markdown使用<a class="link"   target="_blank" rel="noopener" href="https://github.com/rehypejs/rehype-highlight" >rehype-highlight<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>插件後未正常顯示的問題，分析問題時經歷的過程如下:</p>
+                ><br>
+可以看到c與java皆已正確顯示。</p>
+<h1>總結</h1>
+<p>至此成功解決babel-standalone環境下react-markdown使用<a class="link"   target="_blank" rel="noopener" href="https://github.com/rehypejs/rehype-highlight" >rehype-highlight<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>插件後未正常顯示的問題，分析問題時經歷的過程如下:</p>
 <ul>
 <li>觀察引入了自行封裝的UMD插件前後的頁面的差異</li>
 <li>觀察引入插件後的dom元素，發現dom元素被自動添加類名</li>
@@ -558,7 +573,7 @@
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">React-markdown ver</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BA%90%E7%A2%BC%E4%BF%AE%E6%94%B9"><span class="nav-text">源碼修改</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A0%81%E9%9D%A2%E7%84%A1%E6%95%88%E6%9E%9C%E5%95%8F%E9%A1%8C%E5%88%86%E6%9E%90"><span class="nav-text">頁面無效果問題分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95"><span class="nav-text">解決方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B8%BD%E7%B5%90"><span class="nav-text">總結</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">源碼修改</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">頁面無效果問題分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">解決方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">總結</span></a></li></ol>
 
 	</div>
 </div>

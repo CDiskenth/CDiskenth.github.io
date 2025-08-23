@@ -365,23 +365,29 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>通過React開發Web時，使用腳手架能夠極大加速開發過程，比起使用內嵌於<code>&lt;script&gt;</code>標籤中的babel-standalone編譯器，遇到的問題更少、更便於調試。</p>
+			<h1>前言</h1>
+<p>通過React開發Web時，使用腳手架能夠極大加速開發過程，比起使用內嵌於<code>&lt;script&gt;</code>標籤中的babel-standalone編譯器，遇到的問題更少、更便於調試。</p>
 <p>使用腳手架的小夥伴們可以直接略過這篇文章，以下僅探討babel-standalone環境下必定遇到的markdown插件問題。</p>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>React-markdown可以用於React組件當中，解析組件內的markdown文本:</p>
+<h1>概述</h1>
+<p>React-markdown可以用於React組件當中，解析組件內的markdown文本:</p>
 <div class="code-container" data-rel="Jsx"><figure class="iseeu highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.jsx</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">ReactMarkdown</span> <span class="keyword">from</span> <span class="string">&#x27;ReactMarkdown&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> markdown = <span class="string">`A paragraph with *emphasis* and **strong importance**.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">~~Deleted~~</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">* Lists</span></span><br><span class="line"><span class="string">* [ ] todo</span></span><br><span class="line"><span class="string">* [x] done</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">A table:</span></span><br><span class="line"><span class="string">|Name|Id|Sex|</span></span><br><span class="line"><span class="string">|:----|--:|:---:|</span></span><br><span class="line"><span class="string">|Jon|1|male|</span></span><br><span class="line"><span class="string">|Len|2|famale|</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> <span class="title class_">Detailed</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span>&#123;</span><br><span class="line">	<span class="title function_">render</span>(<span class="params"></span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> (</span><br><span class="line">			<span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">				<span class="tag">&lt;<span class="name">ReactMarkdown</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">					&#123;markdown&#125;</span></span><br><span class="line"><span class="language-xml">				<span class="tag">&lt;/<span class="name">ReactMarkdown</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">		);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
 <p>注意上面使用了刪除線、列表，且定義了一個表格，代碼執行後顯示如下:</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/20221106-1.PNG"
+                     data-src="20221106-1.PNG"
                       alt=" "
-                ><br>注意到刪除線、列表和表格皆未正常顯示，這是因為新版本的React-markdown將解析刪除線、表格等等格式的功能從原碼中移除了，想要使用這些功能必須使用額外的插件。</p>
-<h1 id="引入額外插件"><a href="#引入額外插件" class="headerlink" title="引入額外插件"></a>引入額外插件</h1><p>這裡嘗試使用remarkGfm插件。</p>
-<h2 id="下載插件"><a href="#下載插件" class="headerlink" title="下載插件"></a>下載插件</h2><ol>
-<li>進入<a class="link"   target="_blank" rel="noopener" href="https://github.com/remarkjs/remark-gfm" >remarkGfm插件<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>Github，找到如下位置:<br><img  
+                ><br>
+注意到刪除線、列表和表格皆未正常顯示，這是因為新版本的React-markdown將解析刪除線、表格等等格式的功能從原碼中移除了，想要使用這些功能必須使用額外的插件。</p>
+<h1>引入額外插件</h1>
+<p>這裡嘗試使用remarkGfm插件。</p>
+<h2 id="下載插件">下載插件</h2>
+<ol>
+<li>進入<a class="link"   target="_blank" rel="noopener" href="https://github.com/remarkjs/remark-gfm" >remarkGfm插件<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>Github，找到如下位置:<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/20221106-2.PNG"
+                     data-src="20221106-2.PNG"
                       alt=" "
                 ></li>
 <li>將此網址鍵入瀏覽器地址欄後會顯示以下代碼:</li>
@@ -390,7 +396,8 @@
 <ol start="3">
 <li>保存<code>remark-gfm.bundle.js</code>至本地</li>
 </ol>
-<h2 id="修改html與jsx文件"><a href="#修改html與jsx文件" class="headerlink" title="修改html與jsx文件"></a>修改html與jsx文件</h2><ol>
+<h2 id="修改html與jsx文件">修改html與jsx文件</h2>
+<ol>
 <li>在html文件中引入插件:</li>
 </ol>
 <div class="code-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--index.html--&gt;</span></span><br><span class="line">.....</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/js/react-markdown/react-markdown.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/js/react-markdown/remark-gfm.bundle.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">.....</span><br></pre></td></tr></table></figure></div>
@@ -401,50 +408,59 @@
 <ol start="3">
 <li>運行上面文件後，完全無法正常顯示頁面，提示的錯誤如下:</li>
 </ol>
-<h6 id="err"><a href="#err" class="headerlink" title="err"></a>err</h6><p><img  
+<h6 id="err">err</h6>
+<p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/20221106-3.PNG"
+                     data-src="20221106-3.PNG"
                       alt=" "
                 ></p>
-<h1 id="插件失效問題分析"><a href="#插件失效問題分析" class="headerlink" title="插件失效問題分析"></a>插件失效問題分析</h1><p>從控制台輸出結果可以看出有許多變量的值為<code>undefined</code>，這是因為從官網上下載的<code>remark-gfm.bundle.js</code>根本不是個提供給babel-standalone環境下直接使用的文件。</p>
+<h1>插件失效問題分析</h1>
+<p>從控制台輸出結果可以看出有許多變量的值為<code>undefined</code>，這是因為從官網上下載的<code>remark-gfm.bundle.js</code>根本不是個提供給babel-standalone環境下直接使用的文件。</p>
 <p>想要在瀏覽器環境下通過babel-standalone使用remarkGfm的方式就如同使用其他React組件一樣，先將<code>remark-gfm.bundle.js</code>封裝為UMD模塊再引入。</p>
-<h2 id="分析remark-gfm-bundle-js源碼並封裝為UMD"><a href="#分析remark-gfm-bundle-js源碼並封裝為UMD" class="headerlink" title="分析remark-gfm.bundle.js源碼並封裝為UMD"></a>分析<code>remark-gfm.bundle.js</code>源碼並封裝為UMD</h2><div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//remark-gfm.bundle.js</span></span><br><span class="line"><span class="comment">/* esm.sh - esbuild bundle(remark-gfm@3.0.1) es2022 production */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">_</span>(<span class="params">t, n, e, o</span>) &#123;</span><br><span class="line">	<span class="keyword">let</span> u = t.<span class="property">length</span>,</span><br><span class="line">		r = <span class="number">0</span>,</span><br><span class="line">		i;</span><br><span class="line">	<span class="keyword">if</span> (n &lt; <span class="number">0</span> ? n = -n &gt; u ? <span class="number">0</span> : u + n : n = n &gt; u ? u : n, e = e &gt; <span class="number">0</span> ? e : <span class="number">0</span>, o.<span class="property">length</span> &lt; <span class="number">1e4</span>) i = <span class="title class_">Array</span>.<span class="title function_">from</span>(o), i.<span class="title function_">unshift</span>(n, e), [].<span class="property">splice</span>.<span class="title function_">apply</span>(t, i);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">for</span> (e &amp;&amp; [].<span class="property">splice</span>.<span class="title function_">apply</span>(t, [n, e]); r &lt; o.<span class="property">length</span>;) i = o.<span class="title function_">slice</span>(r, r + <span class="number">1e4</span>), i.<span class="title function_">unshift</span>(n, <span class="number">0</span>), [].<span class="property">splice</span>.<span class="title function_">apply</span>(t, i), r += <span class="number">1e4</span>, n += <span class="number">1e4</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Tt</span> = &#123;&#125;.<span class="property">hasOwnProperty</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">zt</span>(<span class="params">t</span>) &#123;</span><br><span class="line">	<span class="keyword">let</span> n = &#123;&#125;,</span><br><span class="line">	<span class="comment">//......</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*...............................*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Bn</span>(<span class="params">t = &#123;&#125;</span>) &#123;</span><br><span class="line"><span class="comment">//.................................</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">	<span class="title class_">Bn</span> <span class="keyword">as</span></span><br><span class="line">	<span class="keyword">default</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
-
+<h2 id="分析remark-gfm-bundle-js源碼並封裝為UMD">分析<code>remark-gfm.bundle.js</code>源碼並封裝為UMD</h2>
+<div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//remark-gfm.bundle.js</span></span><br><span class="line"><span class="comment">/* esm.sh - esbuild bundle(remark-gfm@3.0.1) es2022 production */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">_</span>(<span class="params">t, n, e, o</span>) &#123;</span><br><span class="line">	<span class="keyword">let</span> u = t.<span class="property">length</span>,</span><br><span class="line">		r = <span class="number">0</span>,</span><br><span class="line">		i;</span><br><span class="line">	<span class="keyword">if</span> (n &lt; <span class="number">0</span> ? n = -n &gt; u ? <span class="number">0</span> : u + n : n = n &gt; u ? u : n, e = e &gt; <span class="number">0</span> ? e : <span class="number">0</span>, o.<span class="property">length</span> &lt; <span class="number">1e4</span>) i = <span class="title class_">Array</span>.<span class="title function_">from</span>(o), i.<span class="title function_">unshift</span>(n, e), [].<span class="property">splice</span>.<span class="title function_">apply</span>(t, i);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">for</span> (e &amp;&amp; [].<span class="property">splice</span>.<span class="title function_">apply</span>(t, [n, e]); r &lt; o.<span class="property">length</span>;) i = o.<span class="title function_">slice</span>(r, r + <span class="number">1e4</span>), i.<span class="title function_">unshift</span>(n, <span class="number">0</span>), [].<span class="property">splice</span>.<span class="title function_">apply</span>(t, i), r += <span class="number">1e4</span>, n += <span class="number">1e4</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Tt</span> = &#123;&#125;.<span class="property">hasOwnProperty</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">zt</span>(<span class="params">t</span>) &#123;</span><br><span class="line">	<span class="keyword">let</span> n = &#123;&#125;,</span><br><span class="line">	<span class="comment">//......</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*...............................*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Bn</span>(<span class="params">t = &#123;&#125;</span>) &#123;</span><br><span class="line"><span class="comment">//.................................</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">	<span class="title class_">Bn</span> <span class="keyword">as</span></span><br><span class="line">	<span class="keyword">default</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
 <p>注意到其源碼定義了<code>_</code>、<code>Tt</code>、<code>zt</code>…等變量與函數，最後export一個函數<code>Bn</code>。</p>
 <ol>
 <li>將<code>remark-gfm.bundle.js</code>封裝為UMD模塊，注意需以<code>exports.Bn=Bn</code>替換掉原有的export語句、模塊名稱設為<code>RemarkGfm</code>，修改後代碼如下:</li>
 </ol>
 <div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//remark-gfm.bundle.js</span></span><br><span class="line"><span class="comment">//AMD, CommonJS module support check</span></span><br><span class="line">(<span class="keyword">function</span> (<span class="params"><span class="variable language_">global</span>, factory</span>) &#123;</span><br><span class="line">  <span class="keyword">typeof</span> <span class="built_in">exports</span> === <span class="string">&#x27;object&#x27;</span> &amp;&amp; <span class="keyword">typeof</span> <span class="variable language_">module</span> !== <span class="string">&#x27;undefined&#x27;</span> ? <span class="title function_">factory</span>(<span class="built_in">exports</span>, <span class="built_in">require</span>(<span class="string">&#x27;react&#x27;</span>)) :</span><br><span class="line">  <span class="keyword">typeof</span> define === <span class="string">&#x27;function&#x27;</span> &amp;&amp; define.<span class="property">amd</span> ? <span class="title function_">define</span>([<span class="string">&#x27;exports&#x27;</span>, <span class="string">&#x27;react&#x27;</span>], factory) :</span><br><span class="line">  (<span class="variable language_">global</span> = <span class="variable language_">global</span> || self, <span class="title function_">factory</span>(<span class="variable language_">global</span>.<span class="property">RemarkGfm</span> = &#123;&#125;));</span><br><span class="line">&#125;(<span class="variable language_">this</span>, (<span class="keyword">function</span> (<span class="params"><span class="built_in">exports</span></span>) &#123; <span class="string">&#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* esm.sh - esbuild bundle(remark-gfm@3.0.1) es2022 production */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">_</span>(<span class="params">t, n, e, o</span>) &#123;</span><br><span class="line"><span class="comment">//............................</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Tt</span> = &#123;&#125;.<span class="property">hasOwnProperty</span>;</span><br><span class="line">							 </span><br><span class="line"><span class="comment">//...............................</span></span><br><span class="line">							 </span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Bn</span>(<span class="params">t = &#123;&#125;</span>) &#123;</span><br><span class="line"><span class="comment">//...............................</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span>.<span class="property">Bn</span>=<span class="title class_">Bn</span>;</span><br><span class="line"></span><br><span class="line">&#125;)));							</span><br></pre></td></tr></table></figure></div>
 <ol start="2">
-<li>重新整理頁面，由於瀏覽器端並不具有能夠使用AMD與CommonJS模塊的環境，所以使用UMD模塊後會直接導出RemarkGfm對象，這個對象會直接掛在window對象上:<br><img  
+<li>重新整理頁面，由於瀏覽器端並不具有能夠使用AMD與CommonJS模塊的環境，所以使用UMD模塊後會直接導出RemarkGfm對象，這個對象會直接掛在window對象上:<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/20221106-4.PNG"
+                     data-src="20221106-4.PNG"
                       alt=" "
                 ></li>
-<li>封裝完成後重新整理網頁仍出現與<a href="#err">前述的錯誤</a>完全相同的情況，變量仍然為<code>undefined</code>，推測為jsx文件內引用插件的方式錯誤，對比下圖正常使用中的PubSub對象:<br><img  
+<li>封裝完成後重新整理網頁仍出現與<a href="#err">前述的錯誤</a>完全相同的情況，變量仍然為<code>undefined</code>，推測為jsx文件內引用插件的方式錯誤，對比下圖正常使用中的PubSub對象:<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/20221106-5.PNG"
+                     data-src="20221106-5.PNG"
                       alt=" "
-                ><br>window下的PubSub對象內有各種供使用者調用的函數，<strong>想使用這些函數必須通過import {}，而不是使用import，因為這個全局對象下沒有default屬性!</strong></li>
+                ><br>
+window下的PubSub對象內有各種供使用者調用的函數，<strong>想使用這些函數必須通過import {}，而不是使用import，因為這個全局對象下沒有default屬性!</strong></li>
 </ol>
-<h1 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h1><ol>
+<h1>解決方法</h1>
+<ol>
 <li>更改jsx文件的代碼</li>
 </ol>
 <div class="code-container" data-rel="Jsx"><figure class="iseeu highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> remarkGfm <span class="keyword">from</span> <span class="string">&#x27;RemarkGfm&#x27;</span>;</span><br></pre></td></tr></table></figure></div>
 <p>改為</p>
 <div class="code-container" data-rel="Jsx"><figure class="iseeu highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Bn</span> <span class="keyword">as</span> remarkGfm&#125; <span class="string">&#x27;RemarkGfm&#x27;</span>;</span><br></pre></td></tr></table></figure></div>
 <ol start="2">
-<li>重新整理頁面，結果如下:<br><img  
+<li>重新整理頁面，結果如下:<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/20221106-6.PNG"
-                     
-                ><br>已經可以正確顯示刪除線、清單與表格了</li>
+                     data-src="20221106-6.PNG"
+                      alt=""
+                ><br>
+已經可以正確顯示刪除線、清單與表格了</li>
 </ol>
-<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>這裡主要解決了瀏覽器端babel-standalone環境下，react-markdown改版後引入插件失敗報錯的問題，修改的重點過程如下:</p>
+<h1>總結</h1>
+<p>這裡主要解決了瀏覽器端babel-standalone環境下，react-markdown改版後引入插件失敗報錯的問題，修改的重點過程如下:</p>
 <ul>
 <li>將下載後的<code>remark-gfm.bundle.js</code>改為UMD模塊，修改源碼後將模塊命名為RemarkGfm</li>
 <li>導出<code>remark-gfm.bundle.js</code>中的<code>Bn</code>函數，也就是將函數直接掛在RemarkGfm對象上</li>
@@ -507,12 +523,12 @@
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
 			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/2025/04/28/Java/JDBC/JDBC%E5%9F%BA%E7%A4%8E/">
+				<a class="prev" rel="prev" href="/2025/04/28/React/Basic/React%20%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95/">
 					<span class="left arrow-icon flex justify-center items-center">
 						<i class="fa-solid fa-chevron-left"></i>
 					</span>
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">JDBC基礎</span>
+						<span class="post-nav-title-item">React 基礎用法</span>
 						<span class="post-nav-item">Prev posts</span>
 					</span>
 				</a>
@@ -587,7 +603,7 @@
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">React-markdown ver</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%95%E5%85%A5%E9%A1%8D%E5%A4%96%E6%8F%92%E4%BB%B6"><span class="nav-text">引入額外插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BC%89%E6%8F%92%E4%BB%B6"><span class="nav-text">下載插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9html%E8%88%87jsx%E6%96%87%E4%BB%B6"><span class="nav-text">修改html與jsx文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%E5%A4%B1%E6%95%88%E5%95%8F%E9%A1%8C%E5%88%86%E6%9E%90"><span class="nav-text">插件失效問題分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90remark-gfm-bundle-js%E6%BA%90%E7%A2%BC%E4%B8%A6%E5%B0%81%E8%A3%9D%E7%82%BAUMD"><span class="nav-text">分析remark-gfm.bundle.js源碼並封裝為UMD</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95"><span class="nav-text">解決方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B8%BD%E7%B5%90"><span class="nav-text">總結</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">引入額外插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BC%89%E6%8F%92%E4%BB%B6"><span class="nav-text">下載插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9html%E8%88%87jsx%E6%96%87%E4%BB%B6"><span class="nav-text">修改html與jsx文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">插件失效問題分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90remark-gfm-bundle-js%E6%BA%90%E7%A2%BC%E4%B8%A6%E5%B0%81%E8%A3%9D%E7%82%BAUMD"><span class="nav-text">分析remark-gfm.bundle.js源碼並封裝為UMD</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">解決方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">總結</span></a></li></ol>
 
 	</div>
 </div>

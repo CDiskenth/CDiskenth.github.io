@@ -496,13 +496,15 @@
                         
                             
                             版權聲明：本文為CSDN博主「@Diskenth」原創文章，轉載請在顯著位置標明本文出處以及作者網名，未經作者允許不得用於商業目的。 
-目標本文演示如何配置網卡及iptables的NAT功能，使接入Linux軟路由的家用PC能夠上網，且家用PC與其它設備不同，屬於另一個子網域
+目標
+本文演示如何配置網卡及iptables的NAT功能，使接入Linux軟路由的家用PC能夠上網，且家用PC與其它設備不同，屬於另一個子網域
 測試環境
+
 一台家用PC
 Linux軟路由
 一台家用路由器
 
-軟路由使用Nano Pi R5S，家用PC為一般的Win...
+軟路由使用Nano Pi R5S，家用PC為一般的W...
                         
                     </div>
 
@@ -586,9 +588,11 @@ Linux軟路由
                         
                             
                             版權聲明：本文為CSDN博主「@Diskenth」原創文章，轉載請在顯著位置標明本文出處以及作者網名，未經作者允許不得用於商業目的。 
-前言Linux經常作為軟路由的系統使用，而普通的路由器通常有NAT模式、橋接模式等等。當我們將其作為網橋使用時，每一個接入Linux軟路由的主機皆處於同一個網段，很容易互相訪問。
+前言
+Linux經常作為軟路由的系統使用，而普通的路由器通常有NAT模式、橋接模式等等。當我們將其作為網橋使用時，每一個接入Linux軟路由的主機皆處於同一個網段，很容易互相訪問。
 本文描述的是橋接模式的配置。
-目標通過iproute2，systemd-net...
+目標
+通過iproute2，systemd-n...
                         
                     </div>
 
@@ -672,8 +676,8 @@ Linux軟路由
                         
                             
                             前言
-我們想在Linux訪問外置USB或SSD等存儲設備時，需要將系統中與這些設備相對應的文件(/dev/sdaX、/dev/sdbX等…)用mount指令掛載到某一目錄下後，通過讀寫該目錄來訪問外置存儲設備。[1]
-而NFS網絡文件系統的作用即是把遠程主機的存儲空間作為一外部存儲設備，掛載到本地主機的目錄下後，只要像讀寫SSD或USB一樣，直接往目錄裡放文件，文件便自動上傳到遠程主機，最常...
+我們想在Linux訪問外置USB或SSD等存儲設備時，需要將系統中與這些設備相對應的文件(/dev/sdaX、/dev/sdbX等…)用mount指令掛載到某一目錄下後，通過讀寫該目錄來訪問外置存儲設備。[^2]
+而NFS網絡文件系統的作用即是把遠程主機的存儲空間作為一外部存儲設備，掛載到本地主機的目錄下後，只要像讀寫SSD或USB一樣，直接往目錄裡放文件，文件便自動上傳到遠程主機，最...
                         
                     </div>
 
@@ -761,7 +765,9 @@ Linux軟路由
                     <div class="home-article-content markdown-body">
                         
                             
-                            帳戶信息函數概述在MT5中，我們能使用三個函數來獲取帳戶信息，其參數皆為枚舉(enum)，如下所示:
+                            帳戶信息函數
+概述
+在MT5中，我們能使用三個函數來獲取帳戶信息，其參數皆為枚舉(enum)，如下所示:
 
 
 
@@ -771,14 +777,14 @@ Parameter Type
 
 
 
+
 AccountInfoDouble
 返回數據類型為雙精度浮點型的帳戶信息
 ENUM_ACCOUNT_INFO_DOUBLE
 
 
 AccountInfoInteger
-返回數據類型為整數的帳戶信息
-E...
+返回數據類型為整數的帳戶信...
                         
                     </div>
 
@@ -838,6 +844,103 @@ E...
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
+                        <a href="/2025/04/28/Java/JDBC/JDBC%E5%9F%BA%E7%A4%8E/">
+                            JDBC基礎
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            架構
+
+JDBC僅規定了一組接口用於存取具體的數據庫(MySQL、SQLServer等…)，具體的接口實現需要引入各公司開發的jar包驅動。
+數據庫簡要操作
+
+MySQL官網下載JDBC驅動，並引入相關依賴包
+加載數據庫驅動
+創建Connection對象，連通數據庫
+創建Statement對象，接收SQL語句
+
+依賴包
+重點
+
+java.sql.DriverManager
+java.sql....
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Mon Apr 28 2025 18:28:33 GMT+0900">
+                
+                    2025-04-28
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Java/">Java</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/Java/JDBC/">JDBC</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/Java/">Java</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/JDBC/">JDBC</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2025/04/28/Java/JDBC/JDBC%E5%9F%BA%E7%A4%8E/">Read more<span class="seo-reader-text">JDBC基礎</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
                         <a href="/2025/04/28/Java/Tomcat%209/Tomcat%209%20SPA%20Web%E7%A8%8B%E5%BA%8F%E5%88%B7%E6%96%B0%E9%8C%AF%E8%AA%A4%E5%95%8F%E9%A1%8C/">
                             Tomcat 9 SPA Web程序刷新錯誤問題
                         </a>
@@ -846,11 +949,13 @@ E...
                     <div class="home-article-content markdown-body">
                         
                             
-                            前言使用前端路由的SPA(Single Page Application)Web程序在刷新時會導致瀏覽器出現404錯誤，此問題需要由服務器端來解決，這裡討論的情況為React SPA應用佈署到一台基於Tomcat 9的服務器端後應該如何解決頁面刷新後導致404錯誤。
-原因分析假設用於訪問資源的URL如下:
+                            前言
+使用前端路由的SPA(Single Page Application)Web程序在刷新時會導致瀏覽器出現404錯誤，此問題需要由服務器端來解決，這裡討論的情況為React SPA應用佈署到一台基於Tomcat 9的服務器端後應該如何解決頁面刷新後導致404錯誤。
+原因分析
+假設用於訪問資源的URL如下:
 
 http://192.168.1.5/:首頁
-http://192.168.1.5/...
+http://192.168.1....
                         
                     </div>
 
@@ -934,15 +1039,18 @@ http://192.168.1.5/...
                         
                             
                             Session簡要
+
 會話域:瀏覽器與服務器連接時使用的公共域。
 Session列表:Map集合，保存Session對象
 Session: Session對象，有效作用域為會話域，瀏覽器關閉後Session對象的key消失，無法再次通過key拿到此對象。
 
 常用包與API
+
 javax.servlet.http.HttpSession:session類
 
 重點
-javax.servlet.htt...
+
+javax.servlet....
                         
                     </div>
 
@@ -1026,13 +1134,17 @@ javax.servlet.htt...
                         
                             
                             Tomcat 9架構
-創建虛擬主機在Tomcat home目錄下的conf/server.xml中新建&lt;Host&gt;標籤，如下:
+
+創建虛擬主機
+在Tomcat home目錄下的conf/server.xml中新建&lt;Host&gt;標籤，如下:
 1&lt;Host name=&quot;www.jss.com&quot; appBase=&quot;project&quot;/&gt;
 
 name:用於訪問工程的url
 appBase:本機工程路徑
 
-添加路由重點直接添加路由配置(須重啟服務器)...
+添加路由
+重點
+直接添加路由配置(須重啟...
                         
                     </div>
 
@@ -1107,55 +1219,18 @@ appBase:本機工程路徑
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/2025/04/28/React/Basic/JavaScript%E5%9F%BA%E7%A4%8E/">
-                            JavaScript基礎
+                        <a href="/2025/04/28/Linux/Arch%20linux/NanoPi%20R5S%E5%88%9D%E6%AC%A1%E9%85%8D%E7%BD%AEArch%20Linux%E7%92%B0%E5%A2%83/">
+                            NanoPi R5S初次配置Arch Linux環境
                         </a>
                     </h3>
 
                     <div class="home-article-content markdown-body">
                         
                             
-                            常用APIDate對象重點
-構造方法:
-
-
-
-
-Function
-Arguments
-Description
-
-
-
-Date()
-void
-返回系統時間對象
-
-
-Date(str)
-String
-接收日期字串
-
-
-
-Date對象原型方法:
-
-
-
-
-Function
-Arguments
-Description
-
-
-
-getFullYear()
-void
-獲取年份
-
-
-getMonth()
-vo...
+                            版权声明：本文为CSDN博主「@Diskenth」原创文章，转载请在显着位置标明本文出处以及作者网名，未经作者允许不得用于商业目的。
+前言
+为了使初次安装完Arch Linux的R5S更方便操作，必须先为Arch Linux做简易配置，因为系统字体、时间、网络等等的默认配置不一定适合每位使用者，且自带的软件包亦不足以满足用户需求。
+本篇中R5S运行的系统是我先前发布的专栏文章「在NanoPi...
                         
                     </div>
 
@@ -1177,7 +1252,7 @@ vo...
                     
                         
                         <li>
-                            <a href="/categories/React/">React</a>&nbsp;
+                            <a href="/categories/Linux/">Linux</a>&nbsp;
                         </li>
                     
                     
@@ -1187,7 +1262,7 @@ vo...
                             <li>></li>
                         
                         <li>
-                            <a href="/categories/React/Basic/">Basic</a>&nbsp;
+                            <a href="/categories/Linux/Arch-linux/">Arch linux</a>&nbsp;
                         </li>
                     
                     
@@ -1202,12 +1277,12 @@ vo...
                     
                         <li>
                             
-                            <a href="/tags/React/">React</a>&nbsp;
+                            <a href="/tags/Linux/">Linux</a>&nbsp;
                         </li>
                     
                         <li>
                             | 
-                            <a href="/tags/Notes/">Notes</a>&nbsp;
+                            <a href="/tags/Arch-linux/">Arch linux</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -1215,97 +1290,7 @@ vo...
         
     </div>
 
-    <a href="/2025/04/28/React/Basic/JavaScript%E5%9F%BA%E7%A4%8E/">Read more<span class="seo-reader-text">JavaScript基礎</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/2025/04/28/React/Basic/React%20%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95/">
-                            React 基礎用法
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            
-                            生命週期函數class組件重點
-componentDidMount():組件掛載完成時調用
-componentWillUnmount():組件卸載前調用
-componentDidUpdate():組件更新完成後調用
-
-其他
-getDerivedStateFromProps(props):掛載前、狀態更新後調用，接收一個組件的props參數，需用static修飾
-shouldComponent...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Apr 28 2025 18:28:33 GMT+0900">
-                
-                    2025-04-28
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/categories/React/">React</a>&nbsp;
-                        </li>
-                    
-                    
-                
-                    
-                        
-                            <li>></li>
-                        
-                        <li>
-                            <a href="/categories/React/Basic/">Basic</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/React/">React</a>&nbsp;
-                        </li>
-                    
-                        <li>
-                            | 
-                            <a href="/tags/Notes/">Notes</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2025/04/28/React/Basic/React%20%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95/">Read more<span class="seo-reader-text">React 基礎用法</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2025/04/28/Linux/Arch%20linux/NanoPi%20R5S%E5%88%9D%E6%AC%A1%E9%85%8D%E7%BD%AEArch%20Linux%E7%92%B0%E5%A2%83/">Read more<span class="seo-reader-text">NanoPi R5S初次配置Arch Linux環境</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>

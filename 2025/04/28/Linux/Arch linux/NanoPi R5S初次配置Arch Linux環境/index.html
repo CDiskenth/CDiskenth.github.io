@@ -366,36 +366,42 @@
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
 			<p><font color="red" size="4">版权声明：本文为CSDN博主「@Diskenth」原创文章，转载请在显着位置标明本文出处以及作者网名，未经作者允许不得用于商业目的。</font></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>为了使初次安装完Arch Linux的R5S更方便操作，必须先为Arch Linux做简易配置，因为系统字体、时间、网络等等的默认配置不一定适合每位使用者，且自带的软件包亦不足以满足用户需求。</p>
+<h1>前言</h1>
+<p>为了使初次安装完Arch Linux的R5S更方便操作，必须先为Arch Linux做简易配置，因为系统字体、时间、网络等等的默认配置不一定适合每位使用者，且自带的软件包亦不足以满足用户需求。</p>
 <p>本篇中R5S运行的系统是我先前发布的专栏文章「<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36832883/article/details/136738215" >在NanoPi R5S上使用Arch Linux<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>」中所安装完成的系统，在进行配置前请将网线插至R5S WAN口，并确保网络无问题</p>
-<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><p>我们需要给R5S实现以下几个目标</p>
+<h1>目标</h1>
+<p>我们需要给R5S实现以下几个目标</p>
 <ul>
 <li>能通过<code>pacman</code>安装软件包</li>
 <li>使一般用户能够借助<code>sudo</code>获取root权限</li>
 <li>能使用远程连接工具登入系统</li>
 </ul>
-<h1 id="Arch-Linux安装"><a href="#Arch-Linux安装" class="headerlink" title="Arch Linux安装"></a>Arch Linux安装</h1><p>细节请自行参考我先前发布的文章，或点击<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36832883/article/details/136738215" >这里<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>进入</p>
+<h1>Arch Linux安装</h1>
+<p>细节请自行参考我先前发布的文章，或点击<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36832883/article/details/136738215" >这里<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>进入</p>
 <p>Arch官方系统已内置了两个用户:</p>
 <table>
 <thead>
 <tr>
-<th align="center">用户类型</th>
-<th align="center">帐号名称</th>
-<th align="center">密码</th>
+<th style="text-align:center">用户类型</th>
+<th style="text-align:center">帐号名称</th>
+<th style="text-align:center">密码</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">超级用户</td>
-<td align="center">root</td>
-<td align="center">root</td>
+<tbody>
+<tr>
+<td style="text-align:center">超级用户</td>
+<td style="text-align:center">root</td>
+<td style="text-align:center">root</td>
 </tr>
 <tr>
-<td align="center">一般用户</td>
-<td align="center">alarm</td>
-<td align="center">alarm</td>
+<td style="text-align:center">一般用户</td>
+<td style="text-align:center">alarm</td>
+<td style="text-align:center">alarm</td>
 </tr>
-</tbody></table>
-<h1 id="调整系统配置"><a href="#调整系统配置" class="headerlink" title="调整系统配置"></a>调整系统配置</h1><p>以下命令皆以root身分执行</p>
+</tbody>
+</table>
+<h1>调整系统配置</h1>
+<p>以下命令皆以root身分执行</p>
 <p>创建<code>/etc/vconsole.conf</code>以永久更改字体(可自行选择需要的字体，以文字清晰、舒适为主)</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;FONT=sun12x22&#x27;</span>&gt; /etc/vconsole.conf <span class="comment"># 新建vconsole.conf文件至/etc目录下，选择字体sun12x22(可依自身需求调整，字型文件在/usr/share/kbd/consolefonts下)</span></span><br><span class="line">reboot <span class="comment"># 重启</span></span><br></pre></td></tr></table></figure></div>
 <p>重启后即可生效</p>
@@ -403,28 +409,32 @@
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman-key --init <span class="comment">#使pacman下载的软件包能够被验证及安装</span></span><br><span class="line">pacman-key --populate archlinuxarm</span><br></pre></td></tr></table></figure></div>
 <p>(若未执行上述命令，则我们用pacman安装软件时会提示软件包无法验证^[1]^^[2]^)</p>
 <blockquote>
-<p>※补充(关闭签名验证):<br>若不想让<code>pacman</code>对之后将要安装的软件包进行验证，则须修改<code>/etc/pacman.conf</code>里面的配置，修改文件中的<code>SigLevel</code>并註释掉<code>LocalFileSigLevel</code>^[5]^，结果如下:</p>
+<p>※补充(关闭签名验证):<br>
+若不想让<code>pacman</code>对之后将要安装的软件包进行验证，则须修改<code>/etc/pacman.conf</code>里面的配置，修改文件中的<code>SigLevel</code>并註释掉<code>LocalFileSigLevel</code>^[5]^，结果如下:</p>
 <div class="code-container" data-rel="Console"><figure class="iseeu highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@alarm ~]# vi /etc/pacman.conf</span><br></pre></td></tr></table></figure></div>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">9	[options]</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">39	<span class="comment"># By default, pacman accepts packages signed by keys that its local keyring</span></span><br><span class="line">40	<span class="comment"># trusts (see pacman-key and its man page), as well as unsigned packages.</span></span><br><span class="line">41	SigLevel    = Never <span class="comment"># SigLevel = Never表示不验证软件包的签名</span></span><br><span class="line">42	<span class="comment">#LocalFileSigLevel = Optional</span></span><br><span class="line">43	<span class="comment">#RemoteFileSigLevel = Required</span></span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">:wq <span class="comment"># 保存并退出</span></span><br></pre></td></tr></table></figure></div>
-<p> 关闭签名验证后便不必执行<code>pacman-key</code>等命令也能够安装软件包，但出于安全考量仍不建议关闭</p>
+<p>关闭签名验证后便不必执行<code>pacman-key</code>等命令也能够安装软件包，但出于安全考量仍不建议关闭</p>
 </blockquote>
 <p>把本地软件数据库和远程软件仓库的数据库同步</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sy</span><br></pre></td></tr></table></figure></div>
-<h1 id="软件包的安装与配置"><a href="#软件包的安装与配置" class="headerlink" title="软件包的安装与配置"></a>软件包的安装与配置</h1><p>用<code>pacman</code>安装以下程序</p>
+<h1>软件包的安装与配置</h1>
+<p>用<code>pacman</code>安装以下程序</p>
 <ol>
 <li>vim(文本编辑)</li>
 <li>sudo(使一般用户能够以root身分运行程序)</li>
 </ol>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S vim <span class="built_in">sudo</span> <span class="comment">#安装vim、sudo</span></span><br></pre></td></tr></table></figure></div>
 <p><code>sudo</code>需配置后才能使用其主要功能</p>
-<h2 id="配置sudo"><a href="#配置sudo" class="headerlink" title="配置sudo"></a>配置sudo</h2><p>以<code>vim</code>编辑<code>/etc/sudoers</code>，使一般用户alarm能够藉由sudo来获取root权限</p>
+<h2 id="配置sudo">配置sudo</h2>
+<p>以<code>vim</code>编辑<code>/etc/sudoers</code>，使一般用户alarm能够藉由sudo来获取root权限</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sudoers</span><br></pre></td></tr></table></figure></div>
-<p>在文件中找到<code># %wheel ALL=(ALL:ALL) ALL</code>这行后去除开头的#号，如下<br><code># %wheel ALL=(ALL:ALL) ALL</code> &#x3D;&gt;<code>%wheel ALL=(ALL:ALL) ALL</code></p>
+<p>在文件中找到<code># %wheel ALL=(ALL:ALL) ALL</code>这行后去除开头的#号，如下<br>
+<code># %wheel ALL=(ALL:ALL) ALL</code> =&gt;<code>%wheel ALL=(ALL:ALL) ALL</code></p>
 <p>输入<code>:wq!</code>保存并退出</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq!</span><br></pre></td></tr></table></figure></div>
-
 <p>这样便使用户组wheel中的所有用户皆能够使用<code>sudo</code>命令，而通过查看<code>/etc/group</code>可知用户alarm是wheel组内一员^[4]^，因此alarm亦可使用<code>sudo</code>命令</p>
-<h1 id="远程登入"><a href="#远程登入" class="headerlink" title="远程登入"></a>远程登入</h1><p>Arch Linux ARM中已自带<code>OpenSSH</code>服务端远程登入工具，且默认状态下是启动的，因此查询到ip位址后，可直接用任意一款远程登入工具进行登入</p>
+<h1>远程登入</h1>
+<p>Arch Linux ARM中已自带<code>OpenSSH</code>服务端远程登入工具，且默认状态下是启动的，因此查询到ip位址后，可直接用任意一款远程登入工具进行登入</p>
 <p>输入命令<code>ip addr</code>查看ip位址</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@alarm ~]# ip addr</span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">2: end0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 3a:2e:38:0f:48:f1 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 192.168.8.139/24 metric 1024 brd 192.168.8.255 scope global dynamic end0</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br></pre></td></tr></table></figure></div>
 <p>ip位址为192.168.8.139(依各人情况有所不同)</p>
@@ -432,34 +442,43 @@
 <table>
 <thead>
 <tr>
-<th align="center"></th>
-<th align="center">值</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">值</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">ip位址</td>
-<td align="center">你的ip位址(请自行用<code>ip addr</code>查询)</td>
+<tbody>
+<tr>
+<td style="text-align:center">ip位址</td>
+<td style="text-align:center">你的ip位址(请自行用<code>ip addr</code>查询)</td>
 </tr>
 <tr>
-<td align="center">端口号</td>
-<td align="center">22</td>
+<td style="text-align:center">端口号</td>
+<td style="text-align:center">22</td>
 </tr>
 <tr>
-<td align="center">用户名</td>
-<td align="center">alarm</td>
+<td style="text-align:center">用户名</td>
+<td style="text-align:center">alarm</td>
 </tr>
 <tr>
-<td align="center">密码</td>
-<td align="center">alarm</td>
+<td style="text-align:center">密码</td>
+<td style="text-align:center">alarm</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <blockquote>
-<p>※註:<br>默认情况下ssh服务会禁止root用户登入，若想利用root权限执行命令，那么请以一般用户登入后再使用先前配置好的<code>sudo</code>命令；拥有root密码的情况下也可使用<code>su -</code>切换成root身分</p>
+<p>※註:<br>
+默认情况下ssh服务会禁止root用户登入，若想利用root权限执行命令，那么请以一般用户登入后再使用先前配置好的<code>sudo</code>命令；拥有root密码的情况下也可使用<code>su -</code>切换成root身分</p>
 </blockquote>
 <p>确认输入无误后便可成功登入</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>我们已经为NanoPi R5S进行了最简单的配置，包含命令行字体、包管理器、文本编辑器，最后通过内置的OpenSSH远程登入到R5S上。只要有任意一台主机与R5S处在同一网段下，便可方便地对其进行远程操作</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>[1] <a class="link"   target="_blank" rel="noopener" href="https://archlinuxarm.org/platforms/armv8/rockchip/rock64" >https://archlinuxarm.org/platforms/armv8/rockchip/rock64<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>[2] <a class="link"   target="_blank" rel="noopener" href="https://juejin.cn/s/pacman-key%20--init" >https://juejin.cn/s/pacman-key%20--init<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>[3] <a class="link"   target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Installation_guide" >Arch Linux Wiki Installation guide<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>[4] <a class="link"   target="_blank" rel="noopener" href="https://linux.vbird.org/linux_basic/centos7/0410accountmanager.php" >鸟哥的 Linux 私房菜—Linux帐号管理与ACL权限设定<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>[5] <a class="link"   target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Pacman/Package_signing" >Arch Linux Wiki–pacman&#x2F;Package signing
-<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h1>总结</h1>
+<p>我们已经为NanoPi R5S进行了最简单的配置，包含命令行字体、包管理器、文本编辑器，最后通过内置的OpenSSH远程登入到R5S上。只要有任意一台主机与R5S处在同一网段下，便可方便地对其进行远程操作</p>
+<h1>参考</h1>
+<p>[1] <a class="link"   target="_blank" rel="noopener" href="https://archlinuxarm.org/platforms/armv8/rockchip/rock64" >https://archlinuxarm.org/platforms/armv8/rockchip/rock64<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>
+[2] <a class="link"   target="_blank" rel="noopener" href="https://juejin.cn/s/pacman-key%20--init" >https://juejin.cn/s/pacman-key --init<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>
+[3] <a class="link"   target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Installation_guide" >Arch Linux Wiki Installation guide<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>
+[4] <a class="link"   target="_blank" rel="noopener" href="https://linux.vbird.org/linux_basic/centos7/0410accountmanager.php" >鸟哥的 Linux 私房菜—Linux帐号管理与ACL权限设定<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>
+[5] <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Pacman/Package_signing">Arch Linux Wiki–pacman/Package signing<br>
+</a></p>
 
 		</div>
 
@@ -516,12 +535,12 @@
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
 			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/2025/04/28/React/Other/%E8%A1%A8%E5%96%AE%E9%A9%97%E8%AD%89/">
+				<a class="prev" rel="prev" href="/2025/04/28/Java/Tomcat%209/Tomcat%209%E7%B6%B2%E7%B5%A1%E6%9C%8D%E5%8B%99/">
 					<span class="left arrow-icon flex justify-center items-center">
 						<i class="fa-solid fa-chevron-left"></i>
 					</span>
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">表單驗證</span>
+						<span class="post-nav-title-item">Tomcat 9網絡服務</span>
 						<span class="post-nav-item">Prev posts</span>
 					</span>
 				</a>
@@ -529,9 +548,9 @@
 			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/2025/04/28/Linux/Arch%20linux/%E5%9C%A8NanoPi%20R5S%E4%B8%8A%E4%BD%BF%E7%94%A8Arch%20linux/">
+				<a class="next" rel="next" href="/2025/04/28/Linux/Arch%20linux/NanoPi%20R5S%E5%B9%B3%E5%8F%B0%E4%B8%8A%E7%9A%84Arch%20Linux%20ARM%E7%9A%84GUI%E7%AE%80%E6%98%93%E9%85%8D%E7%BD%AE/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">在NanoPi R5S上使用Arch linux</span>
+						<span class="post-nav-title-item">NanoPi R5S平台上的Arch Linux ARM的GUI简易配置</span>
 						<span class="post-nav-item">Next posts</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -596,7 +615,7 @@
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">NanoPi R5S初次配置Arch Linux環境</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-text">目标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Arch-Linux%E5%AE%89%E8%A3%85"><span class="nav-text">Arch Linux安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%83%E6%95%B4%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE"><span class="nav-text">调整系统配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-text">软件包的安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEsudo"><span class="nav-text">配置sudo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%85%A5"><span class="nav-text">远程登入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">目标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">Arch Linux安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">调整系统配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">软件包的安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEsudo"><span class="nav-text">配置sudo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">远程登入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">参考</span></a></li></ol>
 
 	</div>
 </div>

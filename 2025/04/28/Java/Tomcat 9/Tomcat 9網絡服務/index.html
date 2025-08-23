@@ -365,41 +365,54 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h1 id="Tomcat-9架構"><a href="#Tomcat-9架構" class="headerlink" title="Tomcat 9架構"></a>Tomcat 9架構</h1><p><img  
+			<h1>Tomcat 9架構</h1>
+<p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/Tomcat_Architecture.png"
-                     
+                     data-src="Tomcat_Architecture.png"
+                      alt=""
                 ></p>
-<h1 id="創建虛擬主機"><a href="#創建虛擬主機" class="headerlink" title="創建虛擬主機"></a>創建虛擬主機</h1><p>在Tomcat home目錄下的<code>conf/server.xml</code>中新建<code>&lt;Host&gt;</code>標籤，如下:</p>
+<h1>創建虛擬主機</h1>
+<p>在Tomcat home目錄下的<code>conf/server.xml</code>中新建<code>&lt;Host&gt;</code>標籤，如下:</p>
 <div class="code-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">&quot;www.jss.com&quot;</span> <span class="attr">appBase</span>=<span class="string">&quot;project&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure></div>
 <ul>
 <li>name:用於訪問工程的url</li>
 <li>appBase:本機工程路徑</li>
 </ul>
-<h2 id="添加路由"><a href="#添加路由" class="headerlink" title="添加路由"></a>添加路由</h2><h3 id="重點"><a href="#重點" class="headerlink" title="重點"></a>重點</h3><p>直接添加路由配置(須重啟服務器):</p>
+<h2 id="添加路由">添加路由</h2>
+<h3 id="重點">重點</h3>
+<p>直接添加路由配置(須重啟服務器):</p>
 <p>在Tomcat home目錄下的<code>conf/server.xml</code>中的<code>&lt;Host&gt;</code>標籤內添加以下代碼，使用<code>http://ip:port/prj1</code>訪問本機tomcat的home目錄下的工程<code>project</code>:</p>
 <div class="code-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span>=<span class="string">&quot;/prj1&quot;</span> <span class="attr">docBase</span>=<span class="string">&quot;project&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure></div>
 <ul>
 <li><code>path</code>:用於訪問工程的url</li>
 <li><code>docBase</code>:放在本機上的工程所在路徑，支持絕對路徑</li>
 </ul>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>動態添加路由(不須重啟服務器):</p>
+<h3 id="其他">其他</h3>
+<p>動態添加路由(不須重啟服務器):</p>
 <p>在Tomcat home目錄下的<code>conf/Catalina/localhost/web.xml</code>添加以下代碼，使用<code>http://ip:port/prj1</code>訪問本機Tomcat home目錄下的工程<code>project</code>:</p>
 <div class="code-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span>=<span class="string">&quot;/prj1&quot;</span> <span class="attr">docBase</span>=<span class="string">&quot;project&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure></div>
 <ul>
 <li><code>path</code>:用於訪問工程的url</li>
 <li><code>docBase</code>:放在本機上的工程所在路徑，支持絕對路徑</li>
 </ul>
-<h1 id="Servlet簡要"><a href="#Servlet簡要" class="headerlink" title="Servlet簡要"></a>Servlet簡要</h1><h2 id="Servlet生命週期"><a href="#Servlet生命週期" class="headerlink" title="Servlet生命週期"></a>Servlet生命週期</h2><p><img  
+<h1>Servlet簡要</h1>
+<h2 id="Servlet生命週期">Servlet生命週期</h2>
+<p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/Life-Cycle-Methods-of-a-Servlet.jpg"
-                     
+                     data-src="Life-Cycle-Methods-of-a-Servlet.jpg"
+                      alt=""
                 ></p>
-<h2 id="Tomcat中Web應用目錄結構"><a href="#Tomcat中Web應用目錄結構" class="headerlink" title="Tomcat中Web應用目錄結構"></a>Tomcat中Web應用目錄結構</h2><h3 id="重點-1"><a href="#重點-1" class="headerlink" title="重點"></a>重點</h3><p><code>project/WEB-INF/classes/</code>:Servlet文件存放目錄<br><code>project/WEB-INF/lib/</code>:存放運行時需要使用到的jar包<br><code>project/WEB-INF/web.xml</code>:Web應用的配置文件</p>
-<h2 id="依賴包與API"><a href="#依賴包與API" class="headerlink" title="依賴包與API"></a>依賴包與API</h2><p>安裝好Tomcat後，其home目錄下自帶的<code>lib/servlet-api.jar</code>即是依賴包</p>
-<h3 id="重點-2"><a href="#重點-2" class="headerlink" title="重點"></a>重點</h3><ul>
+<h2 id="Tomcat中Web應用目錄結構">Tomcat中Web應用目錄結構</h2>
+<h3 id="重點-2">重點</h3>
+<p><code>project/WEB-INF/classes/</code>:Servlet文件存放目錄<br>
+<code>project/WEB-INF/lib/</code>:存放運行時需要使用到的jar包<br>
+<code>project/WEB-INF/web.xml</code>:Web應用的配置文件</p>
+<h2 id="依賴包與API">依賴包與API</h2>
+<p>安裝好Tomcat後，其home目錄下自帶的<code>lib/servlet-api.jar</code>即是依賴包</p>
+<h3 id="重點-3">重點</h3>
+<ul>
 <li><code>javax.servlet.Servlet</code>:Servlet接口</li>
 <li><code>javax.servlet.http.HttpServlet</code>:繼承自<code>javax.servlet.GenericServlet</code></li>
 <li><code>javax.serlvet.RequestDispatcher</code>:轉發器</li>
@@ -409,161 +422,170 @@
 <table>
 <thead>
 <tr>
-<th align="center">Method</th>
-<th align="center">Arguments</th>
-<th align="center">Detail</th>
+<th style="text-align:center">Method</th>
+<th style="text-align:center">Arguments</th>
+<th style="text-align:center">Detail</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><code>init(config)</code></td>
-<td align="center">ServletConfig</td>
-<td align="center">創建Servlet對象時調用</td>
+<tbody>
+<tr>
+<td style="text-align:center"><code>init(config)</code></td>
+<td style="text-align:center">ServletConfig</td>
+<td style="text-align:center">創建Servlet對象時調用</td>
 </tr>
 <tr>
-<td align="center"><code>service(req,res)</code></td>
-<td align="center">ServletRequest,<br/>ServletResponse</td>
-<td align="center">Servlet服務函數，處理數據時使用</td>
+<td style="text-align:center"><code>service(req,res)</code></td>
+<td style="text-align:center">ServletRequest,<br/>ServletResponse</td>
+<td style="text-align:center">Servlet服務函數，處理數據時使用</td>
 </tr>
 <tr>
-<td align="center"><code>destroy()</code></td>
-<td align="center">void</td>
-<td align="center">Servlet對象被銷毀時調用</td>
+<td style="text-align:center"><code>destroy()</code></td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">Servlet對象被銷毀時調用</td>
 </tr>
 <tr>
-<td align="center"><code>getServletConfig()</code></td>
-<td align="center">void</td>
-<td align="center">reserved</td>
+<td style="text-align:center"><code>getServletConfig()</code></td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">reserved</td>
 </tr>
 <tr>
-<td align="center"><code>getServletInfo()</code></td>
-<td align="center">void</td>
-<td align="center">reserved</td>
+<td style="text-align:center"><code>getServletInfo()</code></td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">reserved</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p><code>javax.servlet.http.HttpServletRequest</code>:</p>
 <table>
 <thead>
 <tr>
-<th align="center">Method</th>
-<th align="center">Arguments</th>
-<th align="center">Return</th>
-<th align="center">Detail</th>
+<th style="text-align:center">Method</th>
+<th style="text-align:center">Arguments</th>
+<th style="text-align:center">Return</th>
+<th style="text-align:center">Detail</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><code>getMethod()</code></td>
-<td align="center">void</td>
-<td align="center">String</td>
-<td align="center">返回請求方法</td>
+<tbody>
+<tr>
+<td style="text-align:center"><code>getMethod()</code></td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">返回請求方法</td>
 </tr>
 <tr>
-<td align="center"><code>getRequestURI()</code></td>
-<td align="center">void</td>
-<td align="center">String</td>
-<td align="center">返回URI</td>
+<td style="text-align:center"><code>getRequestURI()</code></td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">返回URI</td>
 </tr>
 <tr>
-<td align="center"><code>getQueryString()</code></td>
-<td align="center">void</td>
-<td align="center">String</td>
-<td align="center">返回GET方法的Query參數</td>
+<td style="text-align:center"><code>getQueryString()</code></td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">返回GET方法的Query參數</td>
 </tr>
 <tr>
-<td align="center"><code>getHeader(key)</code></td>
-<td align="center">String</td>
-<td align="center">String</td>
-<td align="center">根據key，返回對應請求頭的value</td>
+<td style="text-align:center"><code>getHeader(key)</code></td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">根據key，返回對應請求頭的value</td>
 </tr>
 <tr>
-<td align="center"><code>getInputStream()</code></td>
-<td align="center">void</td>
-<td align="center">ServletInputStream</td>
-<td align="center">獲取請求體字節輸入流</td>
+<td style="text-align:center"><code>getInputStream()</code></td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">ServletInputStream</td>
+<td style="text-align:center">獲取請求體字節輸入流</td>
 </tr>
 <tr>
-<td align="center"><code>getReader()</code></td>
-<td align="center">void</td>
-<td align="center">BufferedReader</td>
-<td align="center">獲取請求體字符輸入流</td>
+<td style="text-align:center"><code>getReader()</code></td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">BufferedReader</td>
+<td style="text-align:center">獲取請求體字符輸入流</td>
 </tr>
 <tr>
-<td align="center"><code>getQueryString()</code></td>
-<td align="center">void</td>
-<td align="center">String</td>
-<td align="center">獲取網址上之GET請求參數</td>
+<td style="text-align:center"><code>getQueryString()</code></td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">獲取網址上之GET請求參數</td>
 </tr>
 <tr>
-<td align="center"><code>getServletPath()</code></td>
-<td align="center">void</td>
-<td align="center">String</td>
-<td align="center">獲取servlet請求路徑，包含開頭’&#x2F;‘字符，不含Query參數</td>
+<td style="text-align:center"><code>getServletPath()</code></td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">獲取servlet請求路徑，包含開頭’/'字符，不含Query參數</td>
 </tr>
 <tr>
-<td align="center"><code>getParameter(key)</code></td>
-<td align="center">String</td>
-<td align="center">String</td>
-<td align="center">根據請求參數的key獲取對應value</td>
+<td style="text-align:center"><code>getParameter(key)</code></td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">根據請求參數的key獲取對應value</td>
 </tr>
 <tr>
-<td align="center"><code>getRequestDispatcher(url)</code></td>
-<td align="center">String</td>
-<td align="center">RequestDispatcher</td>
-<td align="center">根據url，獲取轉發器對象</td>
+<td style="text-align:center"><code>getRequestDispatcher(url)</code></td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">RequestDispatcher</td>
+<td style="text-align:center">根據url，獲取轉發器對象</td>
 </tr>
 <tr>
-<td align="center"><code>getSession()</code></td>
-<td align="center">void</td>
-<td align="center">HttpSession</td>
-<td align="center">從請求對象中獲取Session對象</td>
+<td style="text-align:center"><code>getSession()</code></td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">HttpSession</td>
+<td style="text-align:center">從請求對象中獲取Session對象</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p><code>javax.servlet.http.HttpServletResponse</code>:</p>
 <table>
 <thead>
 <tr>
-<th align="center">Method</th>
-<th align="center">Arguments</th>
-<th align="center">Return</th>
-<th align="center">Detail</th>
+<th style="text-align:center">Method</th>
+<th style="text-align:center">Arguments</th>
+<th style="text-align:center">Return</th>
+<th style="text-align:center">Detail</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><code>serHeader(key,value)</code></td>
-<td align="center">void</td>
-<td align="center">String,String</td>
-<td align="center">設置響應頭</td>
+<tbody>
+<tr>
+<td style="text-align:center"><code>serHeader(key,value)</code></td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">String,String</td>
+<td style="text-align:center">設置響應頭</td>
 </tr>
 <tr>
-<td align="center"><code>getWriter()</code></td>
-<td align="center">void</td>
-<td align="center">PrintWriter</td>
-<td align="center">獲取字符輸出流</td>
+<td style="text-align:center"><code>getWriter()</code></td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">PrintWriter</td>
+<td style="text-align:center">獲取字符輸出流</td>
 </tr>
 <tr>
-<td align="center"><code>getOutputStream()</code></td>
-<td align="center">void</td>
-<td align="center">ServletOutputStream</td>
-<td align="center">獲取字節輸出流</td>
+<td style="text-align:center"><code>getOutputStream()</code></td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">ServletOutputStream</td>
+<td style="text-align:center">獲取字節輸出流</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p><code>javax.servlet.RequestDispatcher</code>:</p>
 <table>
 <thead>
 <tr>
-<th align="center">Method</th>
-<th align="center">Arguments</th>
-<th align="center">Return</th>
-<th align="center">Detail</th>
+<th style="text-align:center">Method</th>
+<th style="text-align:center">Arguments</th>
+<th style="text-align:center">Return</th>
+<th style="text-align:center">Detail</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><code>forward(req,res)</code></td>
-<td align="center">ServletRequest,ServletResponse</td>
-<td align="center">void</td>
-<td align="center">請求轉發</td>
+<tbody>
+<tr>
+<td style="text-align:center"><code>forward(req,res)</code></td>
+<td style="text-align:center">ServletRequest,ServletResponse</td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">請求轉發</td>
 </tr>
-</tbody></table>
-<h3 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h3><ul>
+</tbody>
+</table>
+<h3 id="其他-2">其他</h3>
+<ul>
 <li><code>javax.servlet.ServletConfig</code>:每個Servlet的配置信息對象</li>
 <li><code>javax.servlet.ServletContext</code>:WEB-INF內的web.xml對象，每個工程中僅有一個此對象</li>
 </ul>
@@ -572,81 +594,89 @@
 <table>
 <thead>
 <tr>
-<th align="center">Method</th>
-<th align="center">Arguments</th>
-<th align="center">Detail</th>
+<th style="text-align:center">Method</th>
+<th style="text-align:center">Arguments</th>
+<th style="text-align:center">Detail</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><code>doGet(req,res)</code></td>
-<td align="center">HttpServletRequest,<br />HttpServletResponse</td>
-<td align="center">GET請求處理函數</td>
+<tbody>
+<tr>
+<td style="text-align:center"><code>doGet(req,res)</code></td>
+<td style="text-align:center">HttpServletRequest,<br />HttpServletResponse</td>
+<td style="text-align:center">GET請求處理函數</td>
 </tr>
 <tr>
-<td align="center"><code>doPost(req,res)</code></td>
-<td align="center">HttpServletRequest,<br />HttpServletResponse</td>
-<td align="center">POST請求處理函數</td>
+<td style="text-align:center"><code>doPost(req,res)</code></td>
+<td style="text-align:center">HttpServletRequest,<br />HttpServletResponse</td>
+<td style="text-align:center">POST請求處理函數</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p><code>javax.servlet.ServletConfig</code>:</p>
 <table>
 <thead>
 <tr>
-<th align="center">Method</th>
-<th align="center">Arguments</th>
-<th align="center">Return</th>
-<th align="center">Detail</th>
+<th style="text-align:center">Method</th>
+<th style="text-align:center">Arguments</th>
+<th style="text-align:center">Return</th>
+<th style="text-align:center">Detail</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><code>getServletContext()</code></td>
-<td align="center">void</td>
-<td align="center">ServletContext</td>
-<td align="center">獲取ServletContext對象</td>
+<tbody>
+<tr>
+<td style="text-align:center"><code>getServletContext()</code></td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">ServletContext</td>
+<td style="text-align:center">獲取ServletContext對象</td>
 </tr>
-</tbody></table>
-<h2 id="Tomcat中Servlet配置文件"><a href="#Tomcat中Servlet配置文件" class="headerlink" title="Tomcat中Servlet配置文件"></a>Tomcat中Servlet配置文件</h2><p>配置文件目錄為:<code>PROJECT_HOME/WEB-INF/web.xml</code>:</p>
+</tbody>
+</table>
+<h2 id="Tomcat中Servlet配置文件">Tomcat中Servlet配置文件</h2>
+<p>配置文件目錄為:<code>PROJECT_HOME/WEB-INF/web.xml</code>:</p>
 <div class="code-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--web.xml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app1</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--.....................................................--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet</span>&gt;</span> <span class="comment">&lt;!--map servlet name to a class file--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>AddServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.diskenth.servlets.AddServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span> <span class="comment">&lt;!--map url to servlet name--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>AddServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/add<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--.....................................................--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-<h2 id="Servlet示例代碼"><a href="#Servlet示例代碼" class="headerlink" title="Servlet示例代碼"></a>Servlet示例代碼</h2><div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-
-<h1 id="常用包"><a href="#常用包" class="headerlink" title="常用包"></a>常用包</h1><h2 id="Gson"><a href="#Gson" class="headerlink" title="Gson"></a>Gson</h2><p>基本用法:</p>
+<h2 id="Servlet示例代碼">Servlet示例代碼</h2>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h1>常用包</h1>
+<h2 id="Gson">Gson</h2>
+<p>基本用法:</p>
 <div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Gson</span> <span class="variable">gson</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Gson</span>();</span><br><span class="line"><span class="type">int</span>[] ints = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">String[] strings = &#123;<span class="string">&quot;abc&quot;</span>, <span class="string">&quot;def&quot;</span>, <span class="string">&quot;ghi&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Serialization</span></span><br><span class="line">gson.toJson(ints);     <span class="comment">// ==&gt; [1,2,3,4,5]</span></span><br><span class="line">gson.toJson(strings);  <span class="comment">// ==&gt; [&quot;abc&quot;, &quot;def&quot;, &quot;ghi&quot;]</span></span><br></pre></td></tr></table></figure></div>
 <p><a class="link"   target="_blank" rel="noopener" href="https://github.com/google/gson/blob/master/UserGuide.md" >Gson API<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>:</p>
 <table>
 <thead>
 <tr>
-<th align="center">Method</th>
-<th align="center">Arguments</th>
-<th align="center">Return</th>
-<th align="center">Detail</th>
+<th style="text-align:center">Method</th>
+<th style="text-align:center">Arguments</th>
+<th style="text-align:center">Return</th>
+<th style="text-align:center">Detail</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><code>toJson(obj)</code></td>
-<td align="center">String</td>
-<td align="center">Object</td>
-<td align="center">將對象轉為JSON字符串，可接受集合、JavaBean、數組等</td>
+<tbody>
+<tr>
+<td style="text-align:center"><code>toJson(obj)</code></td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">Object</td>
+<td style="text-align:center">將對象轉為JSON字符串，可接受集合、JavaBean、數組等</td>
 </tr>
 <tr>
-<td align="center"><code>fromJson(str,class)</code></td>
-<td align="center">String,Class&lt;T&gt;</td>
-<td align="center">Class<T></td>
-<td align="center">接收json字符串，返回使用者指定的對象</td>
+<td style="text-align:center"><code>fromJson(str,class)</code></td>
+<td style="text-align:center">String,Class&lt;T&gt;</td>
+<td style="text-align:center">Class<T></td>
+<td style="text-align:center">接收json字符串，返回使用者指定的對象</td>
 </tr>
 <tr>
-<td align="center">※注意:</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
+<td style="text-align:center">※注意:</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td align="center">若<code>fromJson()</code>中傳入的Class含有泛型，便無法直接將此Class作為參數，須借用Gson包中提供的<code>TypeToken</code>類，解決方法如下。</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
+<td style="text-align:center">若<code>fromJson()</code>中傳入的Class含有泛型，便無法直接將此Class作為參數，須借用Gson包中提供的<code>TypeToken</code>類，解決方法如下。</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <ul>
 <li>手工創建繼承<code>TypeToken</code>的類後再調用其<code>getType()</code>方法，將<code>getType()</code>方法的返回值傳入<code>fromJson()</code>方法:</li>
 </ul>
@@ -720,9 +750,9 @@
 			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/2025/04/28/React/Basic/JavaScript%E5%9F%BA%E7%A4%8E/">
+				<a class="next" rel="next" href="/2025/04/28/Linux/Arch%20linux/NanoPi%20R5S%E5%88%9D%E6%AC%A1%E9%85%8D%E7%BD%AEArch%20Linux%E7%92%B0%E5%A2%83/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">JavaScript基礎</span>
+						<span class="post-nav-title-item">NanoPi R5S初次配置Arch Linux環境</span>
 						<span class="post-nav-item">Next posts</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -787,7 +817,7 @@
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">Tomcat 9網絡服務</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tomcat-9%E6%9E%B6%E6%A7%8B"><span class="nav-text">Tomcat 9架構</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%B5%E5%BB%BA%E8%99%9B%E6%93%AC%E4%B8%BB%E6%A9%9F"><span class="nav-text">創建虛擬主機</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1"><span class="nav-text">添加路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E9%BB%9E"><span class="nav-text">重點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-text">其他</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Servlet%E7%B0%A1%E8%A6%81"><span class="nav-text">Servlet簡要</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F"><span class="nav-text">Servlet生命週期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat%E4%B8%ADWeb%E6%87%89%E7%94%A8%E7%9B%AE%E9%8C%84%E7%B5%90%E6%A7%8B"><span class="nav-text">Tomcat中Web應用目錄結構</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E9%BB%9E-1"><span class="nav-text">重點</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9D%E8%B3%B4%E5%8C%85%E8%88%87API"><span class="nav-text">依賴包與API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E9%BB%9E-2"><span class="nav-text">重點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96-1"><span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat%E4%B8%ADServlet%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">Tomcat中Servlet配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A2%BC"><span class="nav-text">Servlet示例代碼</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%8C%85"><span class="nav-text">常用包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gson"><span class="nav-text">Gson</span></a></li></ol></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">Tomcat 9架構</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">創建虛擬主機</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1"><span class="nav-text">添加路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E9%BB%9E"><span class="nav-text">重點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-text">其他</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">Servlet簡要</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F"><span class="nav-text">Servlet生命週期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat%E4%B8%ADWeb%E6%87%89%E7%94%A8%E7%9B%AE%E9%8C%84%E7%B5%90%E6%A7%8B"><span class="nav-text">Tomcat中Web應用目錄結構</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E9%BB%9E-2"><span class="nav-text">重點</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9D%E8%B3%B4%E5%8C%85%E8%88%87API"><span class="nav-text">依賴包與API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E9%BB%9E-3"><span class="nav-text">重點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96-2"><span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat%E4%B8%ADServlet%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">Tomcat中Servlet配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A2%BC"><span class="nav-text">Servlet示例代碼</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">常用包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gson"><span class="nav-text">Gson</span></a></li></ol></li></ol>
 
 	</div>
 </div>

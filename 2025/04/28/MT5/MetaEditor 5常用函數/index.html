@@ -350,141 +350,164 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h1 id="帳戶信息函數"><a href="#帳戶信息函數" class="headerlink" title="帳戶信息函數"></a>帳戶信息函數</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在MT5中，我們能使用三個函數來獲取帳戶信息，其參數皆為枚舉(enum)，如下所示:</p>
+			<h1>帳戶信息函數</h1>
+<h2 id="概述">概述</h2>
+<p>在MT5中，我們能使用三個函數來獲取帳戶信息，其參數皆為枚舉(enum)，如下所示:</p>
 <table>
 <thead>
 <tr>
-<th align="center">Function Name</th>
-<th align="center">Describtion</th>
-<th align="center">Parameter Type</th>
+<th style="text-align:center">Function Name</th>
+<th style="text-align:center">Describtion</th>
+<th style="text-align:center">Parameter Type</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><code>AccountInfoDouble</code></td>
-<td align="center">返回數據類型為雙精度浮點型的帳戶信息</td>
-<td align="center">ENUM_ACCOUNT_INFO_DOUBLE</td>
+<tbody>
+<tr>
+<td style="text-align:center"><code>AccountInfoDouble</code></td>
+<td style="text-align:center">返回數據類型為雙精度浮點型的帳戶信息</td>
+<td style="text-align:center">ENUM_ACCOUNT_INFO_DOUBLE</td>
 </tr>
 <tr>
-<td align="center"><code>AccountInfoInteger</code></td>
-<td align="center">返回數據類型為整數的帳戶信息</td>
-<td align="center">ENUM_ACCOUNT_INFO_INTEGER</td>
+<td style="text-align:center"><code>AccountInfoInteger</code></td>
+<td style="text-align:center">返回數據類型為整數的帳戶信息</td>
+<td style="text-align:center">ENUM_ACCOUNT_INFO_INTEGER</td>
 </tr>
 <tr>
-<td align="center"><code>AccountInfoString</code></td>
-<td align="center">返回數據類型為字符串的帳戶信息</td>
-<td align="center">ENUM_ACCOUNT_INFO_INTEGER</td>
+<td style="text-align:center"><code>AccountInfoString</code></td>
+<td style="text-align:center">返回數據類型為字符串的帳戶信息</td>
+<td style="text-align:center">ENUM_ACCOUNT_INFO_INTEGER</td>
 </tr>
-</tbody></table>
-<h2 id="枚舉參數"><a href="#枚舉參數" class="headerlink" title="枚舉參數"></a>枚舉參數</h2><h3 id="ENUM-ACCOUNT-INFO-DOUBLE"><a href="#ENUM-ACCOUNT-INFO-DOUBLE" class="headerlink" title="ENUM_ACCOUNT_INFO_DOUBLE"></a>ENUM_ACCOUNT_INFO_DOUBLE</h3><table>
-<thead>
-<tr>
-<th align="center">Identifier</th>
-<th align="center">Describtion</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>ACCOUNT_BALANCE</code></td>
-<td align="center">帳戶餘額</td>
-</tr>
-<tr>
-<td align="center"><code>ACCOUNT_PROFIT</code></td>
-<td align="center">當前收益</td>
-</tr>
-<tr>
-<td align="center"><code>ACCOUNT_EQUITY</code></td>
-<td align="center">帳戶淨值</td>
-</tr>
-</tbody></table>
-<h1 id="貨幣對信息"><a href="#貨幣對信息" class="headerlink" title="貨幣對信息"></a>貨幣對信息</h1><h2 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h2><h2 id="常數"><a href="#常數" class="headerlink" title="常數"></a>常數</h2><p>常用:</p>
+</tbody>
+</table>
+<h2 id="枚舉參數">枚舉參數</h2>
+<h3 id="ENUM-ACCOUNT-INFO-DOUBLE">ENUM_ACCOUNT_INFO_DOUBLE</h3>
 <table>
 <thead>
 <tr>
-<th align="center">Name</th>
-<th align="center">Description</th>
-<th align="center">Type</th>
+<th style="text-align:center">Identifier</th>
+<th style="text-align:center">Describtion</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><code>_Symbol</code></td>
-<td align="center">貨幣對名稱</td>
-<td align="center">string</td>
+<tbody>
+<tr>
+<td style="text-align:center"><code>ACCOUNT_BALANCE</code></td>
+<td style="text-align:center">帳戶餘額</td>
 </tr>
-</tbody></table>
+<tr>
+<td style="text-align:center"><code>ACCOUNT_PROFIT</code></td>
+<td style="text-align:center">當前收益</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>ACCOUNT_EQUITY</code></td>
+<td style="text-align:center">帳戶淨值</td>
+</tr>
+</tbody>
+</table>
+<h1>貨幣對信息</h1>
+<h2 id="概述-2">概述</h2>
+<h2 id="常數">常數</h2>
+<p>常用:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">Description</th>
+<th style="text-align:center">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>_Symbol</code></td>
+<td style="text-align:center">貨幣對名稱</td>
+<td style="text-align:center">string</td>
+</tr>
+</tbody>
+</table>
 <p>通過以下函數來獲取貨幣對信息:</p>
-<h2 id="SymbolInfoDouble"><a href="#SymbolInfoDouble" class="headerlink" title="SymbolInfoDouble()"></a>SymbolInfoDouble()</h2><table>
+<h2 id="SymbolInfoDouble">SymbolInfoDouble()</h2>
+<table>
 <thead>
 <tr>
-<th align="center">Function Name</th>
-<th align="center">Describtion</th>
-<th align="center">Parameter Type</th>
+<th style="text-align:center">Function Name</th>
+<th style="text-align:center">Describtion</th>
+<th style="text-align:center">Parameter Type</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><code>SymbolInfoDouble(string,ENUM_SYMBOL_INFO_DOUBLE)</code></td>
-<td align="center">返回數據類型為雙精度浮點型的貨幣對信息</td>
-<td align="center">(貨幣對名稱,屬性)</td>
+<tbody>
+<tr>
+<td style="text-align:center"><code>SymbolInfoDouble(string,ENUM_SYMBOL_INFO_DOUBLE)</code></td>
+<td style="text-align:center">返回數據類型為雙精度浮點型的貨幣對信息</td>
+<td style="text-align:center">(貨幣對名稱,屬性)</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>ENUM_SYMBOL_INFO_DOUBLE:</p>
 <table>
 <thead>
 <tr>
-<th align="center">Identifier</th>
-<th align="center">Describtion</th>
+<th style="text-align:center">Identifier</th>
+<th style="text-align:center">Describtion</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><code>SYMBOL_BID</code></td>
-<td align="center">賣價</td>
+<tbody>
+<tr>
+<td style="text-align:center"><code>SYMBOL_BID</code></td>
+<td style="text-align:center">賣價</td>
 </tr>
 <tr>
-<td align="center"><code>SYMBOL_ASK</code></td>
-<td align="center">買價</td>
+<td style="text-align:center"><code>SYMBOL_ASK</code></td>
+<td style="text-align:center">買價</td>
 </tr>
 <tr>
-<td align="center"><code>SYMBOL_TRADE_TICK_VALUE</code></td>
-<td align="center">最小波動價值(單位為帳戶基礎貨幣)</td>
+<td style="text-align:center"><code>SYMBOL_TRADE_TICK_VALUE</code></td>
+<td style="text-align:center">最小波動價值(單位為帳戶基礎貨幣)</td>
 </tr>
 <tr>
-<td align="center"><code>SYMBOL_POINT</code></td>
-<td align="center">每點價值(單位為小點)</td>
+<td style="text-align:center"><code>SYMBOL_POINT</code></td>
+<td style="text-align:center">每點價值(單位為小點)</td>
 </tr>
-</tbody></table>
-<h2 id="SymbolInfoString"><a href="#SymbolInfoString" class="headerlink" title="SymbolInfoString()"></a>SymbolInfoString()</h2><table>
-<thead>
-<tr>
-<th align="center">Function Name</th>
-<th align="center">Describtion</th>
-<th align="center">Parameter Type</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>SymbolInfoString(string,ENUM_SYMBOL_INFO_STRING)</code></td>
-<td align="center">返回數據類型為字符串的貨幣對信息</td>
-<td align="center">(貨幣對名稱,屬性)</td>
-</tr>
-<tr>
-<td align="center">ENUM_SYMBOL_INFO_STRING:</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
+</tbody>
+</table>
+<h2 id="SymbolInfoString">SymbolInfoString()</h2>
 <table>
 <thead>
 <tr>
-<th align="center">Identifier</th>
-<th align="center">Describtion</th>
+<th style="text-align:center">Function Name</th>
+<th style="text-align:center">Describtion</th>
+<th style="text-align:center">Parameter Type</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><code>SYMBOL_CURRENCY_BASE</code></td>
-<td align="center">交易品種基礎貨幣</td>
+<tbody>
+<tr>
+<td style="text-align:center"><code>SymbolInfoString(string,ENUM_SYMBOL_INFO_STRING)</code></td>
+<td style="text-align:center">返回數據類型為字符串的貨幣對信息</td>
+<td style="text-align:center">(貨幣對名稱,屬性)</td>
 </tr>
 <tr>
-<td align="center"><code>SYMBOL_CURRENCY_PROFIT</code></td>
-<td align="center">利潤結算貨幣</td>
+<td style="text-align:center">ENUM_SYMBOL_INFO_STRING:</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Identifier</th>
+<th style="text-align:center">Describtion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>SYMBOL_CURRENCY_BASE</code></td>
+<td style="text-align:center">交易品種基礎貨幣</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>SYMBOL_CURRENCY_PROFIT</code></td>
+<td style="text-align:center">利潤結算貨幣</td>
+</tr>
+</tbody>
+</table>
 
 		</div>
 
@@ -550,9 +573,9 @@
 			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/2025/04/28/Java/Tomcat%209/Tomcat%209%20SPA%20Web%E7%A8%8B%E5%BA%8F%E5%88%B7%E6%96%B0%E9%8C%AF%E8%AA%A4%E5%95%8F%E9%A1%8C/">
+				<a class="next" rel="next" href="/2025/04/28/Java/JDBC/JDBC%E5%9F%BA%E7%A4%8E/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">Tomcat 9 SPA Web程序刷新錯誤問題</span>
+						<span class="post-nav-title-item">JDBC基礎</span>
 						<span class="post-nav-item">Next posts</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -617,7 +640,7 @@
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">MetaEditor 5常用函數</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B3%E6%88%B6%E4%BF%A1%E6%81%AF%E5%87%BD%E6%95%B8"><span class="nav-text">帳戶信息函數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%9A%E8%88%89%E5%8F%83%E6%95%B8"><span class="nav-text">枚舉參數</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ENUM-ACCOUNT-INFO-DOUBLE"><span class="nav-text">ENUM_ACCOUNT_INFO_DOUBLE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B2%A8%E5%B9%A3%E5%B0%8D%E4%BF%A1%E6%81%AF"><span class="nav-text">貨幣對信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0-1"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E6%95%B8"><span class="nav-text">常數</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SymbolInfoDouble"><span class="nav-text">SymbolInfoDouble()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SymbolInfoString"><span class="nav-text">SymbolInfoString()</span></a></li></ol></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">帳戶信息函數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%9A%E8%88%89%E5%8F%83%E6%95%B8"><span class="nav-text">枚舉參數</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ENUM-ACCOUNT-INFO-DOUBLE"><span class="nav-text">ENUM_ACCOUNT_INFO_DOUBLE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">貨幣對信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0-2"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E6%95%B8"><span class="nav-text">常數</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SymbolInfoDouble"><span class="nav-text">SymbolInfoDouble()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SymbolInfoString"><span class="nav-text">SymbolInfoString()</span></a></li></ol></li></ol>
 
 	</div>
 </div>

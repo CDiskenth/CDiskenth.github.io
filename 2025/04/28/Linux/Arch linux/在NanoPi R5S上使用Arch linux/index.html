@@ -365,21 +365,24 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Arch Linux官方提供了专为ARM CPU使用的<a class="link"   target="_blank" rel="noopener" href="https://archlinuxarm.org/platforms/armv8/generic" >Arch Linux ARM根文件系统<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> ^[1]^, 而NanoPi R5S的开发商亦提供了其bootloader与内核^[2]^, 因此R5S能够运行Arch Linux</p>
+			<h2 id="前言">前言</h2>
+<p>Arch Linux官方提供了专为ARM CPU使用的<a class="link"   target="_blank" rel="noopener" href="https://archlinuxarm.org/platforms/armv8/generic" >Arch Linux ARM根文件系统<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> ^[1]^, 而NanoPi R5S的开发商亦提供了其bootloader与内核^[2]^, 因此R5S能够运行Arch Linux</p>
 <p>下面将会先烧写R5S官方提供的镜像文件(.img文件)至SD卡, 接着清空SD卡上的rootfs分区, 最后再将Arch linux(.tar.gz文件)解压缩至已清空的rootfs分区</p>
-<h1 id="前置准备"><a href="#前置准备" class="headerlink" title="前置准备"></a>前置准备</h1><ol>
+<h1>前置准备</h1>
+<ol>
 <li>一台windows主机</li>
 <li>一台Linux主机(本例中使用虚拟机)</li>
 <li>16GB以上SD卡(本例中使用128GB的SD卡)</li>
 <li>SD卡转USB转接器(若主机无SD卡插槽)</li>
 </ol>
-<h1 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h1><p>首先需要下列文件:</p>
+<h1>下载文件</h1>
+<p>首先需要下列文件:</p>
 <ol>
 <li>NanoPi官方映像文件</li>
 <li>Arch Linux根文件系统</li>
 <li>映像文件烧写工具Win32DiskImager</li>
 </ol>
-<p> 官方映像文件可以从R5S的wiki上取得, 点击<a class="link"   target="_blank" rel="noopener" href="https://wiki.friendlyelec.com/wiki/index.php/NanoPi_R5S#Official_image" >这里<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>官方映像文件可以从R5S的wiki上取得, 点击<a class="link"   target="_blank" rel="noopener" href="https://wiki.friendlyelec.com/wiki/index.php/NanoPi_R5S#Official_image" >这里<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 <ul>
 <li>本例使用<code>rk3568-sd-debian-bullseye-minimal-6.1-arm64-20240131.img.gz</code>作为系统包烧写至R5S(※由于使用SD卡开机, 因此请下载sd卡版本)<img  
                      lazyload
@@ -388,15 +391,18 @@
                       alt="nanopi(1).PNG"
                 ></li>
 </ul>
-<p>Arch Linux根文件系统可在其官方网站下载。请至<a class="link"   target="_blank" rel="noopener" href="https://archlinuxarm.org/platforms/armv8/generic" >这里<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>点击下图链接, 下载适用于ARMv8架构CPU的版本包<code>ArchLinuxARM-aarch64-latest.tar.gz</code><br><img  
+<p>Arch Linux根文件系统可在其官方网站下载。请至<a class="link"   target="_blank" rel="noopener" href="https://archlinuxarm.org/platforms/armv8/generic" >这里<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>点击下图链接, 下载适用于ARMv8架构CPU的版本包<code>ArchLinuxARM-aarch64-latest.tar.gz</code><br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://img-blog.csdnimg.cn/img_convert/8492194c1af834dd8cb22a96747ed094.png"
                       alt="nanopi(2).PNG"
                 ></p>
 <p>烧写工具win32diskimager需自行上网下载, 也可使用其他软件烧写</p>
-<h1 id="烧写官方系统至SD卡"><a href="#烧写官方系统至SD卡" class="headerlink" title="烧写官方系统至SD卡"></a>烧写官方系统至SD卡</h1><ol>
-<li>解压<code>rk3568-sd-debian-bullseye-minimal-6.1-arm64-20240131.img.gz</code>后得到<code>.img</code>文件<br><img  
+<h1>烧写官方系统至SD卡</h1>
+<ol>
+<li>解压<code>rk3568-sd-debian-bullseye-minimal-6.1-arm64-20240131.img.gz</code>后得到<code>.img</code>文件<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://img-blog.csdnimg.cn/img_convert/584a079e5a5f145e7fe9e5bcb83b51d1.png"
@@ -405,7 +411,12 @@
 <li>将SD卡插入windows主机(或通过USB转接器连接), 并使用烧写工具将<code>.img</code>文件烧写至SD卡</li>
 </ol>
 <ul>
-<li>以Win32DiskImager为例<br>(1)点击蓝色文件夹选中已解压好的<code>.img</code>文件<br>(2)点击Device下方的倒三角形, 选中SD卡(示例中SD卡被挂载为D盘)<br>(3)点击Write开始烧写(注意此步骤会抹除SD卡上的所有数据)<br>(4)烧写完毕会弹出Write Successful!<br><img  
+<li>以Win32DiskImager为例<br>
+(1)点击蓝色文件夹选中已解压好的<code>.img</code>文件<br>
+(2)点击Device下方的倒三角形, 选中SD卡(示例中SD卡被挂载为D盘)<br>
+(3)点击Write开始烧写(注意此步骤会抹除SD卡上的所有数据)<br>
+(4)烧写完毕会弹出Write Successful!<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://img-blog.csdnimg.cn/img_convert/6297f0f149ae2b3b5380a2de740bb007.png"
@@ -413,20 +424,20 @@
                 ></li>
 </ul>
 <p>此时R5S已可使用此SD卡进行开机, 但开机后运行的系统是官方提供的debian11, 而非Arch Linux, 因此需要替换掉SD卡中的根文件系统</p>
-<h1 id="替换SD卡中的根文件系统"><a href="#替换SD卡中的根文件系统" class="headerlink" title="替换SD卡中的根文件系统"></a>替换SD卡中的根文件系统</h1><ol>
+<h1>替换SD卡中的根文件系统</h1>
+<ol>
 <li>将烧写好官方系统的SD卡插入Linux主机, 用<code>parted</code>观察分区状况</li>
 </ol>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">user@user-virtual-machine:~$ <span class="built_in">sudo</span> parted /dev/sdb <span class="built_in">print</span></span><br><span class="line">Model:  SD Card Reader (scsi)</span><br><span class="line">Disk /dev/sdb: 128GB</span><br><span class="line">Sector size (logical/physical): 512B/512B</span><br><span class="line">Partition Table: gpt</span><br><span class="line">Disk Flags: </span><br><span class="line"></span><br><span class="line">Number  Start   End     Size    File system  Name      Flags</span><br><span class="line"> 1      8389kB  12.6MB  4194kB               uboot</span><br><span class="line"> 2      12.6MB  16.8MB  4194kB               misc</span><br><span class="line"> 3      16.8MB  21.0MB  4194kB               dtbo</span><br><span class="line"> 4      21.0MB  37.7MB  16.8MB               resource</span><br><span class="line"> 5      37.7MB  79.7MB  41.9MB               kernel</span><br><span class="line"> 6      79.7MB  113MB   33.6MB               boot</span><br><span class="line"> 7      113MB   147MB   33.6MB               recovery</span><br><span class="line"> 8      147MB   3569MB  3423MB  ext4         rootfs</span><br><span class="line"> 9      3569MB  7800MB  4231MB  ext4         userdata</span><br></pre></td></tr></table></figure></div>
 <p>重点关注第1, 3, 5, 8这4个分区, 分别为bootloader, 设备树, Linux内核, 根文件系统。这里第1, 3, 5分区不可更动, 我们仅将Arch Linux根文件系统写入分区8。</p>
 <ol start="2">
-<li>将<code>ArchLinuxARM-aarch64-latest.tar.gz</code>放至Linux主机或在Linux主机中执行以下命令直接将其下载到硬盘<blockquote>
+<li>将<code>ArchLinuxARM-aarch64-latest.tar.gz</code>放至Linux主机或在Linux主机中执行以下命令直接将其下载到硬盘</li>
+</ol>
+<blockquote>
 <p><code>wget http://os.archlinuxarm.org/os/ArchLinuxARM-aarch64-latest.tar.gz</code></p>
 </blockquote>
-</li>
-</ol>
 <p>下载完成后如下</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">user@user-virtual-machine:~$ <span class="built_in">ls</span> -l</span><br><span class="line">total 530392</span><br><span class="line">-rw-rw-r-- 1 user user 543064511  三   1  2023 ArchLinuxARM-aarch64-latest.tar.gz <span class="comment"># downloaded Arch linux</span></span><br><span class="line">drwxr-xr-x 2 user user      4096  三  14 05:09 Desktop</span><br><span class="line">drwxr-xr-x 2 user user      4096  三  14 05:09 Documents</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br></pre></td></tr></table></figure></div>
-
 <ol start="3">
 <li>挂载SD卡并且清空rootfs分区(即上述分区8)</li>
 </ol>
@@ -441,7 +452,8 @@
 <p>完成后卸载并退出SD卡</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@user-virtual-machine:/home/user# umount /dev/sdb8 <span class="comment"># 卸载SD卡</span></span><br></pre></td></tr></table></figure></div>
 <ol start="5">
-<li>将SD卡插入R5S并上电, 进入系统<br><img  
+<li>将SD卡插入R5S并上电, 进入系统<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://img-blog.csdnimg.cn/img_convert/ae61a6a1ccfa1e2b0dfb15eaa4c39133.png"
@@ -449,8 +461,10 @@
                 ></li>
 </ol>
 <p>(根据官方数据^[1]^, 一般账户的账号密码皆为alarm, root账户密码为root)</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>至此, 我们成功在NanoPi R5S上运行了Arch Linux, 过程中仅仅对已烧写好官方系统的SD卡进行修改, 将其中rootfs分区的数据清空并替换成Arch Linux根文件系统</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<h1>总结</h1>
+<p>至此, 我们成功在NanoPi R5S上运行了Arch Linux, 过程中仅仅对已烧写好官方系统的SD卡进行修改, 将其中rootfs分区的数据清空并替换成Arch Linux根文件系统</p>
+<h1>参考</h1>
+<ol>
 <li><a class="link"   target="_blank" rel="noopener" href="https://archlinuxarm.org/platforms/armv8/generic" >https://archlinuxarm.org/platforms/armv8/generic<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li><a class="link"   target="_blank" rel="noopener" href="https://wiki.friendlyelec.com/wiki/index.php/NanoPi_R5S" >https://wiki.friendlyelec.com/wiki/index.php/NanoPi_R5S<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 </ol>
@@ -510,12 +524,12 @@
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
 			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/2025/04/28/Linux/Arch%20linux/NanoPi%20R5S%E5%88%9D%E6%AC%A1%E9%85%8D%E7%BD%AEArch%20Linux%E7%92%B0%E5%A2%83/">
+				<a class="prev" rel="prev" href="/2025/04/28/Linux/Arch%20linux/NanoPi%20R5S%E5%B9%B3%E5%8F%B0%E4%B8%8A%E7%9A%84Arch%20Linux%20ARM%E7%9A%84GUI%E7%AE%80%E6%98%93%E9%85%8D%E7%BD%AE/">
 					<span class="left arrow-icon flex justify-center items-center">
 						<i class="fa-solid fa-chevron-left"></i>
 					</span>
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">NanoPi R5S初次配置Arch Linux環境</span>
+						<span class="post-nav-title-item">NanoPi R5S平台上的Arch Linux ARM的GUI简易配置</span>
 						<span class="post-nav-item">Prev posts</span>
 					</span>
 				</a>
@@ -523,9 +537,9 @@
 			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/2025/04/28/Linux/Arch%20linux/NanoPi%20R5S%E5%B9%B3%E5%8F%B0%E4%B8%8A%E7%9A%84Arch%20Linux%20ARM%E7%9A%84GUI%E7%AE%80%E6%98%93%E9%85%8D%E7%BD%AE/">
+				<a class="next" rel="next" href="/2025/04/28/React/Basic/JavaScript%E5%9F%BA%E7%A4%8E/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">NanoPi R5S平台上的Arch Linux ARM的GUI简易配置</span>
+						<span class="post-nav-title-item">JavaScript基礎</span>
 						<span class="post-nav-item">Next posts</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -590,7 +604,7 @@
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">在NanoPi R5S上使用Arch linux</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E5%87%86%E5%A4%87"><span class="nav-text">前置准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6"><span class="nav-text">下载文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%83%A7%E5%86%99%E5%AE%98%E6%96%B9%E7%B3%BB%E7%BB%9F%E8%87%B3SD%E5%8D%A1"><span class="nav-text">烧写官方系统至SD卡</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%BF%E6%8D%A2SD%E5%8D%A1%E4%B8%AD%E7%9A%84%E6%A0%B9%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-text">替换SD卡中的根文件系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">前置准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">下载文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">烧写官方系统至SD卡</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">替换SD卡中的根文件系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">参考</span></a>
 
 	</div>
 </div>

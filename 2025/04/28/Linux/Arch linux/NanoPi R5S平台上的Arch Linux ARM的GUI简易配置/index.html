@@ -370,31 +370,40 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><font color="red" size="5">版权声明：本文为CSDN博主「@Diskenth」原创文章，转载请在显着位置标明本文出处以及作者网名，未经作者允许不得用于商业目的。 </font></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>众所周知，如Ubuntu这样的Linux发行版或者Windows等系统在安装完毕后，便拥有自己的图形操作环境(即GUI，Graphical User Interface)，使用者能方便地在GUI环境下完成各种复杂的操作，如使用浏览器浏览网站，打开文件夹管理器管理文件等等；Arch Linux不同，其安装完毕后仅提供黑底白字的命令行介面(即CLI，Command-Line Interface)，任何的操作都必须给主机输入命令才能实现。</p>
+			<p><font color="red" size="5">版权声明：本文为CSDN博主「@Diskenth」原创文章，转载请在显着位置标明本文出处以及作者网名，未经作者允许不得用于商业目的。 </font></p>
+<h1>前言</h1>
+<p>众所周知，如Ubuntu这样的Linux发行版或者Windows等系统在安装完毕后，便拥有自己的图形操作环境(即GUI，Graphical User Interface)，使用者能方便地在GUI环境下完成各种复杂的操作，如使用浏览器浏览网站，打开文件夹管理器管理文件等等；Arch Linux不同，其安装完毕后仅提供黑底白字的命令行介面(即CLI，Command-Line Interface)，任何的操作都必须给主机输入命令才能实现。</p>
 <p>那么，在Arch Linux ARM上是否也能够如Ubuntu一样拥有图形操作环境?</p>
 <p>------答案是可行的，本篇将在已安装Arch Linux ARM的嵌入式系统(NanoPi R5S)上搭建最基础的GUI</p>
-<h1 id="Arch-Linux-Arm安装与配置"><a href="#Arch-Linux-Arm安装与配置" class="headerlink" title="Arch Linux Arm安装与配置"></a>Arch Linux Arm安装与配置</h1><p>细节请自行参考我先前发布的两篇文章:</p>
+<h1>Arch Linux Arm安装与配置</h1>
+<p>细节请自行参考我先前发布的两篇文章:</p>
 <ol>
 <li>「<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36832883/article/details/136738215" >在NanoPi R5S上使用Arch Linux<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>」</li>
 <li>「<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36832883/article/details/136776270" >NanoPi R5S初次配置Arch Linux环境<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>」</li>
 </ol>
-<h1 id="图形界面基础架构"><a href="#图形界面基础架构" class="headerlink" title="图形界面基础架构"></a>图形界面基础架构</h1><p>Linux的图形界面是采用Client&#x2F;Server架构实现的<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[鸟哥的Linux私房菜--X Window 设定介绍](https://linux.vbird.org/linux_basic/centos7/0590xwindow.php)">1</span></a></sup>，它们的主要功能如下:</p>
+<h1>图形界面基础架构</h1>
+<p>Linux的图形界面是采用Client/Server架构实现的[^1]，它们的主要功能如下:</p>
 <ul>
 <li>Server：发送鼠标、键盘的事件给Client，并接收与绘图相关的数据(即屏幕所要呈现的内容)，再利用屏幕呈现画面</li>
 <li>Client：接收Server端发送过来的鼠标、键盘事件后产生绘图数据，并将此数据发送至Server端进行处理</li>
 </ul>
 <p>既然Server负责的硬件包含鼠标、键盘、屏幕，而Client负责产生并发送绘图数据，那么我们的R5S上就必须同时拥有Client与Server</p>
-<h1 id="安装并配置图形界面"><a href="#安装并配置图形界面" class="headerlink" title="安装并配置图形界面"></a>安装并配置图形界面</h1><p>先安装以下3种图形界面所需要的软件：</p>
+<h1>安装并配置图形界面</h1>
+<p>先安装以下3种图形界面所需要的软件：</p>
 <ol>
-<li><p>Client端：<br>这里采用<strong>Plasma</strong>这个KDE这个软件项目里面提供的图形界面。 Plasma正是作为上节提到的图形界面基础架构中的Client，它可以提供我们桌面、工作菜单、视窗显示等等功能</p>
+<li>
+<p>Client端：<br>
+这里采用<strong>Plasma</strong>这个KDE这个软件项目里面提供的图形界面。 Plasma正是作为上节提到的图形界面基础架构中的Client，它可以提供我们桌面、工作菜单、视窗显示等等功能</p>
 </li>
-<li><p>Server端：<strong>xorg-server</strong></p>
+<li>
+<p>Server端：<strong>xorg-server</strong></p>
 </li>
-<li><p>帐号密码登入界面：使用<strong>SDDM</strong>(Arch Wiki KDE介绍页面中推荐)</p>
+<li>
+<p>帐号密码登入界面：使用<strong>SDDM</strong>(Arch Wiki KDE介绍页面中推荐)</p>
 </li>
 </ol>
-<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
+<h2 id="安装步骤">安装步骤</h2>
+<ol>
 <li>在安装前，必须先用<code>pacman</code>进行全系统更新，如下:</li>
 </ol>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -Syu</span><br></pre></td></tr></table></figure></div>
@@ -402,7 +411,8 @@
 <p>※若未进行系统更新，那么安装KDE时会提示原有的包mkinitcpio与即将安装的包mdadm发生冲突，从而导致无法安装KDE</p>
 </blockquote>
 <ol start="2">
-<li>安装KDE plasma、SDDM，过程中的提示都使用默认的选项:<br>(安装SDDM这个软件时还会一同安装xorg-server，因此后续不必再做Server端的安装)</li>
+<li>安装KDE plasma、SDDM，过程中的提示都使用默认的选项:<br>
+(安装SDDM这个软件时还会一同安装xorg-server，因此后续不必再做Server端的安装)</li>
 </ol>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S --needed plasma-desktop sddm</span><br></pre></td></tr></table></figure></div>
 <blockquote>
@@ -425,29 +435,34 @@
 </ol>
 <p>安装完成后不须做其他配置，直接启动<code>sddm.service</code>这项服务即可打开图形界面:</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl start sddm.service    <span class="comment">#单次启动sddm，画面默认输出至tty2</span></span><br></pre></td></tr></table></figure></div>
-<p>键入上面的命令后会直接启动帐号密码登入画面<br><img  
+<p>键入上面的命令后会直接启动帐号密码登入画面<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://img-blog.csdnimg.cn/img_convert/9dad0d3f800a89f6bd98d45a8c7e5025.jpeg"
                       alt="IMG_20240901_113544.jpg"
                 ></p>
-<h2 id="登入系统"><a href="#登入系统" class="headerlink" title="登入系统"></a>登入系统</h2><ol>
-<li>输入密码登入<br>Arch官方系统内置的一般用户:</li>
+<h2 id="登入系统">登入系统</h2>
+<ol>
+<li>输入密码登入<br>
+Arch官方系统内置的一般用户:</li>
 </ol>
 <table>
 <thead>
 <tr>
-<th align="center">用户类型</th>
-<th align="center">帐号名称</th>
-<th align="center">密码</th>
+<th style="text-align:center">用户类型</th>
+<th style="text-align:center">帐号名称</th>
+<th style="text-align:center">密码</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">一般用户</td>
-<td align="center">alarm</td>
-<td align="center">alarm</td>
+<tbody>
+<tr>
+<td style="text-align:center">一般用户</td>
+<td style="text-align:center">alarm</td>
+<td style="text-align:center">alarm</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
@@ -455,15 +470,19 @@
                       alt="IMG_20240901_113604.jpg"
                 ></p>
 <ol start="2">
-<li>成功启用<br><img  
+<li>成功启用<br>
+<img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://i-blog.csdnimg.cn/direct/cfff3b3627b7430a833ac2a4b21d92d6.jpeg#pic_center"
                       alt="IMG_20240901_113845.jpg"
                 ></li>
 </ol>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本篇配置了Arch linux ARM的GUI环境且成功启动，重点为<code>plasma-desktop</code>、<code>sddm</code>两个软件的安装正确性，若安装出错则无法成功在Arch linux上使用GUI。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a class="link"   target="_blank" rel="noopener" href="https://linux.vbird.org/linux_basic/centos7/0590xwindow.php" >鸟哥的Linux私房菜--X Window 设定介绍<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><a href="#fnref:1" rev="footnote">↩</a></span></li></ol></div></div>
+<h1>总结</h1>
+<p>本篇配置了Arch linux ARM的GUI环境且成功启动，重点为<code>plasma-desktop</code>、<code>sddm</code>两个软件的安装正确性，若安装出错则无法成功在Arch linux上使用GUI。</p>
+<h1>参考</h1>
+<p>[^1]: <a class="link"   target="_blank" rel="noopener" href="https://linux.vbird.org/linux_basic/centos7/0590xwindow.php" >鸟哥的Linux私房菜–X Window 设定介绍<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+
 		</div>
 
 		
@@ -523,12 +542,12 @@
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
 			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/2025/04/28/Linux/Arch%20linux/%E5%9C%A8NanoPi%20R5S%E4%B8%8A%E4%BD%BF%E7%94%A8Arch%20linux/">
+				<a class="prev" rel="prev" href="/2025/04/28/Linux/Arch%20linux/NanoPi%20R5S%E5%88%9D%E6%AC%A1%E9%85%8D%E7%BD%AEArch%20Linux%E7%92%B0%E5%A2%83/">
 					<span class="left arrow-icon flex justify-center items-center">
 						<i class="fa-solid fa-chevron-left"></i>
 					</span>
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">在NanoPi R5S上使用Arch linux</span>
+						<span class="post-nav-title-item">NanoPi R5S初次配置Arch Linux環境</span>
 						<span class="post-nav-item">Prev posts</span>
 					</span>
 				</a>
@@ -536,9 +555,9 @@
 			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/2025/04/28/Language/English/Early%20modern%20english/%E8%8E%8E%E5%A3%AB%E6%AF%94%E4%BA%9E%E6%99%82%E4%BB%A3%E7%99%BC%E9%9F%B3%E8%88%87%E7%B6%B4%E5%AD%97/">
+				<a class="next" rel="next" href="/2025/04/28/Linux/Arch%20linux/%E5%9C%A8NanoPi%20R5S%E4%B8%8A%E4%BD%BF%E7%94%A8Arch%20linux/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">莎士比亞時代發音與綴字</span>
+						<span class="post-nav-title-item">在NanoPi R5S上使用Arch linux</span>
 						<span class="post-nav-item">Next posts</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -603,7 +622,7 @@
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">NanoPi R5S平台上的Arch Linux ARM的GUI简易配置</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Arch-Linux-Arm%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-text">Arch Linux Arm安装与配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84"><span class="nav-text">图形界面基础架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2"><span class="nav-text">安装并配置图形界面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4"><span class="nav-text">安装步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%99%BB%E5%85%A5%E7%B3%BB%E7%BB%9F"><span class="nav-text">登入系统</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">Arch Linux Arm安装与配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">图形界面基础架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">安装并配置图形界面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4"><span class="nav-text">安装步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%99%BB%E5%85%A5%E7%B3%BB%E7%BB%9F"><span class="nav-text">登入系统</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">参考</span></a></li></ol>
 
 	</div>
 </div>

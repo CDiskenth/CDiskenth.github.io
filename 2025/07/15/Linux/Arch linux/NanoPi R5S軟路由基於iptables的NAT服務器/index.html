@@ -366,8 +366,10 @@
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
 			<p><font color="red" size="5">版權聲明：本文為CSDN博主「@Diskenth」原創文章，轉載請在顯著位置標明本文出處以及作者網名，未經作者允許不得用於商業目的。 </font></p>
-<h1 id="目標"><a href="#目標" class="headerlink" title="目標"></a>目標</h1><p>本文演示如何配置網卡及iptables的NAT功能，使接入Linux軟路由的家用PC能夠上網，且家用PC與其它設備不同，屬於另一個子網域</p>
-<h1 id="測試環境"><a href="#測試環境" class="headerlink" title="測試環境"></a>測試環境</h1><ul>
+<h1>目標</h1>
+<p>本文演示如何配置網卡及iptables的NAT功能，使接入Linux軟路由的家用PC能夠上網，且家用PC與其它設備不同，屬於另一個子網域</p>
+<h1>測試環境</h1>
+<ul>
 <li>一台家用PC</li>
 <li>Linux軟路由</li>
 <li>一台家用路由器</li>
@@ -377,93 +379,101 @@
 <table>
 <thead>
 <tr>
-<th align="center"></th>
-<th align="center">參數</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">參數</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">Architecture</td>
-<td align="center">x86</td>
+<tbody>
+<tr>
+<td style="text-align:center">Architecture</td>
+<td style="text-align:center">x86</td>
 </tr>
 <tr>
-<td align="center">CPU</td>
-<td align="center">Intel i9-9880H</td>
+<td style="text-align:center">CPU</td>
+<td style="text-align:center">Intel i9-9880H</td>
 </tr>
 <tr>
-<td align="center">System</td>
-<td align="center">Windows</td>
+<td style="text-align:center">System</td>
+<td style="text-align:center">Windows</td>
 </tr>
 <tr>
-<td align="center">IP</td>
-<td align="center">192.168.8.173</td>
+<td style="text-align:center">IP</td>
+<td style="text-align:center">192.168.8.173</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\User&gt;ipconfig</span><br><span class="line"></span><br><span class="line">Windows IP 構成</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">イーサネット アダプター イーサネット:</span><br><span class="line"></span><br><span class="line">   接続固有の DNS サフィックス . . . . .:</span><br><span class="line">   リンクローカル IPv6 アドレス. . . . .: fe80::9295:cda8:aa8f:610b%17</span><br><span class="line">   IPv4 アドレス . . . . . . . . . . . .: 192.168.8.173</span><br><span class="line">   サブネット マスク . . . . . . . . . .: 255.255.255.0</span><br><span class="line">   デフォルト ゲートウェイ . . . . . . .: 192.168.8.1</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br></pre></td></tr></table></figure></div>
-
 <p>Nano Pi R5S：</p>
 <table>
 <thead>
 <tr>
-<th align="center"></th>
-<th align="center">參數</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">參數</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">Architecture</td>
-<td align="center">ARM</td>
+<tbody>
+<tr>
+<td style="text-align:center">Architecture</td>
+<td style="text-align:center">ARM</td>
 </tr>
 <tr>
-<td align="center">CPU</td>
-<td align="center">Rockchip RK3568</td>
+<td style="text-align:center">CPU</td>
+<td style="text-align:center">Rockchip RK3568</td>
 </tr>
 <tr>
-<td align="center">System</td>
-<td align="center">Arch linux ARM</td>
+<td style="text-align:center">System</td>
+<td style="text-align:center">Arch linux ARM</td>
 </tr>
 <tr>
-<td align="center">User</td>
-<td align="center">zeta</td>
+<td style="text-align:center">User</td>
+<td style="text-align:center">zeta</td>
 </tr>
 <tr>
-<td align="center">IP</td>
-<td align="center">192.168.8.215</td>
+<td style="text-align:center">IP</td>
+<td style="text-align:center">192.168.8.215</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[zeta@alarm ~]$ ip addr</span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host noprefixroute</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: end0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq master br2 state UP group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 5e:c5:c0:63:ac:b2 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    altname enx5ec5c063acb2</span><br><span class="line">    inet6 fe80::5cc5:c0ff:fe63:acb2/64 scope <span class="built_in">link</span> proto kernel_ll</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">3: end1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel master br2 state UP group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 62:c5:c0:63:ac:b2 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    altname enp1s0</span><br><span class="line">    altname enx62c5c063acb2</span><br><span class="line">    inet6 fe80::60c5:c0ff:fe63:acb2/64 scope <span class="built_in">link</span> proto kernel_ll</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">4: enP1p17s0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc fq_codel master br2 state DOWN group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 7e:57:3e:95:92:87 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">5: br2: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether e2:c7:45:b7:a8:8f brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 192.168.8.215/24 scope global br2</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::e0c7:45ff:feb7:a88f/64 scope <span class="built_in">link</span> proto kernel_ll</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">[zeta@alarm ~]$</span><br></pre></td></tr></table></figure></div>
 <p>家用路由器：</p>
 <table>
 <thead>
 <tr>
-<th align="center"></th>
-<th align="center">參數</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">參數</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">IP</td>
-<td align="center">192.168.8.1</td>
+<tbody>
+<tr>
+<td style="text-align:center">IP</td>
+<td style="text-align:center">192.168.8.1</td>
 </tr>
-</tbody></table>
-<h1 id="網路拓樸"><a href="#網路拓樸" class="headerlink" title="網路拓樸"></a>網路拓樸</h1><p>軟路由網卡名稱與網口的對應關係為：</p>
+</tbody>
+</table>
+<h1>網路拓樸</h1>
+<p>軟路由網卡名稱與網口的對應關係為：</p>
 <table>
 <thead>
 <tr>
-<th align="center">網卡名稱</th>
-<th align="center">網口</th>
+<th style="text-align:center">網卡名稱</th>
+<th style="text-align:center">網口</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">end0</td>
-<td align="center">WAN口</td>
+<tbody>
+<tr>
+<td style="text-align:center">end0</td>
+<td style="text-align:center">WAN口</td>
 </tr>
 <tr>
-<td align="center">end1</td>
-<td align="center">LAN1</td>
+<td style="text-align:center">end1</td>
+<td style="text-align:center">LAN1</td>
 </tr>
 <tr>
-<td align="center">enP1p17s0</td>
-<td align="center">LAN2</td>
+<td style="text-align:center">enP1p17s0</td>
+<td style="text-align:center">LAN2</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>其中，</p>
 <ol>
 <li>WAN口連接至家用路由器的LAN口</li>
@@ -471,15 +481,14 @@
 <li>LAN2口接至家用PC</li>
 </ol>
 <p>＊注意，在軟路由中這三個網口已經配置為網橋<code>br2</code></p>
-<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="配置網卡"><a href="#配置網卡" class="headerlink" title="配置網卡"></a>配置網卡</h2><p>目前網卡end0、end1、enP1p17s0都屬於br2這個網橋，這裡將enP1p17s0這張網卡從網橋中移除，其餘則不更動</p>
+<h1>配置</h1>
+<h2 id="配置網卡">配置網卡</h2>
+<p>目前網卡end0、end1、enP1p17s0都屬於br2這個網橋，這裡將enP1p17s0這張網卡從網橋中移除，其餘則不更動</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ip <span class="built_in">link</span> <span class="built_in">set</span> dev enP1p17s0 nomaster</span><br></pre></td></tr></table></figure></div>
-
-<p>接著給其添加IP位址192.168.7.1&#x2F;24</p>
+<p>接著給其添加IP位址192.168.7.1/24</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ip addr add 192.168.7.1/24 dev enP1p17s0 <span class="comment">#添加ip</span></span><br></pre></td></tr></table></figure></div>
-
 <p>啟用內核IPv4轉發</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;1&quot;</span> | <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/sys/net/ipv4/ip_forward &gt; /dev/null</span><br></pre></td></tr></table></figure></div>
-
 <p>重新指定PC機網卡為靜態IP，位址為192.168.7.3，子網掩碼為255.255.255.0，默認網關指定為192.168.7.1(即軟路由的IP位址)，並<strong>關閉防火牆</strong></p>
 <blockquote>
 <p>＊關於Windows操作系統如何更改IP為址，具體操作請Google相關資料</p>
@@ -490,17 +499,21 @@
 <p>接著測試軟路由是否能ping通PC機</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[zeta@alarm ~]$ ping 192.168.7.3</span><br><span class="line">PING 192.168.7.3 (192.168.7.3) 56(84) bytes of data.</span><br><span class="line">64 bytes from 192.168.7.3: icmp_seq=1 ttl=128 <span class="keyword">time</span>=0.887 ms</span><br><span class="line">64 bytes from 192.168.7.3: icmp_seq=2 ttl=128 <span class="keyword">time</span>=0.315 ms</span><br><span class="line">64 bytes from 192.168.7.3: icmp_seq=3 ttl=128 <span class="keyword">time</span>=0.640 ms</span><br><span class="line">64 bytes from 192.168.7.3: icmp_seq=4 ttl=128 <span class="keyword">time</span>=0.313 ms</span><br><span class="line">^C</span><br><span class="line">--- 192.168.7.3 ping statistics ---</span><br><span class="line">4 packets transmitted, 4 received, 0% packet loss, <span class="keyword">time</span> 3014ms</span><br><span class="line">rtt min/avg/max/mdev = 0.313/0.538/0.887/0.241 ms</span><br><span class="line">[zeta@alarm ~]$</span><br></pre></td></tr></table></figure></div>
 <p>軟路由亦可ping通PC機，至此網卡的配置完成</p>
-<h3 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h3><p>直接使用<code>ip</code>命令來配置網卡參數僅能暫時生效，若重啟網路服務或重新開機，配置便會恢復先前的狀態，我們可以透過<code>systemd-networkd</code>這項服務的配置文件來讓網路的配置開機即生效</p>
+<h3 id="持久化">持久化</h3>
+<p>直接使用<code>ip</code>命令來配置網卡參數僅能暫時生效，若重啟網路服務或重新開機，配置便會恢復先前的狀態，我們可以透過<code>systemd-networkd</code>這項服務的配置文件來讓網路的配置開機即生效</p>
 <p><code>systemd-networkd</code>的配置文件位於<code>/etc/systemd/network</code>目錄下。我們在上述目錄下創建enP1p17s0網卡的配置文件<code>10-enP1p17s0.network</code>，其內容為：</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[Match]</span><br><span class="line">Name=enP1p17s0 <span class="comment">#指定欲配置的網卡名稱</span></span><br><span class="line"></span><br><span class="line">[Network]</span><br><span class="line">Address=192.168.7.1/24 <span class="comment">#IP與子網掩碼</span></span><br><span class="line">Gateway=192.168.8.1 <span class="comment">#默認網關</span></span><br><span class="line">DNS=8.8.8.8 <span class="comment">#DNS服務器位址</span></span><br></pre></td></tr></table></figure></div>
 <p>日後重新開機或重啟服務時會自動套用此文件下的各項參數</p>
-<h2 id="配置iptables"><a href="#配置iptables" class="headerlink" title="配置iptables"></a>配置iptables</h2><p>使用的iptables版本為v1.18.11-2</p>
-<h3 id="iptables配置文件"><a href="#iptables配置文件" class="headerlink" title="iptables配置文件"></a>iptables配置文件</h3><p>相關的配置文件為：</p>
+<h2 id="配置iptables">配置iptables</h2>
+<p>使用的iptables版本為v1.18.11-2</p>
+<h3 id="iptables配置文件">iptables配置文件</h3>
+<p>相關的配置文件為：</p>
 <ul>
 <li><code>/etc/iptables/iptables.rules</code>：主要的配置文件，紀錄防火牆的規則</li>
 <li><code>/etc/iptables/empty.rules</code>：最原始的配置，想恢復默認值時可參考此文件</li>
 </ul>
-<h3 id="撰寫防火牆規則"><a href="#撰寫防火牆規則" class="headerlink" title="撰寫防火牆規則"></a>撰寫防火牆規則</h3><ol>
+<h3 id="撰寫防火牆規則">撰寫防火牆規則</h3>
+<ol>
 <li>查看iptables防火牆目前的規則</li>
 </ol>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[zeta@alarm ~]$ <span class="built_in">sudo</span> iptables-save</span><br><span class="line"><span class="comment"># Generated by iptables-save v1.8.11 on Wed Jul  9 09:38:43 2025</span></span><br><span class="line">*mangle</span><br><span class="line">:PREROUTING ACCEPT [307:16096]</span><br><span class="line">:INPUT ACCEPT [307:16096]</span><br><span class="line">:FORWARD ACCEPT [0:0]</span><br><span class="line">:OUTPUT ACCEPT [492:52032]</span><br><span class="line">:POSTROUTING ACCEPT [492:52032]</span><br><span class="line">COMMIT</span><br><span class="line"><span class="comment"># Completed on Wed Jul  9 09:38:43 2025</span></span><br><span class="line"><span class="comment"># Generated by iptables-save v1.8.11 on Wed Jul  9 09:38:43 2025</span></span><br><span class="line">*nat</span><br><span class="line">:PREROUTING ACCEPT [0:0]</span><br><span class="line">:INPUT ACCEPT [0:0]</span><br><span class="line">:OUTPUT ACCEPT [0:0]</span><br><span class="line">:POSTROUTING ACCEPT [0:0]</span><br><span class="line">COMMIT</span><br><span class="line"><span class="comment"># Completed on Wed Jul  9 09:38:43 2025</span></span><br><span class="line"><span class="comment"># Generated by iptables-save v1.8.11 on Wed Jul  9 09:38:43 2025</span></span><br><span class="line">*filter</span><br><span class="line">:INPUT ACCEPT [958:52205]</span><br><span class="line">:FORWARD ACCEPT [0:0]</span><br><span class="line">:OUTPUT ACCEPT [1417:149276]</span><br><span class="line">COMMIT</span><br><span class="line"><span class="comment"># Completed on Wed Jul  9 09:38:43 2025</span></span><br><span class="line">[zeta@alarm ~]$</span><br></pre></td></tr></table></figure></div>
@@ -520,14 +533,16 @@
 <li><code>--dport 22</code>表示封包的目標端口號，這裡指定為SSH的端口(即22)</li>
 <li><code>-j ACCEPT</code>表示目標(動作)為放行，即允許通過防火牆</li>
 </ul>
-<p>由於SSH和ICMP協議經常使用，所以允許通過防火牆<br>＊ICMP為網路層協議，和TCP、UDP屬於同一層級，並不具備端口號，因此不使用<code>--dport</code>參數</p>
+<p>由於SSH和ICMP協議經常使用，所以允許通過防火牆<br>
+＊ICMP為網路層協議，和TCP、UDP屬於同一層級，並不具備端口號，因此不使用<code>--dport</code>參數</p>
 <ol start="4">
 <li>開啟IP偽裝**(重點)**</li>
 </ol>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> iptables -t nat -A POSTROUTING -s 192.168.7.0/24 -o br2 -j MASQUERADE</span><br></pre></td></tr></table></figure></div>
-<p>這一步讓網卡enP1p17s0所在的網域(192.168.7.0&#x2F;24)中的所有傳進來的封包的來源IP被替換成網卡br2的IP（即把其他主機的真實IP偽裝成192.168.8.215）</p>
+<p>這一步讓網卡enP1p17s0所在的網域(192.168.7.0/24)中的所有傳進來的封包的來源IP被替換成網卡br2的IP（即把其他主機的真實IP偽裝成192.168.8.215）</p>
 <ol start="5">
-<li>保存配置<br>用<code>iptalbes-save</code>配合重定向來將配置寫入<code>/etc/iptables/iptables.rules</code></li>
+<li>保存配置<br>
+用<code>iptalbes-save</code>配合重定向來將配置寫入<code>/etc/iptables/iptables.rules</code></li>
 </ol>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> iptables-save | <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/iptables/iptables.rules &gt; /dev/null</span><br></pre></td></tr></table></figure></div>
 <ol start="6">
@@ -542,14 +557,16 @@
 <blockquote>
 <p>＊在最後一步才配置默認政策的原因為不論<code>iptables</code>是否已經啟動，<code>sudo iptables -t filter -P INPUT DROP</code>這項默認政策在設定時都會造成所有進入主機的封包被丟棄，通過ssh遠程登入的使用者必然會斷線，且再也無法重新登入</p>
 </blockquote>
-<h2 id="配置內核IPv4封包轉發"><a href="#配置內核IPv4封包轉發" class="headerlink" title="配置內核IPv4封包轉發"></a>配置內核IPv4封包轉發</h2><p>為了實現ipv4封包轉發需要配置內核參數並且使配置永久生效，Linux內置的<code>sysctl</code>已經提供了相關功能</p>
+<h2 id="配置內核IPv4封包轉發">配置內核IPv4封包轉發</h2>
+<p>為了實現ipv4封包轉發需要配置內核參數並且使配置永久生效，Linux內置的<code>sysctl</code>已經提供了相關功能</p>
 <p>Arch Linux中<code>sysctl</code>會<strong>按順序</strong>採用下列目錄的配置文件：</p>
 <ul>
 <li><code>/etc/sysctl.d/*.conf</code>(優先級最高)</li>
 <li><code>/run/sysctl.d/*.conf</code></li>
 <li><code>/usr/local/lib/sysctl.d/*.conf</code></li>
 <li><code>/usr/lib/sysctl.d/*.conf</code></li>
-<li><code>/lib/sysctl.d/*.conf</code>(優先級最低)<br>＊一旦高優先級目錄下的文件被採用，那其餘低優先級目錄下的同名文件會直接忽略</li>
+<li><code>/lib/sysctl.d/*.conf</code>(優先級最低)<br>
+＊一旦高優先級目錄下的文件被採用，那其餘低優先級目錄下的同名文件會直接忽略</li>
 </ul>
 <p>這裡選擇在<code>/etc/sysctl.d</code>目錄下創建一個新的配置文件<code>10-default.conf</code>，文件內容如下：</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.ip_forward = 1 <span class="comment">#啟動內核ipv4封包轉發</span></span><br></pre></td></tr></table></figure></div>
@@ -558,11 +575,14 @@
 <p>觀察配置是否成功</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[zeta@alarm ~]$ <span class="built_in">cat</span> /proc/sys/net/ipv4/ip_forward</span><br><span class="line">1 <span class="comment">#1為啟用轉發，0為不啟用轉發</span></span><br><span class="line">[zeta@alarm ~]$</span><br></pre></td></tr></table></figure></div>
 <p>已經成功開啟ipv4轉發功能</p>
-<h1 id="實際測試"><a href="#實際測試" class="headerlink" title="實際測試"></a>實際測試</h1><p>嘗試由PC機Ping軟路由及外網</p>
+<h1>實際測試</h1>
+<p>嘗試由PC機Ping軟路由及外網</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\User&gt;ipconfig</span><br><span class="line"></span><br><span class="line">Windows IP 構成</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">不明なアダプター VPN - VPN Client:</span><br><span class="line"></span><br><span class="line">   メディアの状態. . . . . . . . . . . .: メディアは接続されていません</span><br><span class="line">   接続固有の DNS サフィックス . . . . .:</span><br><span class="line"></span><br><span class="line">イーサネット アダプター イーサネット:</span><br><span class="line"></span><br><span class="line">   接続固有の DNS サフィックス . . . . .:</span><br><span class="line">   リンクローカル IPv6 アドレス. . . . .: fe80::9295:cda8:aa8f:610b%17</span><br><span class="line">   IPv4 アドレス . . . . . . . . . . . .: 192.168.7.3</span><br><span class="line">   サブネット マスク . . . . . . . . . .: 255.255.255.0</span><br><span class="line">   デフォルト ゲートウェイ . . . . . . .: 192.168.7.1</span><br><span class="line"></span><br><span class="line">Wireless LAN adapter ローカル エリア接続* 9:</span><br><span class="line"></span><br><span class="line">   メディアの状態. . . . . . . . . . . .: メディアは接続されていません</span><br><span class="line">   接続固有の DNS サフィックス . . . . .:</span><br><span class="line"></span><br><span class="line">Wireless LAN adapter ローカル エリア接続* 10:</span><br><span class="line"></span><br><span class="line">   メディアの状態. . . . . . . . . . . .: メディアは接続されていません</span><br><span class="line">   接続固有の DNS サフィックス . . . . .:</span><br><span class="line"></span><br><span class="line">イーサネット アダプター VMware Network Adapter VMnet1:</span><br><span class="line"></span><br><span class="line">   接続固有の DNS サフィックス . . . . .:</span><br><span class="line">   リンクローカル IPv6 アドレス. . . . .: fe80::a507:4b3b:7374:d874%19</span><br><span class="line">   IPv4 アドレス . . . . . . . . . . . .: 192.168.245.1</span><br><span class="line">   サブネット マスク . . . . . . . . . .: 255.255.255.0</span><br><span class="line">   デフォルト ゲートウェイ . . . . . . .:</span><br><span class="line"></span><br><span class="line">イーサネット アダプター VMware Network Adapter VMnet8:</span><br><span class="line"></span><br><span class="line">   接続固有の DNS サフィックス . . . . .:</span><br><span class="line">   リンクローカル IPv6 アドレス. . . . .: fe80::b25a:20ea:da11:a67%16</span><br><span class="line">   IPv4 アドレス . . . . . . . . . . . .: 192.168.144.1</span><br><span class="line">   サブネット マスク . . . . . . . . . .: 255.255.255.0</span><br><span class="line">   デフォルト ゲートウェイ . . . . . . .:</span><br><span class="line"></span><br><span class="line">Wireless LAN adapter Wi-Fi:</span><br><span class="line"></span><br><span class="line">   メディアの状態. . . . . . . . . . . .: メディアは接続されていません</span><br><span class="line">   接続固有の DNS サフィックス . . . . .:</span><br><span class="line"></span><br><span class="line">イーサネット アダプター Bluetooth ネットワーク接続:</span><br><span class="line"></span><br><span class="line">   メディアの状態. . . . . . . . . . . .: メディアは接続されていません</span><br><span class="line">   接続固有の DNS サフィックス . . . . .:</span><br><span class="line"></span><br><span class="line">C:\Users\User&gt;ping 192.168.7.1</span><br><span class="line"></span><br><span class="line">192.168.7.1 に ping を送信しています 32 バイトのデータ:</span><br><span class="line">192.168.7.1 からの応答: バイト数 =32 時間 &lt;1ms TTL=64</span><br><span class="line">192.168.7.1 からの応答: バイト数 =32 時間 &lt;1ms TTL=64</span><br><span class="line">192.168.7.1 からの応答: バイト数 =32 時間 &lt;1ms TTL=64</span><br><span class="line">192.168.7.1 からの応答: バイト数 =32 時間 &lt;1ms TTL=64</span><br><span class="line"></span><br><span class="line">192.168.7.1 の ping 統計:</span><br><span class="line">    パケット数: 送信 = 4、受信 = 4、損失 = 0 (0% の損失)、</span><br><span class="line">ラウンド トリップの概算時間 (ミリ秒):</span><br><span class="line">    最小 = 0ms、最大 = 0ms、平均 = 0ms</span><br><span class="line"></span><br><span class="line">C:\Users\User&gt;ping www.baidu.com</span><br><span class="line"></span><br><span class="line">www.a.shifen.com [183.2.172.17]に ping を送信しています 32 バイトのデータ:</span><br><span class="line">183.2.172.17 からの応答: バイト数 =32 時間 =37ms TTL=46</span><br><span class="line">183.2.172.17 からの応答: バイト数 =32 時間 =37ms TTL=46</span><br><span class="line">183.2.172.17 からの応答: バイト数 =32 時間 =37ms TTL=46</span><br><span class="line">183.2.172.17 からの応答: バイト数 =32 時間 =37ms TTL=46</span><br><span class="line"></span><br><span class="line">183.2.172.17 の ping 統計:</span><br><span class="line">    パケット数: 送信 = 4、受信 = 4、損失 = 0 (0% の損失)、</span><br><span class="line">ラウンド トリップの概算時間 (ミリ秒):</span><br><span class="line">    最小 = 37ms、最大 = 37ms、平均 = 37ms</span><br><span class="line"></span><br><span class="line">C:\Users\User&gt;</span><br></pre></td></tr></table></figure></div>
 <p>PC機的IP為192.168.7.3，且能夠ping通軟路由及外網，說明配置成功</p>
-<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>Nano Pi R5S軟路由再前後經歷了網卡、iptables防火牆、內核參數的配置，成功使LAN口擁有獨立的子網192.168.7.0&#x2F;24，且所連接之設備能訪問外網</p>
-<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><ol>
+<h1>總結</h1>
+<p>Nano Pi R5S軟路由再前後經歷了網卡、iptables防火牆、內核參數的配置，成功使LAN口擁有獨立的子網192.168.7.0/24，且所連接之設備能訪問外網</p>
+<h1>參考</h1>
+<ol>
 <li><a class="link"   target="_blank" rel="noopener" href="https://linux.vbird.org/linux_server/centos6/0250simple_firewall.php#netfilter"  title="第九章、防火牆與 NAT 伺服器">鳥哥私房菜 - 第九章、防火牆與 NAT 伺服器<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li><a class="link"   target="_blank" rel="noopener" href="https://linux.vbird.org/linux_server/centos6/0230router.php"  title="第八章、路由觀念與路由器設定">鳥哥私房菜 - 第八章、路由觀念與路由器設定<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li><a class="link"   target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/zh-tw/Iptables#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"  title="iptables">iptables - Arch Linux 中文维基<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
@@ -704,7 +724,7 @@
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">NanoPi R5S軟路由基於iptables的NAT服務器</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E6%A8%99"><span class="nav-text">目標</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%AC%E8%A9%A6%E7%92%B0%E5%A2%83"><span class="nav-text">測試環境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B6%B2%E8%B7%AF%E6%8B%93%E6%A8%B8"><span class="nav-text">網路拓樸</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%B6%B2%E5%8D%A1"><span class="nav-text">配置網卡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-text">持久化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEiptables"><span class="nav-text">配置iptables</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#iptables%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">iptables配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%92%B0%E5%AF%AB%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87"><span class="nav-text">撰寫防火牆規則</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%85%A7%E6%A0%B8IPv4%E5%B0%81%E5%8C%85%E8%BD%89%E7%99%BC"><span class="nav-text">配置內核IPv4封包轉發</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%A6%E9%9A%9B%E6%B8%AC%E8%A9%A6"><span class="nav-text">實際測試</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B8%BD%E7%B5%90"><span class="nav-text">總結</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%83%E8%80%83"><span class="nav-text">參考</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">目標</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">測試環境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">網路拓樸</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%B6%B2%E5%8D%A1"><span class="nav-text">配置網卡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-text">持久化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEiptables"><span class="nav-text">配置iptables</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#iptables%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">iptables配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%92%B0%E5%AF%AB%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87"><span class="nav-text">撰寫防火牆規則</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%85%A7%E6%A0%B8IPv4%E5%B0%81%E5%8C%85%E8%BD%89%E7%99%BC"><span class="nav-text">配置內核IPv4封包轉發</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">實際測試</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">總結</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">參考</span></a></li></ol>
 
 	</div>
 </div>

@@ -13,7 +13,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/2025/04/28/java/tomcat 9/tomcat 9 會話/"/>
+    <link rel="canonical" href="http://example.com/tags/日語/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -22,18 +22,14 @@
     
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Tomcat 9 會話">
-<meta property="og:url" content="http://example.com/2025/04/28/Java/Tomcat%209/Tomcat%209%20%E6%9C%83%E8%A9%B1/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/tags/%E6%97%A5%E8%AA%9E/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/redefine-og.webp">
-<meta property="article:published_time" content="2025-04-28T09:28:33.000Z">
-<meta property="article:modified_time" content="2025-04-28T09:28:38.499Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="Tomcat 9">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
     
@@ -47,7 +43,7 @@
     
     <title>
         
-            Tomcat 9 會話 | Diskenth&#39;s miniature garden
+            Tag: 日語 | Diskenth&#39;s miniature garden
         
     </title>
 
@@ -262,383 +258,58 @@
 			
 
 			<div class="main-content">
-				<div class="post-page-container flex relative justify-between box-border w-full h-full">
-	<div class="article-content-container">
-
-		<div class="article-title relative w-full">
-			
-			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Tomcat 9 會話</h1>
-			</div>
-			
-		</div>
-
-		
-		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
-			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
-				<img src="/images/muscle_paimon.png">
-			</div>
-			<div class="info flex flex-col justify-between">
-				<div class="author flex items-center">
-					<span class="name text-default-text-color text-lg font-semibold">Diskenth</span>
-					
-					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
-					
-				</div>
-				<div class="meta-info">
-					<div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2025-04-28 18:28:33</span>
-        <span class="mobile">2025-04-28 18:28:33</span>
-        <span class="hover-info">Created</span>
-    </span>
-    
-        <span class="article-date article-meta-item">
-            <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-04-28 18:28:38</span>
-            <span class="mobile">2025-04-28 18:28:38</span>
-            <span class="hover-info">Updated</span>
-        </span>
-    
-
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa-regular fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/categories/Java/">Java</a>&nbsp;
-                        </li>
-                    
-                    
-                
-                    
-                        
-                            <li>></li>
-                        
-                        <li>
-                            <a href="/categories/Java/Tomcat-9/">Tomcat 9</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa-regular fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/Java/">Java</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/Tomcat-9/">Tomcat 9</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
-
-    
-    
-    
-    
-        <span class="article-pv article-meta-item">
-            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
-        </span>
-    
-</div>
-
-				</div>
-			</div>
-		</div>
-		
-
-		
-
-
-		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h1 id="Session簡要"><a href="#Session簡要" class="headerlink" title="Session簡要"></a>Session簡要</h1><ul>
-<li>會話域:瀏覽器與服務器連接時使用的公共域。</li>
-<li>Session列表:Map集合，保存Session對象</li>
-<li>Session: Session對象，有效作用域為會話域，瀏覽器關閉後Session對象的key消失，無法再次通過key拿到此對象。</li>
-</ul>
-<h2 id="常用包與API"><a href="#常用包與API" class="headerlink" title="常用包與API"></a>常用包與API</h2><ul>
-<li><code>javax.servlet.http.HttpSession</code>:session類</li>
-</ul>
-<h2 id="重點"><a href="#重點" class="headerlink" title="重點"></a>重點</h2><ul>
-<li><code>javax.servlet.http.HttpSession</code>:</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">Method</th>
-<th align="center">Arguments</th>
-<th align="center">Return</th>
-<th align="center">Discription</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>getSession()</code></td>
-<td align="center">void</td>
-<td align="center">HttpSession</td>
-<td align="center">從Session列表獲取Session對象，無合適對象時返回新的Session對象</td>
-</tr>
-<tr>
-<td align="center"><code>getSession(boolean)</code></td>
-<td align="center">boolean</td>
-<td align="center">HttpSession</td>
-<td align="center">獲取Session對象，參數為false且無合適對象時返回null</td>
-</tr>
-<tr>
-<td align="center"><code>invalidate()</code></td>
-<td align="center">void</td>
-<td align="center">void</td>
-<td align="center">銷毀Session對象</td>
-</tr>
-</tbody></table>
-<h2 id="Tomcat配置文件"><a href="#Tomcat配置文件" class="headerlink" title="Tomcat配置文件"></a>Tomcat配置文件</h2><h3 id="重點-1"><a href="#重點-1" class="headerlink" title="重點"></a>重點</h3><h4 id="配置超時時間"><a href="#配置超時時間" class="headerlink" title="配置超時時間"></a>配置超時時間</h4><p>配置<code>WEB-INF/web.xml</code>文件:</p>
-<div class="code-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--web.xml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--..................................--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">session-config</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">session-timeout</span>&gt;</span>30<span class="tag">&lt;/<span class="name">session-timeout</span>&gt;</span> <span class="comment">&lt;!--timeout:30min--&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">session-config</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--..................................--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<h1 id="Cookie概述"><a href="#Cookie概述" class="headerlink" title="Cookie概述"></a>Cookie概述</h1><p>Cookie是保存於瀏覽器中的鍵值對。</p>
-<h2 id="常用包與API-1"><a href="#常用包與API-1" class="headerlink" title="常用包與API"></a>常用包與API</h2><ul>
-<li><code>java.servlet.http.Cookie</code>:用於構建服務器端的Cookie對象</li>
-</ul>
-<h3 id="重點-2"><a href="#重點-2" class="headerlink" title="重點"></a>重點</h3><p><code>javax.servlet.http.HttpServletResponse</code>:</p>
-<table>
-<thead>
-<tr>
-<th align="center">Method</th>
-<th align="center">Arguments</th>
-<th align="center">Return</th>
-<th align="center">Discription</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>addCookie(cookie)</code></td>
-<td align="center">Cookie</td>
-<td align="center">void</td>
-<td align="center">在響應頭中添加Cookie</td>
-</tr>
-</tbody></table>
-<p><code>javax.servlet.http.HttpServletRequest</code>:</p>
-<table>
-<thead>
-<tr>
-<th align="center">Method</th>
-<th align="center">Arguments</th>
-<th align="center">Return</th>
-<th align="center">Discription</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>getCookie()</code></td>
-<td align="center">void</td>
-<td align="center">Cookie[]</td>
-<td align="center">返回Cookie數組，無則返回null</td>
-</tr>
-</tbody></table>
-<p><code>javax.servlet.http.Cookie</code>:</p>
-<table>
-<thead>
-<tr>
-<th align="center">Method</th>
-<th align="center">Arguments</th>
-<th align="center">Return</th>
-<th align="center">Discription</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>Cookie(key,value)</code></td>
-<td align="center">String,String</td>
-<td align="center">Cookie</td>
-<td align="center">構造方法，根據鍵值對獲取Cookie對象</td>
-</tr>
-<tr>
-<td align="center"><code>setMaxAge(sec)</code></td>
-<td align="center">int</td>
-<td align="center">void</td>
-<td align="center">設置Cookie有效時間</td>
-</tr>
-<tr>
-<td align="center"><code>setPath(path)</code></td>
-<td align="center">void</td>
-<td align="center">String</td>
-<td align="center">設置Cookie關聯路徑</td>
-</tr>
-<tr>
-<td align="center"><code>getName()</code></td>
-<td align="center">void</td>
-<td align="center">String</td>
-<td align="center">獲取Cookie名稱</td>
-</tr>
-<tr>
-<td align="center"><code>getValue()</code></td>
-<td align="center">void</td>
-<td align="center">String</td>
-<td align="center">獲取Cookie值</td>
-</tr>
-</tbody></table>
-<h2 id="Cookie提交機制"><a href="#Cookie提交機制" class="headerlink" title="Cookie提交機制"></a>Cookie提交機制</h2><ul>
-<li><p>獲得Cookie後的默認關聯路徑: 獲得此Cookie時使用的請求路徑</p>
-</li>
-<li><p>請求中是否夾帶Cookie，取決於與Cookie相關聯的路徑，例如:</p>
-<ul>
-<li>與Cookie關聯的路徑為<code>http://www.test.com/project/servlet</code>，則訪問路徑為<code>http://www.test.com/project</code>及其子路徑時皆夾帶Cookie發送。</li>
-</ul>
-</li>
-</ul>
-<h3 id="重點-3"><a href="#重點-3" class="headerlink" title="重點"></a>重點</h3><p>* </p>
-
-		</div>
-
-		
-		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
-			<div class="article-copyright-info-container">
-    <ul>
-        <li><strong>Title:</strong> Tomcat 9 會話</li>
-        <li><strong>Author:</strong> Diskenth</li>
-        <li><strong>Created at
-                :</strong> 2025-04-28 18:28:33</li>
-        
-            <li>
-                <strong>Updated at
-                    :</strong> 2025-04-28 18:28:38
-            </li>
-        
-        <li>
-            <strong>Link:</strong> https://cdiskenth.github.io/2025/04/28/Java/Tomcat 9/Tomcat 9 會話/
-        </li>
-        <li>
-            <strong>
-                License:
-            </strong>
-            
-
-            
-                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
-            
-        </li>
-    </ul>
-</div>
-
-		</div>
-		
-
-		
-		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
-			
-			<li class="tag-item mx-0.5">
-				<a href="/tags/Java/">#Java</a>&nbsp;
-			</li>
-			
-			<li class="tag-item mx-0.5">
-				<a href="/tags/Tomcat-9/">#Tomcat 9</a>&nbsp;
-			</li>
-			
-		</ul>
-		
-
-		
-
-		
-		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
-			
-			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/2025/04/28/Java/Tomcat%209/Tomcat%209%20SPA%20Web%E7%A8%8B%E5%BA%8F%E5%88%B7%E6%96%B0%E9%8C%AF%E8%AA%A4%E5%95%8F%E9%A1%8C/">
-					<span class="left arrow-icon flex justify-center items-center">
-						<i class="fa-solid fa-chevron-left"></i>
-					</span>
-					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">Tomcat 9 SPA Web程序刷新錯誤問題</span>
-						<span class="post-nav-item">Prev posts</span>
-					</span>
-				</a>
-			</div>
-			
-			
-			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/2025/04/28/Java/Tomcat%209/Tomcat%209%E7%B6%B2%E7%B5%A1%E6%9C%8D%E5%8B%99/">
-					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">Tomcat 9網絡服務</span>
-						<span class="post-nav-item">Next posts</span>
-					</span>
-					<span class="right arrow-icon flex justify-center items-center">
-						<i class="fa-solid fa-chevron-right"></i>
-					</span>
-				</a>
-			</div>
-			
-		</div>
-		
-
-
-		
-		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
-			<div class="comments-container mt-10 w-full ">
-    <div id="comment-anchor" class="w-full h-2.5"></div>
-    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
-        Comments
-    </div>
-    
-
-        
-            
-    <div id="waline"></div>
-    <script type="module" data-swup-reload-script>
-      import { init } from '/js/libs/waline.mjs';
-
-      function loadWaline() {
-        init({
-          el: '#waline',
-          serverURL: 'https://example.example.com',
-          lang: 'zh-CN',
-          dark: 'body[class~="dark-mode"]',
-          reaction: false,
-          requiredMeta: ['nick', 'mail'],
-          emoji: [],
-          
-          
-        });
-      }
-
-      if (typeof swup !== 'undefined') {
-        loadWaline();
-      } else {
-        window.addEventListener('DOMContentLoaded', loadWaline);
-      }
-    </script>
-
-
-
-        
-    
-</div>
-
-		</div>
-		
-	</div>
+				<div class="page-template-container">
+	
 
 	
-	<div class="toc-content-container">
-		<div class="post-toc-wrap">
-	<div class="post-toc">
-		<div class="toc-title">On this page</div>
-		<div class="page-title">Tomcat 9 會話</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Session%E7%B0%A1%E8%A6%81"><span class="nav-text">Session簡要</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%8C%85%E8%88%87API"><span class="nav-text">常用包與API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E9%BB%9E"><span class="nav-text">重點</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">Tomcat配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E9%BB%9E-1"><span class="nav-text">重點</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cookie%E6%A6%82%E8%BF%B0"><span class="nav-text">Cookie概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%8C%85%E8%88%87API-1"><span class="nav-text">常用包與API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E9%BB%9E-2"><span class="nav-text">重點</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie%E6%8F%90%E4%BA%A4%E6%A9%9F%E5%88%B6"><span class="nav-text">Cookie提交機制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E9%BB%9E-3"><span class="nav-text">重點</span></a></li></ol></li></ol></li></ol>
-
-	</div>
+	<div class="tag-name">
+    <i class="fa-solid fa-tag"></i>&nbsp;日語
 </div>
-	</div>
+<div class="tag-post-list">
+    
+<div class="archive-list-container">
+    
+        <section class="archive-item mb-spacing-unit last:mb-0">
+            <div class="archive-item-header flex flex-row items-center mb-2">
+                <span class="archive-year font-semibold text-3xl mr-2">2025</span>
+                <span class="archive-year-post-count text-xs md:text-sm font-bold rounded-small bg-third-background-color py-[2px] px-[10px] border border-border-color">1</span>
+            </div>
+            
+            <ul class="article-list pl-0 md:pl-8 text-lg leading-[1.5]">
+                
+                    
+                    
+                         <!-- Close the previous LI if not the first item -->
+                        <li class="article-item space-y-2 px-6 pt-10 pb-2 text-xl relative border-l-2 border-border-color" date-is='08-23'>
+                    
+                    <a href="/2025/08/23/%E6%97%A5%E8%AA%9E/%E5%92%8C%E6%AD%8C/%E5%B0%8F%E5%80%89%E7%99%BE%E4%BA%BA%E4%B8%80%E9%A6%96%E8%AA%9E%E6%B3%95%E8%A7%A3%E9%87%8B/" class="block w-fit">
+                        <span class="article-title my-0.5 text-2xl">小倉百人一首語法解釋</span>
+                    </a>
+                    
+                
+                </li> <!-- Ensure the last item is properly closed -->
+            </ul>
+        </section>
+    
+</div>
+</div>
 	
+
+	<div class="page-template-content markdown-body">
+		
+
+		
+	</div>
+
+	<div class="page-template-comments">
+		
+	</div>
 </div>
+
+<div class="paginator">
+	<span class="page-number current">1</span>
+</div>
+  
 			</div>
 
 			
@@ -716,26 +387,6 @@
 		</div>
 	</div>
 
-	
-	<div class="post-tools">
-		<div class="post-tools-container">
-	<ul class="article-tools-list">
-		<!-- TOC aside toggle -->
-		
-		<li class="right-bottom-tools page-aside-toggle">
-			<i class="fa-regular fa-outdent"></i>
-		</li>
-		
-
-		<!-- go comment -->
-		
-		<li class="go-comment">
-			<i class="fa-regular fa-comments"></i>
-		</li>
-		
-	</ul>
-</div>
-	</div>
 	
 
 	<div class="right-side-tools-container">
@@ -818,7 +469,6 @@
         containers: ["#swup"],
     });
 </script>
-
 
 
 
